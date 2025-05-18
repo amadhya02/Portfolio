@@ -1,36 +1,23 @@
 import React from 'react';
-import {
-    AppBar,
-    Toolbar,
-    Typography,
-    Button,
-    Box,
-    IconButton,
-    Drawer,
-    List,
-    ListItem,
-    ListItemText,
-} from '@mui/material';
+
+import { AppBar, Toolbar, Typography, Button, Box, IconButton, Drawer, List, ListItem, ListItemText } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
-
-const pages = [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Work', path: '/work' },
-    { name: 'Projects', path: '/projects' },
-    { name: 'Contact', path: '/contact' },
-];
+import { useTheme } from '@mui/material/styles';
 
 const Navbar = () => {
+    const theme = useTheme();
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
-    const handleDrawerToggle = () => {
-        setMobileOpen(!mobileOpen);
-    };
+    const pages = [
+        { name: 'About', path: '/about' },
+        { name: 'Work', path: '/work' },
+        { name: 'Projects', path: '/projects' },
+        { name: 'Contact', path: '/contact' },
+    ];
 
     const drawer = (
-        <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
+        <Box onClick={() => setMobileOpen(false)} sx={{ textAlign: 'center' }}>
             <Typography variant="h6" sx={{ my: 2 }}>
                 Amadhya
             </Typography>
@@ -46,14 +33,14 @@ const Navbar = () => {
 
     return (
         <>
-            <AppBar component="nav" color="transparent" position="static" elevation={0}>
+            <AppBar position="static" sx={{ bgcolor: theme.palette.background.paper }}>
                 <Toolbar>
                     <Typography variant="h6" sx={{ flexGrow: 1 }}>
                         Amadhya
                     </Typography>
                     <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                         {pages.map((page) => (
-                            <Button key={page.name} component={Link} to={page.path} sx={{ color: '#000' }}>
+                            <Button key={page.name} component={Link} to={page.path} sx={{ color: 'text.primary' }}>
                                 {page.name}
                             </Button>
                         ))}
@@ -61,18 +48,17 @@ const Navbar = () => {
                     <IconButton
                         color="inherit"
                         edge="start"
-                        onClick={handleDrawerToggle}
+                        onClick={() => setMobileOpen(!mobileOpen)}
                         sx={{ display: { sm: 'none' } }}
                     >
                         <MenuIcon />
                     </IconButton>
                 </Toolbar>
             </AppBar>
-
             <Drawer
                 anchor="left"
                 open={mobileOpen}
-                onClose={handleDrawerToggle}
+                onClose={() => setMobileOpen(false)}
                 sx={{ display: { sm: 'none' } }}
             >
                 {drawer}
