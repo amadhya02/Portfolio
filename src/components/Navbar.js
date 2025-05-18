@@ -1,70 +1,117 @@
 import React from 'react';
 
-import { AppBar, Toolbar, Typography, Button, Box, IconButton, Drawer, List, ListItem, ListItemText } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
+import {
+  AppBar,
+  Toolbar,
+  Box,
+  Button,
+  IconButton,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+} from '@mui/material';
 import { Link } from 'react-router-dom';
-import { useTheme } from '@mui/material/styles';
+import MenuIcon from '@mui/icons-material/Menu';
+
+import AALogo from '../assets/images/AA-logo.png';
+
+const pages = [
+  { name: 'About', path: '/about' },
+  { name: 'Work', path: '/work' },
+  { name: 'Projects', path: '/projects' },
+  { name: 'Contact', path: '/contact' },
+];
 
 const Navbar = () => {
-    const theme = useTheme();
-    const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = React.useState(false);
 
-    const pages = [
-        { name: 'About', path: '/about' },
-        { name: 'Work', path: '/work' },
-        { name: 'Projects', path: '/projects' },
-        { name: 'Contact', path: '/contact' },
-    ];
+  const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
 
-    const drawer = (
-        <Box onClick={() => setMobileOpen(false)} sx={{ textAlign: 'center' }}>
-            <Typography variant="h6" sx={{ my: 2 }}>
-                Amadhya
-            </Typography>
-            <List>
-                {pages.map((page) => (
-                    <ListItem button key={page.name} component={Link} to={page.path}>
-                        <ListItemText primary={page.name} />
-                    </ListItem>
-                ))}
-            </List>
-        </Box>
-    );
+  const drawer = (
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
+      <img
+        src={AALogo}
+        alt="AA Logo"
+        style={{ height: 60, margin: '1rem auto' }}
+      />
+      <List>
+        {pages.map((page) => (
+          <ListItem button key={page.name} component={Link} to={page.path}>
+            <ListItemText primary={page.name} />
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
 
-    return (
-        <>
-            <AppBar position="static" sx={{ bgcolor: theme.palette.background.paper }}>
-                <Toolbar>
-                    <Typography variant="h6" sx={{ flexGrow: 1 }}>
-                        Amadhya
-                    </Typography>
-                    <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-                        {pages.map((page) => (
-                            <Button key={page.name} component={Link} to={page.path} sx={{ color: 'text.primary' }}>
-                                {page.name}
-                            </Button>
-                        ))}
-                    </Box>
-                    <IconButton
-                        color="inherit"
-                        edge="start"
-                        onClick={() => setMobileOpen(!mobileOpen)}
-                        sx={{ display: { sm: 'none' } }}
-                    >
-                        <MenuIcon />
-                    </IconButton>
-                </Toolbar>
-            </AppBar>
-            <Drawer
-                anchor="left"
-                open={mobileOpen}
-                onClose={() => setMobileOpen(false)}
-                sx={{ display: { sm: 'none' } }}
-            >
-                {drawer}
-            </Drawer>
-        </>
-    );
+  return (
+    <>
+      <AppBar
+        position="fixed" // use fixed for better overlay
+        elevation={0} // removes shadow
+        sx={{
+          backgroundColor: 'transparent',
+          backdropFilter: 'blur(8px)', // optional: glass effect
+          boxShadow: 'none',
+        }}
+      >
+        <Toolbar>
+          <Box
+            component={Link}
+            to="/"
+            sx={{
+              mr: 2,
+              display: 'flex',
+              alignItems: 'center',
+              cursor: 'pointer',
+              textDecoration: 'none',
+            }}
+          >
+            <Box
+              component="img"
+              src={AALogo}
+              alt="AA Logo"
+              sx={{ height: 60 }}
+            />
+          </Box>
+
+          <Box sx={{ flexGrow: 1 }} />
+
+          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+            {pages.map((page) => (
+              <Button
+                key={page.name}
+                component={Link}
+                to={page.path}
+                sx={{
+                  color: 'text.primary',
+                  '&:hover': {
+                    color: 'primary.main',
+                  },
+                }}
+              >
+                {page.name}
+              </Button>
+            ))}
+          </Box>
+
+          <IconButton
+            color="inherit"
+            edge="start"
+            onClick={handleDrawerToggle}
+            sx={{ display: { sm: 'none' } }}
+          >
+            <MenuIcon />
+          </IconButton>
+        </Toolbar>
+      </AppBar>
+
+      <Drawer anchor="left" open={mobileOpen} onClose={handleDrawerToggle}>
+        {drawer}
+      </Drawer>
+    </>
+  );
 };
 
 export default Navbar;
