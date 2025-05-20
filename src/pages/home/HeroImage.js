@@ -24,7 +24,7 @@ const HeroImage = () => {
         loading="lazy"
         sx={{
           width: '100%',
-          maxWidth: '54vw',
+          maxWidth: '50vw',
           borderRadius: 2,
           filter: `drop-shadow(0 0 30px ${alpha(theme.palette.primary.main, 0.1)})`,
           transition: '0.3s ease',
