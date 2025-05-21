@@ -6,7 +6,7 @@ const theme = createTheme({
     mode: 'dark',
     background: {
       default: COLORS.BUNKER_DARK,
-      paper: COLORS.BUNKER,
+      paper: COLORS.BUNKER_DARK,
     },
     primary: {
       main: COLORS.WEST_SIDE,
@@ -107,6 +107,7 @@ const theme = createTheme({
     shadows: {
       softGlow: '0 0 20px rgba(255, 152, 17, 0.15)',
     },
+    border: COLORS.LIMED_SPRUCE
   },
 });
 

@@ -33,7 +33,7 @@ const Index = () => {
         <Typography
           variant="h1"
           color="text.textHeading"
-          sx={{ mb: 4 }}
+          sx={{ mb: 6 }}
           align="right"
         >
           ABOUT ME
@@ -63,7 +63,7 @@ const Index = () => {
           }}
         >
             <ScrollLink
-                to="education"
+                to="hobbies"
                 smooth={true}
                 duration={600}
                 offset={-64} // adjust based on header height
