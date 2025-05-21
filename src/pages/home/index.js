@@ -3,7 +3,7 @@ import { Box, Container, Grid } from '@mui/material';
 
 import HeroText from './HeroText';
 import HeroImage from './HeroImage';
-import theme from "../../theme";
+import theme from '../../theme';
 
 const Index = () => {
   return (

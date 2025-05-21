@@ -4,6 +4,7 @@ import { KeyboardArrowDown } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import AboutTextBlock from './AboutTextBlock';
 import ProfileImageBlock from './ProfileImageBlock';
+import theme from '../../../theme';
 
 const Index = () => {
   return (
@@ -12,7 +13,12 @@ const Index = () => {
       id="about"
       sx={{
         position: 'relative',
-        minHeight: '92vh',
+        minHeight: '96vh',
+        [theme.breakpoints.down('lg')]: {
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+        },
         px: { xs: 3, sm: 6 },
         py: { xs: 6, sm: 8 },
       }}
@@ -32,7 +38,7 @@ const Index = () => {
         </Typography>
       </motion.div>
 
-      <Grid container spacing={6} alignItems="center">
+      <Grid container spacing={{ xs: 8, md: 6 }} alignItems="center">
         <ProfileImageBlock />
         <AboutTextBlock />
       </Grid>

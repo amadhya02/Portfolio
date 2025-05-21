@@ -4,7 +4,7 @@ import AboutCard from './AboutCard';
 import EducationTimeline from './EducationTimeline';
 import SkillsGrid from './SkillsGrid';
 import Passions from './Passions';
-import theme from "../../theme";
+import theme from '../../theme';
 
 const AboutSection = () => {
   return (

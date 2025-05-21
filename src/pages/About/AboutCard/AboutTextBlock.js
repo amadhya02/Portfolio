@@ -11,7 +11,7 @@ const fadeInUp = {
 };
 
 const AboutTextBlock = () => (
-  <Grid item xs={12} sm={7} md={8}>
+  <Grid item size={{ xs: 12, sm: 7 }}>
     <motion.div variants={fadeInUp} initial="hidden" animate="visible">
       <GradientTitle variant="h2" sx={{ mb: 1 }}>
         Amadhya Anand

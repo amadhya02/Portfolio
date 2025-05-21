@@ -38,38 +38,37 @@ const getExpYears = () => {
 };
 
 const ProfileImageBlock = () => (
-  <Grid item xs={12} sm={5} md={4}>
-    <Box sx={{ position: 'relative' }}>
-      <motion.img
-        initial={{ scale: 0.9, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        src={MyselfImg}
-        alt="Amadhya Anand"
-        style={{
-          width: '30vw',
-          maxWidth: 280,
-          objectFit: 'cover',
-          borderRadius: '12px',
-          boxShadow: '0 6px 24px rgba(0,0,0,0.4)',
-          zIndex: 2,
-        }}
-      />
-
+  <Grid item size={{ xs: 12, sm: 5 }} sx={{ margin: 'auto' }}>
+    <Box
+      sx={{
+        position: 'relative',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+      }}
+    >
+      {/* Social Icons */}
       <Box
         component={motion.div}
         initial="hidden"
         animate="visible"
         variants={{
-          visible: {
-            transition: { staggerChildren: 0.2 },
-          },
+          visible: { transition: { staggerChildren: 0.2 } },
         }}
         sx={{
+          display: 'flex',
+          gap: 1.5,
+          justifyContent: 'center',
+          mb: 2,
           position: 'absolute',
-          top: 44,
-          left: -60,
+          top: -22,
           zIndex: 3,
+          [theme.breakpoints.up('lg')]: {
+            flexDirection: 'column',
+            top: 44,
+            left: 0,
+            mb: 0,
+          },
         }}
       >
         {SOCIAL.map(({ id, title, icon, link }) => (
@@ -80,48 +79,58 @@ const ProfileImageBlock = () => (
               visible: { opacity: 1, x: 0 },
             }}
           >
-            <Box
-              sx={{
-                backgroundColor: theme.palette.primary.main,
-                borderRadius: '12px',
-                width: 45,
-                height: 45,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                mb: 2,
-              }}
-            >
-              <Tooltip title={title}>
-                <IconButton
-                  href={link}
-                  target="_blank"
-                  color="inherit"
-                  aria-label={id}
-                >
-                  {icon}
-                </IconButton>
-              </Tooltip>
-            </Box>
+            <Tooltip title={title}>
+              <IconButton
+                href={link}
+                target="_blank"
+                color="inherit"
+                aria-label={id}
+                sx={{
+                  backgroundColor: theme.palette.primary.main,
+                  borderRadius: 2,
+                  width: 45,
+                  height: 45,
+                  '&:hover': { backgroundColor: theme.palette.primary.dark },
+                }}
+              >
+                {icon}
+              </IconButton>
+            </Tooltip>
           </motion.div>
         ))}
       </Box>
 
-      {/* Overlay Image */}
+      {/* Main Image */}
       <motion.img
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        src={MyselfImg}
+        alt="Amadhya Anand"
+        style={{
+          width: { xs: '50vw', sm: '30vw' },
+          maxWidth: 280,
+          objectFit: 'cover',
+          borderRadius: '12px',
+          boxShadow: '0 6px 24px rgba(0,0,0,0.4)',
+          zIndex: 2,
+        }}
+      />
+
+      {/* Overlay Image – Hidden on mobile */}
+      <Box
+        component="img"
         src={ProfileOverlayImg}
         alt="Amadhya working"
-        style={{
+        sx={{
+          display: { xs: 'none', md: 'block' },
           position: 'absolute',
           bottom: 0,
           left: 0,
-          translate: '-30% 25%',
+          transform: 'translate(-10%, 25%)',
           width: '18vw',
           maxWidth: '240px',
-          borderRadius: '12px',
+          borderRadius: 2,
           objectFit: 'cover',
           boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
           zIndex: 3,
@@ -129,19 +138,26 @@ const ProfileImageBlock = () => (
       />
 
       {/* Experience Tag */}
-      <motion.div
+      <Box
+        component={motion.div}
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.4, duration: 0.5 }}
-        style={{
+        sx={{
+          mt: 2,
           position: 'absolute',
-          bottom: -40,
-          left: '60%',
-          translate: '-50%',
-          backgroundColor: theme.palette.background.paper,
+          bottom: -30,
+          [theme.breakpoints.up('lg')]: {
+            bottom: -40,
+            left: '60%',
+            translate: '-50%',
+            mt: 0,
+          },
+          backgroundColor: 'background.paper',
           borderLeft: `4px solid ${theme.palette.primary.main}`,
-          padding: '8px 16px',
-          borderRadius: '8px',
+          px: 2,
+          py: 1,
+          borderRadius: 2,
           boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
           zIndex: 4,
         }}
@@ -152,7 +168,7 @@ const ProfileImageBlock = () => (
         <Typography variant="body2" color="text.secondary">
           Successful Years
         </Typography>
-      </motion.div>
+      </Box>
     </Box>
   </Grid>
 );
