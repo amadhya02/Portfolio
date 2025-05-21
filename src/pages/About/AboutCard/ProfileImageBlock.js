@@ -39,7 +39,6 @@ const getExpYears = () => {
 
 const ProfileImageBlock = () => (
   <Grid
-    item
     size={{ xs: 12, sm: 5 }}
     sx={{ display: 'flex', justifyContent: 'center' }}
   >

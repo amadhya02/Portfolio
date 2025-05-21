@@ -12,7 +12,6 @@ const fadeInUp = {
 
 const AboutTextBlock = () => (
   <Grid
-    item
     size={{ xs: 12, sm: 7 }}
     component={motion.div}
     variants={fadeInUp}
