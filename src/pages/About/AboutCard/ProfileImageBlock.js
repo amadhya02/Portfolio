@@ -169,7 +169,7 @@ const ProfileImageBlock = () => (
         <Typography variant="h5" fontWeight={700}>
           {getExpYears()}+
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="body2" color="text.secondary" noWrap>
           Successful Years
         </Typography>
       </Box>

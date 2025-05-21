@@ -53,7 +53,7 @@ const AboutTextBlock = () => (
     </Box>
 
     {/* CTA Buttons */}
-    <Box sx={{ mt: 4, display: 'flex', gap: 2, flexWrap: 'wrap' }}>
+    <Box sx={{ mt: 1, display: 'flex', gap: 2, flexWrap: 'wrap' }}>
       <motion.div whileHover={{ scale: 1.05 }}>
         <Button
           variant="contained"
