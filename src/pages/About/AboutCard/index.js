@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Typography, IconButton } from '@mui/material';
+import { Grid, Typography, IconButton, Box } from '@mui/material';
 import { KeyboardArrowDown } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import AboutTextBlock from './AboutTextBlock';
@@ -14,7 +14,7 @@ const Index = () => {
       sx={{
         position: 'relative',
         minHeight: '96vh',
-        [theme.breakpoints.down('lg')]: {
+        [theme.breakpoints.down('md')]: {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
@@ -49,24 +49,31 @@ const Index = () => {
         transition={{ duration: 2, repeat: Infinity }}
         style={{
           position: 'absolute',
-          bottom: 24,
+          bottom: 50,
           left: '50%',
           transform: 'translateX(-50%)',
+          display: { sm: 'block', xs: 'hidden' },
         }}
       >
-        <IconButton
-          color="primary"
-          href="#education"
+        <Box
           sx={{
-            backgroundColor: 'rgba(255,255,255,0.05)',
-            borderRadius: '50%',
-            '&:hover': {
-              backgroundColor: 'rgba(255,255,255,0.1)',
-            },
+            display: { xs: 'none', sm: 'block' }, // ✅ Hide on mobile
           }}
         >
-          <KeyboardArrowDown fontSize="large" />
-        </IconButton>
+          <IconButton
+            color="primary"
+            href="#education"
+            sx={{
+              backgroundColor: 'rgba(255,255,255,0.05)',
+              borderRadius: '50%',
+              '&:hover': {
+                backgroundColor: 'rgba(255,255,255,0.1)',
+              },
+            }}
+          >
+            <KeyboardArrowDown fontSize="large" />
+          </IconButton>
+        </Box>
       </motion.div>
     </Grid>
   );
