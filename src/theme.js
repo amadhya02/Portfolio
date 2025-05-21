@@ -18,6 +18,7 @@ const theme = createTheme({
     text: {
       primary: COLORS.WHITE,
       secondary: COLORS.SILVER_CHALICE,
+      textHeading: COLORS.BRIGHT_GRAY,
     },
   },
   typography: {
@@ -101,6 +102,7 @@ const theme = createTheme({
   custom: {
     gradients: {
       orangeToYellow: 'linear-gradient(90deg, #FF7B31 0%, #FFA800 100%)',
+      background: 'radial-gradient(circle at center, #1e2a36, #0f141b 80%)',
     },
     shadows: {
       softGlow: '0 0 20px rgba(255, 152, 17, 0.15)',
