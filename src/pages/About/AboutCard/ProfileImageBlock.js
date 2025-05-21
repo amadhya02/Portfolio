@@ -38,7 +38,11 @@ const getExpYears = () => {
 };
 
 const ProfileImageBlock = () => (
-  <Grid item size={{ xs: 12, sm: 5 }} sx={{ margin: 'auto' }}>
+  <Grid
+    item
+    size={{ xs: 12, sm: 5 }}
+    sx={{ display: 'flex', justifyContent: 'center' }}
+  >
     <Box
       sx={{
         position: 'relative',
@@ -53,21 +57,21 @@ const ProfileImageBlock = () => (
         initial="hidden"
         animate="visible"
         variants={{
-          visible: { transition: { staggerChildren: 0.2 } },
+          visible: {
+            transition: { staggerChildren: 0.2 },
+          },
         }}
         sx={{
           display: 'flex',
           gap: 1.5,
-          justifyContent: 'center',
-          mb: 2,
           position: 'absolute',
           top: -22,
+          justifyContent: 'center',
           zIndex: 3,
           [theme.breakpoints.up('lg')]: {
             flexDirection: 'column',
             top: 44,
-            left: 0,
-            mb: 0,
+            left: -60,
           },
         }}
       >
@@ -90,7 +94,9 @@ const ProfileImageBlock = () => (
                   borderRadius: 2,
                   width: 45,
                   height: 45,
-                  '&:hover': { backgroundColor: theme.palette.primary.dark },
+                  '&:hover': {
+                    backgroundColor: theme.palette.primary.dark,
+                  },
                 }}
               >
                 {icon}
@@ -117,7 +123,7 @@ const ProfileImageBlock = () => (
         }}
       />
 
-      {/* Overlay Image – Hidden on mobile */}
+      {/* Overlay Image – Hidden on small screens */}
       <Box
         component="img"
         src={ProfileOverlayImg}
@@ -127,9 +133,9 @@ const ProfileImageBlock = () => (
           position: 'absolute',
           bottom: 0,
           left: 0,
-          transform: 'translate(-10%, 25%)',
+          transform: 'translate(-30%, 25%)',
           width: '18vw',
-          maxWidth: '240px',
+          maxWidth: 240,
           borderRadius: 2,
           objectFit: 'cover',
           boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
@@ -147,12 +153,6 @@ const ProfileImageBlock = () => (
           mt: 2,
           position: 'absolute',
           bottom: -30,
-          [theme.breakpoints.up('lg')]: {
-            bottom: -40,
-            left: '60%',
-            translate: '-50%',
-            mt: 0,
-          },
           backgroundColor: 'background.paper',
           borderLeft: `4px solid ${theme.palette.primary.main}`,
           px: 2,
@@ -160,6 +160,11 @@ const ProfileImageBlock = () => (
           borderRadius: 2,
           boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
           zIndex: 4,
+          [theme.breakpoints.up('lg')]: {
+            bottom: -40,
+            left: '60%',
+            translate: '-50%',
+          },
         }}
       >
         <Typography variant="h5" fontWeight={700}>
