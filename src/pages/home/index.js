@@ -3,8 +3,9 @@ import { Box, Container, Grid } from '@mui/material';
 
 import HeroText from './HeroText';
 import HeroImage from './HeroImage';
+import theme from "../../theme";
 
-const Home = () => {
+const Index = () => {
   return (
     <Box
       component="section"
@@ -12,7 +13,7 @@ const Home = () => {
         position: 'relative',
         height: '100vh',
         overflow: 'hidden',
-        background: 'radial-gradient(circle at center, #1e2a36, #0f141b 80%)',
+        background: theme.custom.gradients.background,
       }}
     >
       <Container maxWidth="lg" sx={{ height: '100%' }}>
@@ -25,4 +26,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Index;

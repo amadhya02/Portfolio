@@ -4,10 +4,16 @@ import AboutCard from './AboutCard';
 import EducationTimeline from './EducationTimeline';
 import SkillsGrid from './SkillsGrid';
 import Passions from './Passions';
+import theme from "../../theme";
 
 const AboutSection = () => {
   return (
-    <Box sx={{ py: 8 }}>
+    <Box
+      sx={{
+        py: 8,
+        background: theme.custom.gradients.background,
+      }}
+    >
       <Container maxWidth="lg">
         {/* Photo + Info Section */}
         <AboutCard />
