@@ -18,6 +18,7 @@ const theme = createTheme({
     text: {
       primary: COLORS.WHITE,
       secondary: COLORS.SILVER_CHALICE,
+      textHeading: COLORS.BRIGHT_GRAY,
     },
   },
   typography: {
