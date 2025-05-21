@@ -62,25 +62,25 @@ const Index = () => {
             display: { xs: 'none', sm: 'block' }, // ✅ Hide on mobile
           }}
         >
-            <ScrollLink
-                to="hobbies"
-                smooth={true}
-                duration={600}
-                offset={-64} // adjust based on header height
+          <ScrollLink
+            to="hobbies"
+            smooth={true}
+            duration={600}
+            offset={-64} // adjust based on header height
+          >
+            <IconButton
+              color="primary"
+              sx={{
+                backgroundColor: 'rgba(255,255,255,0.05)',
+                borderRadius: '50%',
+                '&:hover': {
+                  backgroundColor: 'rgba(255,255,255,0.1)',
+                },
+              }}
             >
-                <IconButton
-                    color="primary"
-                    sx={{
-                        backgroundColor: 'rgba(255,255,255,0.05)',
-                        borderRadius: '50%',
-                        '&:hover': {
-                            backgroundColor: 'rgba(255,255,255,0.1)',
-                        },
-                    }}
-                >
-                    <KeyboardArrowDown fontSize="large" />
-                </IconButton>
-            </ScrollLink>
+              <KeyboardArrowDown fontSize="large" />
+            </IconButton>
+          </ScrollLink>
         </Box>
       </motion.div>
     </Grid>

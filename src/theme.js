@@ -107,7 +107,7 @@ const theme = createTheme({
     shadows: {
       softGlow: '0 0 20px rgba(255, 152, 17, 0.15)',
     },
-    border: COLORS.LIMED_SPRUCE
+    border: COLORS.LIMED_SPRUCE,
   },
 });
 
