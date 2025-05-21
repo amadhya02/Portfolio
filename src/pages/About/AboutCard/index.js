@@ -2,6 +2,8 @@ import React from 'react';
 import { Grid, Typography, IconButton, Box } from '@mui/material';
 import { KeyboardArrowDown } from '@mui/icons-material';
 import { motion } from 'framer-motion';
+import { Link as ScrollLink } from 'react-scroll';
+
 import AboutTextBlock from './AboutTextBlock';
 import ProfileImageBlock from './ProfileImageBlock';
 import theme from '../../../theme';
@@ -60,19 +62,25 @@ const Index = () => {
             display: { xs: 'none', sm: 'block' }, // ✅ Hide on mobile
           }}
         >
-          <IconButton
-            color="primary"
-            href="#education"
-            sx={{
-              backgroundColor: 'rgba(255,255,255,0.05)',
-              borderRadius: '50%',
-              '&:hover': {
-                backgroundColor: 'rgba(255,255,255,0.1)',
-              },
-            }}
-          >
-            <KeyboardArrowDown fontSize="large" />
-          </IconButton>
+            <ScrollLink
+                to="education"
+                smooth={true}
+                duration={600}
+                offset={-64} // adjust based on header height
+            >
+                <IconButton
+                    color="primary"
+                    sx={{
+                        backgroundColor: 'rgba(255,255,255,0.05)',
+                        borderRadius: '50%',
+                        '&:hover': {
+                            backgroundColor: 'rgba(255,255,255,0.1)',
+                        },
+                    }}
+                >
+                    <KeyboardArrowDown fontSize="large" />
+                </IconButton>
+            </ScrollLink>
         </Box>
       </motion.div>
     </Grid>

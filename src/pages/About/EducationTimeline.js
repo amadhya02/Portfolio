@@ -24,7 +24,7 @@ const EducationTimeline = () => {
   ];
 
   return (
-    <>
+    <div id="education">
       <Typography variant="h4" gutterBottom>
         Education
       </Typography>
@@ -44,7 +44,7 @@ const EducationTimeline = () => {
           </TimelineItem>
         ))}
       </Timeline>
-    </>
+    </div>
   );
 };
 
