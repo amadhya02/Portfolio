@@ -1,10 +1,18 @@
 import React from 'react';
-import {Box, Typography, Grid, IconButton, Tooltip, Button} from '@mui/material';
+import {
+  Box,
+  Typography,
+  Grid,
+  IconButton,
+  Tooltip,
+  Button,
+} from '@mui/material';
 import {
   Email,
   GitHub,
   LinkedIn,
   KeyboardArrowDown,
+  LocationOn,
 } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 
@@ -12,7 +20,7 @@ import MyselfImg from '../../assets/images/myself.jpg';
 import ProfileOverlayImg from '../../assets/images/profile-overlay.png';
 import theme from '../../theme';
 import GradientTitle from '../../components/GradientTitle';
-import {Link} from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const SOCIAL = [
   {
@@ -36,17 +44,17 @@ const SOCIAL = [
 ];
 
 const AboutHeroSection = () => {
-    const getExpYears = () => {
-        const date1 = new Date(2020, 7, 13);
-        const date2 = new Date();
-        const year1 = date1.getFullYear();
-        const year2 = date2.getFullYear();
-        const month1 = date1.getMonth();
-        const month2 = date2.getMonth();
-        const internship = 6;
+  const getExpYears = () => {
+    const date1 = new Date(2020, 7, 13);
+    const date2 = new Date();
+    const year1 = date1.getFullYear();
+    const year2 = date2.getFullYear();
+    const month1 = date1.getMonth();
+    const month2 = date2.getMonth();
+    const internship = 6;
 
-        return year2 - year1 + Math.floor((month2 - month1 + internship + 1) / 12);
-    };
+    return year2 - year1 + Math.floor((month2 - month1 + internship + 1) / 12);
+  };
 
   return (
     <Grid
@@ -102,8 +110,8 @@ const AboutHeroSection = () => {
                   sx={{
                     backgroundColor: theme.palette.primary.main,
                     borderRadius: '12px',
-                    width: 50,
-                    height: 50,
+                    width: 45,
+                    height: 45,
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -161,7 +169,7 @@ const AboutHeroSection = () => {
               }}
             >
               <Typography variant="h5" fontWeight={700}>
-                  {getExpYears()}+
+                {getExpYears()}+
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 Successful Years
@@ -196,27 +204,37 @@ const AboutHeroSection = () => {
             success.
           </Typography>
 
-            <Box sx={{ mt: 4, display: 'flex', gap: 2, flexWrap: 'wrap' }}>
-                <Button
-                    variant="contained"
-                    color="primary"
-                    href="/assets/resume.pdf"
-                    download="Amadhya_Anand_Resume.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Download resume"
-                >
-                    Download Resume
-                </Button>
-                <Button
-                    variant="outlined"
-                    component={Link}
-                    to="/contact"
-                    aria-label="Hire Me"
-                >
-                    Hire Me
-                </Button>
-            </Box>
+          <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+            <LocationOn
+              fontSize="small"
+              sx={{ mr: 1, color: 'primary.main' }}
+            />
+            <Typography variant="body2" color="text.secondary">
+              Amsterdam, Netherlands
+            </Typography>
+          </Box>
+
+          <Box sx={{ mt: 4, display: 'flex', gap: 2, flexWrap: 'wrap' }}>
+            <Button
+              variant="contained"
+              color="primary"
+              href="/assets/resume.pdf"
+              download="Amadhya_Anand_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Download resume"
+            >
+              Download Resume
+            </Button>
+            <Button
+              variant="outlined"
+              component={Link}
+              to="/contact"
+              aria-label="Hire Me"
+            >
+              Hire Me
+            </Button>
+          </Box>
         </Grid>
       </Grid>
 
