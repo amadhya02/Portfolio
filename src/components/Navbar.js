@@ -18,7 +18,7 @@ import AALogo from '../assets/images/AA-logo.png';
 
 const pages = [
   { name: 'About', path: '/about' },
-  { name: 'Work', path: '/work' },
+  { name: 'Experience', path: '/experience' },
   { name: 'Projects', path: '/projects' },
   { name: 'Contact', path: '/contact' },
 ];

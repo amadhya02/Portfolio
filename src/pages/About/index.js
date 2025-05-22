@@ -3,6 +3,7 @@ import { Container, Box } from '@mui/material';
 import AboutCard from './AboutCard';
 import Passions from './Passions';
 import theme from '../../theme';
+import EducationSection from './Education';
 
 const AboutSection = () => {
   return (
@@ -16,7 +17,9 @@ const AboutSection = () => {
         {/* Photo + Info Section */}
         <AboutCard />
 
-        {/* Passion Outside Work */}
+        <EducationSection />
+
+        {/* Passion Outside Experience */}
         <Passions />
       </Container>
     </Box>

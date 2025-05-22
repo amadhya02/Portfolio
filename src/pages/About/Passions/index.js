@@ -68,10 +68,6 @@ const HobbiesSection = () => {
       >
         {hobbies.map((hobby) => (
           <Grid
-            item
-            xs={12}
-            sm={6}
-            md={3}
             key={hobby.title}
             component={motion.div}
             variants={itemVariants}
