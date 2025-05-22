@@ -23,9 +23,7 @@ const EducationEntry = ({ data, index }) => {
       transition={{ duration: 0.6, delay: index * 0.2 }}
     >
       <TimelineItem>
-        <TimelineOppositeContent
-          sx={{ display: { xs: 'none' } }}
-        />
+        <TimelineOppositeContent sx={{ display: { xs: 'none' } }} />
         <TimelineSeparator>
           <TimelineDot
             sx={{
