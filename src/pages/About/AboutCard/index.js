@@ -63,7 +63,7 @@ const Index = () => {
           }}
         >
           <ScrollLink
-            to="hobbies"
+            to="education"
             smooth={true}
             duration={600}
             offset={-64} // adjust based on header height
