@@ -18,7 +18,7 @@ const animationVariants = {
 
 const InstituteLogo = ({ logo, index }) => {
   return (
-    <Grid item xs={6} sm={12}>
+    <Grid>
       <motion.div
         custom={index}
         initial="hidden"
