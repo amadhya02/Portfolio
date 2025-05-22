@@ -33,7 +33,11 @@ const HeroText = () => {
         Amadhya <br /> Anand
       </Typography>
 
-      <Typography variant="body1" color="text.secondary">
+      <Typography
+        variant="body1"
+        color="text.secondary"
+        sx={{ fontStyle: 'italic' }}
+      >
         Bridging intuitive design with performant code.
       </Typography>
 

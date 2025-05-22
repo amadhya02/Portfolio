@@ -2,42 +2,26 @@ import React from 'react';
 import { Box, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 
-const HobbiesHeader = () => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.6 }}
-  >
-    <Box textAlign={{ xs: 'center', md: 'left' }} sx={{ mb: 4 }}>
-      <Box
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: { xs: 'center', md: 'flex-start' },
-          gap: 1,
-        }}
-      >
-        <Typography variant="h4">Hobbies</Typography>
-      </Box>
-
-      <Typography
-        variant="body1"
-        color="text.secondary"
-        sx={{ mb: 1, fontStyle: 'italic' }}
-      >
-        How I refuel my mind and body.
+const HobbiesHeading = () => {
+  return (
+    <Box sx={{ mb: 4 }}>
+      {/* Subtitle */}
+      <Typography variant="h5" color="text.secondary">
+        Beyond the Code
       </Typography>
 
-      <Box
-        sx={{
-          width: 40,
-          height: 4,
-          backgroundColor: 'primary.main',
-          borderRadius: 2,
-        }}
-      />
+      {/* Title */}
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <Typography variant="h2" color="primary">
+          SIDE QUESTS
+        </Typography>
+      </motion.div>
     </Box>
-  </motion.div>
-);
+  );
+};
 
-export default HobbiesHeader;
+export default HobbiesHeading;
