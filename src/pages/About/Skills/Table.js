@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
-import { Box, useTheme } from '@mui/material';
+import { Box } from '@mui/material';
 import { motion } from 'framer-motion';
-import { ReactTyped } from 'react-typed';
-import ItermHeader from './ItermHeader';
 import SKILLS from '../../../constants/skills';
-import { COLORS } from '../../../constants/colors';
+import Terminal from '../../../components/terminal';
 
 export default function Table({ categories }) {
-  const theme = useTheme();
   const [typingDone, setTypingDone] = useState(false);
   const maxRows = Math.max(...categories.map((cat) => SKILLS[cat].length));
   const columnWidth = 24;
@@ -32,68 +29,27 @@ export default function Table({ categories }) {
   });
 
   return (
-    <motion.div
-      initial={{ scale: 0.95, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{ duration: 0.5, ease: 'easeInOut' }}
-      style={{ display: 'flex', flex: 1 }}
-      key={categories.toString()}
+    <Terminal
+      command={`list-skills${categories.length === 1 ? ' --' + categories[0] : ' --all'}`}
+      uniqueKey={categories.toString()}
+      setTypingDone={setTypingDone}
     >
-      <Box
-        sx={{
-          backgroundColor: theme.palette.background.paper,
-          border: `1px solid ${theme.custom.border}`,
-          borderRadius: '12px',
-          boxShadow: theme.custom.shadows.softGlow,
-          fontFamily: 'Source Code Pro, monospace',
-          fontSize: '0.9rem',
-          color: theme.palette.primary.contrastText,
-          lineHeight: 1.6,
-          mb: 4,
-          p: 0,
-          overflowX: 'auto',
-          maxWidth: '100%',
-          width: '100%',
-          display: 'flex',
-          flexDirection: 'column',
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: typingDone ? 1 : 0 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        style={{
+          visibility: typingDone ? 'visible' : 'hidden',
           flex: 1,
+          display: 'flex',
         }}
       >
-        <ItermHeader />
-        <Box component="pre" sx={{ px: 2, pt: 2, mb: 0 }}>
-          <Box
-            component="span"
-            sx={{ color: COLORS.LIME, display: 'inline-block' }}
-          >
-            ${' '}
-            <ReactTyped
-              strings={[
-                `list-skills${categories.length === 1 ? ' --' + categories[0] : ' --all'}`,
-              ]}
-              typeSpeed={60}
-              showCursor={true}
-              startWhenVisible={true}
-              onComplete={() => setTypingDone(true)}
-            />
-          </Box>
+        <Box component="pre" sx={{ px: 2, pt: 0, pb: 2, flex: 1 }}>
+          {[divider, headerRow, divider, ...rows, divider]
+            .map((line) => line + '\n')
+            .join('')}
         </Box>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: typingDone ? 1 : 0 }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-          style={{
-            visibility: typingDone ? 'visible' : 'hidden',
-            flex: 1,
-            display: 'flex',
-          }}
-        >
-          <Box component="pre" sx={{ px: 2, pt: 0, pb: 2, flex: 1 }}>
-            {[divider, headerRow, divider, ...rows, divider]
-              .map((line) => line + '\n')
-              .join('')}
-          </Box>
-        </motion.div>
-      </Box>
-    </motion.div>
+      </motion.div>
+    </Terminal>
   );
 }
