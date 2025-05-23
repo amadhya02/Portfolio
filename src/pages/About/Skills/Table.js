@@ -3,7 +3,8 @@ import { Box, useTheme } from '@mui/material';
 import { motion } from 'framer-motion';
 import { ReactTyped } from 'react-typed';
 import ItermHeader from './ItermHeader';
-import SKILLS from "../../../constants/skills";
+import SKILLS from '../../../constants/skills';
+import { COLORS } from '../../../constants/colors';
 
 export default function Table({ categories }) {
   const theme = useTheme();
@@ -62,7 +63,7 @@ export default function Table({ categories }) {
         <Box component="pre" sx={{ px: 2, pt: 2, mb: 0 }}>
           <Box
             component="span"
-            sx={{ color: '#00ff00', display: 'inline-block' }}
+            sx={{ color: COLORS.LIME, display: 'inline-block' }}
           >
             ${' '}
             <ReactTyped

@@ -22,7 +22,7 @@ const Index = () => {
           justifyContent: 'center',
         },
         px: { xs: 3, sm: 6 },
-        py: { xs: 6, sm: 8 },
+        py: { xs: 6, sm: 10 },
       }}
     >
       <motion.div

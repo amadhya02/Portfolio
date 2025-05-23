@@ -1,17 +1,21 @@
 import React from 'react';
 import { Box, useTheme, useMediaQuery, Grid } from '@mui/material';
 
-import Header from './Header';
 import Table from './Table';
-import SKILLS from "../../../constants/skills";
+import SKILLS from '../../../constants/skills';
+import SectionContainer from '../../../components/SectionContainer';
 
 const SkillsTerminalTable = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
 
   return (
-    <Box sx={{ px: { xs: 3, sm: 6 }, py: 6 }}>
-      <Header />
+    <SectionContainer
+      title="SKILLS"
+      subtitle="What I bring to the table"
+      id="skills"
+      align="right"
+    >
       <Box sx={{ display: 'flex', justifyContent: 'center' }}>
         {isMobile ? (
           <Grid
@@ -34,7 +38,7 @@ const SkillsTerminalTable = () => {
           <Table categories={Object.keys(SKILLS)} />
         )}
       </Box>
-    </Box>
+    </SectionContainer>
   );
 };
 
