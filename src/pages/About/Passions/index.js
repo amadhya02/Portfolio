@@ -1,37 +1,10 @@
 import React from 'react';
-import { Box, Grid } from '@mui/material';
+import { Grid } from '@mui/material';
 import { motion } from 'framer-motion';
 
 import HobbyCard from './card';
-import DrumsImg from '../../../assets/images/drum-set.png';
-import SwimImg from '../../../assets/images/swimming.png';
-import LegoImg from '../../../assets/images/lego.png';
-import DumbellImg from '../../../assets/images/dumbbell.png';
-import HobbiesHeader from './HobbiesHeader';
-
-const hobbies = [
-  {
-    title: 'Drumming',
-    description:
-      'I love expressing rhythm and energy through acoustic drumming.',
-    icon: DrumsImg,
-  },
-  {
-    title: 'Gymming',
-    description: 'Strength and discipline — gym sessions are my power zone.',
-    icon: DumbellImg,
-  },
-  {
-    title: 'Swimming',
-    description: 'Gliding through water brings me peace and clarity.',
-    icon: SwimImg,
-  },
-  {
-    title: 'Legos',
-    description: 'Creative problem-solving and building block by block.',
-    icon: LegoImg,
-  },
-];
+import SectionContainer from '../../../components/SectionContainer';
+import HOBBIES from '../../../constants/hobbies';
 
 // Animation variants
 const containerVariants = {
@@ -54,8 +27,11 @@ const itemVariants = {
 
 const HobbiesSection = () => {
   return (
-    <Box component="section" id="hobbies" sx={{ px: { xs: 3, sm: 6 }, py: 8 }}>
-      <HobbiesHeader />
+    <SectionContainer
+      title="SIDE QUESTS"
+      subtitle="Beyond the Code"
+      id="hobbies"
+    >
       <Grid
         container
         spacing={4}
@@ -66,7 +42,7 @@ const HobbiesSection = () => {
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
       >
-        {hobbies.map((hobby) => (
+        {HOBBIES.map((hobby) => (
           <Grid
             key={hobby.title}
             component={motion.div}
@@ -76,7 +52,7 @@ const HobbiesSection = () => {
           </Grid>
         ))}
       </Grid>
-    </Box>
+    </SectionContainer>
   );
 };
 

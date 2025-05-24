@@ -2,12 +2,12 @@ import React from 'react';
 import { Box, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 
-const HobbiesHeading = () => {
+const Header = ({ align = 'left', title, subtitle }) => {
   return (
     <Box sx={{ mb: 4 }}>
       {/* Subtitle */}
-      <Typography variant="h5" color="text.secondary">
-        Beyond the Code
+      <Typography variant="h5" color="text.secondary" align={align}>
+        {subtitle}
       </Typography>
 
       {/* Title */}
@@ -16,12 +16,12 @@ const HobbiesHeading = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <Typography variant="h2" color="primary">
-          SIDE QUESTS
+        <Typography variant="h2" color="primary" align={align}>
+          {title}
         </Typography>
       </motion.div>
     </Box>
   );
 };
 
-export default HobbiesHeading;
+export default Header;

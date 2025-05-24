@@ -4,6 +4,7 @@ import AboutCard from './AboutCard';
 import Passions from './Passions';
 import theme from '../../theme';
 import EducationSection from './Education';
+import SkillsTable from './Skills';
 
 const AboutSection = () => {
   return (
@@ -18,6 +19,8 @@ const AboutSection = () => {
         <AboutCard />
 
         <EducationSection />
+
+        <SkillsTable />
 
         {/* Passion Outside Experience */}
         <Passions />
