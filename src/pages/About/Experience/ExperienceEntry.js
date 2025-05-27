@@ -7,18 +7,11 @@ import {
   TimelineContent,
   TimelineOppositeContent,
 } from '@mui/lab';
-import {
-  Typography,
-  ListItem,
-  IconButton,
-  List,
-  ListItemText, ListItemIcon, Box,
-} from '@mui/material';
+import { Typography, IconButton, Box, Tooltip, Stack } from '@mui/material';
 import { Work } from '@mui/icons-material';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import { useTheme } from '@mui/material/styles';
 import { motion } from 'framer-motion';
-import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-import theme from "../../../theme";
 
 const ExperienceEntry = ({ data, index, isLast }) => {
   const theme = useTheme();
@@ -46,28 +39,50 @@ const ExperienceEntry = ({ data, index, isLast }) => {
           </TimelineDot>
           {!isLast && <TimelineConnector sx={{ bgcolor: 'primary.main' }} />}
         </TimelineSeparator>
-        <TimelineContent sx={{ pb: 1 }}>
+        <TimelineContent sx={{ pb: 2 }}>
           <Typography variant="h6" fontWeight="bold">
             {data.name}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="body2" color="text.secondary" gutterBottom>
             {data.location}
           </Typography>
-          <List>
-            {data.roles.map((role) => (
-              <ListItem
+
+          <Box
+            sx={{
+              pl: 2,
+              borderLeft: '2px solid',
+              borderColor: 'divider',
+              mt: 1,
+            }}
+          >
+            {data.roles.map((role, i) => (
+              <motion.div
                 key={data.name + '_' + role.role}
-                secondaryAction={
-                  <IconButton edge="start" aria-label="open">
-                    <OpenInNewIcon fontSize="small" />
-                  </IconButton>
-                }
-                dense
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: i * 0.1 }}
               >
-                <ListItemText primary={role.role} secondary={role.duration} />
-              </ListItem>
+                <Stack
+                  direction="row"
+                  justifyContent="space-between"
+                  alignItems="center"
+                  sx={{ mt: 2 }}
+                >
+                  <Box>
+                    <Typography fontWeight={600}>{role.role}</Typography>
+                    <Typography variant="caption" color="text.secondary">
+                      {role.duration}
+                    </Typography>
+                  </Box>
+                  <Tooltip title="View Work">
+                    <IconButton edge="end" aria-label="open">
+                      <OpenInNewIcon fontSize="small" />
+                    </IconButton>
+                  </Tooltip>
+                </Stack>
+              </motion.div>
             ))}
-          </List>
+          </Box>
         </TimelineContent>
       </TimelineItem>
     </motion.div>
