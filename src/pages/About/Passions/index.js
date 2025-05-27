@@ -31,6 +31,7 @@ const HobbiesSection = () => {
       title="SIDE QUESTS"
       subtitle="Beyond the Code"
       id="hobbies"
+      align="right"
     >
       <Grid
         container

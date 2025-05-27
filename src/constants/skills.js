@@ -9,16 +9,19 @@ const RAW_SKILLS = {
     'React',
     'Redux',
   ],
-  Backend: ['Django', 'Dropwizard', 'Express', 'Flask', 'Node.js'],
+  Backend: ['Cron', 'Django', 'Dropwizard', 'Express', 'Flask', 'Node.js'],
   Storage: ['Firebase', 'Hadoop', 'MySQL', 'PostgreSQL', 'Redis', 'Snowflake'],
   Tools: [
     'AWS Lambda',
     'Docker',
+    'Elasticsearch',
     'Figma',
     'GitHub',
     'GitLab',
+    'Grafana',
     'Notion',
     'Postman',
+    'Terraform',
   ],
 };
 
