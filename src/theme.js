@@ -101,7 +101,8 @@ const theme = createTheme({
   },
   custom: {
     gradients: {
-      orangeToYellow: 'linear-gradient(90deg, #FF7B31 0%, #FFA800 100%)',
+      orangeToYellow:
+        'linear-gradient(277.46deg, rgb(255, 123, 49) -32.36%, rgb(255, 168, 0) 103.85%)',
       background: 'radial-gradient(circle at center, #1e2a36, #0f141b 80%)',
     },
     shadows: {

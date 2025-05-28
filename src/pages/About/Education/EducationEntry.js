@@ -32,10 +32,10 @@ const EducationEntry = ({ data, index }) => {
               border: `2px solid ${theme.palette.primary.main}`,
               backgroundColor: theme.palette.background.paper,
               p: 1,
-              display: 'flex'
+              display: 'flex',
             }}
           >
-            <School fontSize="medium" sx={{margin: 'auto'}}/>
+            <School fontSize="medium" sx={{ margin: 'auto' }} />
           </TimelineDot>
           {index !== 2 && (
             <TimelineConnector sx={{ bgcolor: 'primary.main' }} />
