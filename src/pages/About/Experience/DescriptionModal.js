@@ -67,9 +67,6 @@ const DescriptionModal = ({ data, open, handleClose }) => {
             }}
           >
             <Box>
-              <Typography variant="h6" color="textPrimary">
-                {data.company}
-              </Typography>
               <Typography variant="h2" fontWeight={500} gutterBottom>
                 {data.role}
               </Typography>
@@ -87,9 +84,9 @@ const DescriptionModal = ({ data, open, handleClose }) => {
               <Box
                 sx={{
                   position: 'absolute',
-                  bottom: 8,
-                  right: 8,
-                  opacity: 0.7,
+                  bottom: 4,
+                  right: 4,
+                  opacity: 0.75,
                 }}
               >
                 <img src={data.logo} alt="logo" width="200" style={{objectFit: 'contain'}} />

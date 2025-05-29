@@ -36,6 +36,7 @@ const CompanyLogo = ({ logo, index }) => {
             maxWidth: 175,
             maxHeight: 175,
             mx: 'auto',
+              objectFit: 'contain'
           }}
         />
       </motion.div>
