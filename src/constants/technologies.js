@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const TECHNOLOGIES_ICONS = {
   ANTD: { Icon: 'devicon-antdesign-plain', text: 'Ant Design' },
   AWS_LAMBDA: {

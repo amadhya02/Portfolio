@@ -25,6 +25,12 @@ import {
 import { useTheme } from '@mui/material/styles';
 import { motion } from 'framer-motion';
 
+const fadeIn = (delay = 0) => ({
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.5, delay },
+});
+
 const DescriptionModal = ({ data, open, handleClose }) => {
   const theme = useTheme();
 
@@ -41,6 +47,8 @@ const DescriptionModal = ({ data, open, handleClose }) => {
           <Grid
             item
             size={{ xs: 12, md: 5 }}
+            component={motion.div}
+            {...fadeIn(0)}
             sx={{
               background: theme.custom.gradients.orangeToYellow,
               p: 4,
@@ -89,6 +97,8 @@ const DescriptionModal = ({ data, open, handleClose }) => {
           <Grid
             item
             size={{ xs: 12, md: 7 }}
+            component={motion.div}
+            {...fadeIn(0.2)}
             sx={{
               p: 4,
               maxHeight: { sm: '600px' },
@@ -96,90 +106,85 @@ const DescriptionModal = ({ data, open, handleClose }) => {
               bgcolor: 'background.paper',
             }}
           >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <Paper elevation={1} sx={{ p: 3, borderRadius: 2, mb: 3 }}>
-                <Stack
-                  direction="row"
-                  spacing={1}
-                  alignItems="center"
-                  sx={{ mb: 2 }}
-                >
-                  <ListAlt fontSize="medium" />
-                  <Typography variant="h5">Key Contributions</Typography>
-                </Stack>
-                <List dense>
-                  {data.desc &&
-                    data.desc.map((point, idx) => (
-                      <motion.div
-                        key={idx}
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: idx * 0.1 }}
-                      >
-                        <ListItem disableGutters>
-                          <ListItemIcon sx={{ minWidth: 28 }}>
-                            <FiberManualRecord
-                              sx={{
-                                fontSize: 6,
-                                color: theme.palette.primary.main,
-                              }}
-                            />
-                          </ListItemIcon>
-                          <ListItemText primary={point} color="textSecondary" />
-                        </ListItem>
-                      </motion.div>
-                    ))}
-                </List>
-              </Paper>
-
-              <Paper
-                elevation={3}
-                sx={{
-                  p: 3,
-                  borderRadius: 2,
-                  transition: 'all 0.3s ease',
-                  '&:hover': { boxShadow: 6 },
-                }}
+            <Paper elevation={1} sx={{ p: 3, borderRadius: 2, mb: 3 }}>
+              <Stack
+                direction="row"
+                spacing={1}
+                alignItems="center"
+                sx={{ mb: 2 }}
               >
-                <Stack
-                  direction="row"
-                  spacing={1}
-                  alignItems="center"
-                  sx={{ mb: 2 }}
-                >
-                  <Code fontSize="medium" />
-                  <Typography variant="h5">Tech Stack</Typography>
-                </Stack>
+                <ListAlt fontSize="medium" />
+                <Typography variant="h5">Key Contributions</Typography>
+              </Stack>
+              <List dense>
+                {data.desc &&
+                  data.desc.map((point, idx) => (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: idx * 0.1 }}
+                    >
+                      <ListItem disableGutters>
+                        <ListItemIcon sx={{ minWidth: 28 }}>
+                          <FiberManualRecord
+                            sx={{
+                              fontSize: 6,
+                              color: theme.palette.primary.main,
+                            }}
+                          />
+                        </ListItemIcon>
+                        <ListItemText primary={point} color="textSecondary" />
+                      </ListItem>
+                    </motion.div>
+                  ))}
+              </List>
+            </Paper>
 
-                {['Languages', 'Frontend', 'Backend', 'Tools'].map(
-                  (category, idx) => {
-                    const techStack = data.tech?.[category.toLowerCase()] || [];
+            <Paper
+              component={motion.div}
+              {...fadeIn(0.4)}
+              elevation={3}
+              sx={{
+                p: 3,
+                borderRadius: 2,
+                transition: 'all 0.3s ease',
+                '&:hover': { boxShadow: 6 },
+              }}
+            >
+              <Stack
+                direction="row"
+                spacing={1}
+                alignItems="center"
+                sx={{ mb: 2 }}
+              >
+                <Code fontSize="medium" />
+                <Typography variant="h5">Tech Stack</Typography>
+              </Stack>
 
-                    if (!techStack.length) {
-                      return null;
-                    }
+              {['Languages', 'Frontend', 'Backend', 'Tools'].map(
+                (category, idx) => {
+                  const techStack = data.tech?.[category.toLowerCase()] || [];
 
-                    return (
-                      <Box key={category} sx={{ mb: idx !== 3 ? 3 : 0 }}>
-                        <Typography
-                          variant="h6"
-                          sx={{ color: 'text.secondary' }}
-                        >
-                          {category}
-                        </Typography>
-                        <Divider sx={{ mb: 2, height: 1 }} />
-                        <Grid
-                          container
-                          spacing={2}
-                          alignItems="center"
-                          justifyContent={{ xs: 'center', sm: 'left' }}
-                        >
-                          {techStack.map(({ text, Icon }, idx) => (
-                            <Grid item key={idx} xs={4} sm={3} md={2}>
+                  if (!techStack.length) {
+                    return null;
+                  }
+
+                  return (
+                    <Box key={category} sx={{ mb: idx !== 3 ? 3 : 0 }}>
+                      <Typography variant="h6" sx={{ color: 'text.secondary' }}>
+                        {category}
+                      </Typography>
+                      <Divider sx={{ mb: 2, height: 1 }} />
+                      <Grid
+                        container
+                        spacing={2}
+                        alignItems="center"
+                        justifyContent={{ xs: 'center', sm: 'left' }}
+                      >
+                        {techStack.map(({ text, Icon }, i) => (
+                          <Grid item key={i} xs={4} sm={3} md={2}>
+                            <motion.div {...fadeIn(0.3 + i * 0.05)}>
                               <Tooltip title={text} placement="top">
                                 <Stack
                                   direction="column"
@@ -220,17 +225,19 @@ const DescriptionModal = ({ data, open, handleClose }) => {
                                   </Typography>
                                 </Stack>
                               </Tooltip>
-                            </Grid>
-                          ))}
-                        </Grid>
-                      </Box>
-                    );
-                  }
-                )}
-              </Paper>
+                            </motion.div>
+                          </Grid>
+                        ))}
+                      </Grid>
+                    </Box>
+                  );
+                }
+              )}
+            </Paper>
 
-              <Divider sx={{ my: 4 }} />
+            <Divider sx={{ my: 4 }} />
 
+            <motion.div {...fadeIn(0.8)}>
               <Button variant="outlined" onClick={handleClose} fullWidth>
                 Close
               </Button>
