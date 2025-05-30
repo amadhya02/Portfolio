@@ -14,7 +14,6 @@ const SkillsTerminalTable = () => {
       title="SKILLS"
       subtitle="What I bring to the table"
       id="skills"
-      align="right"
     >
       <Box sx={{ display: 'flex', justifyContent: 'center' }}>
         {isMobile ? (

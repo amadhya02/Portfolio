@@ -5,6 +5,7 @@ import Passions from './Passions';
 import theme from '../../theme';
 import EducationSection from './Education';
 import SkillsTable from './Skills';
+import ExperienceTimeline from './Experience';
 
 const AboutSection = () => {
   return (
@@ -19,6 +20,8 @@ const AboutSection = () => {
         <AboutCard />
 
         <EducationSection />
+
+        <ExperienceTimeline />
 
         <SkillsTable />
 
