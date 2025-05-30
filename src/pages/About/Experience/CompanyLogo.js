@@ -36,12 +36,11 @@ const CompanyLogo = ({ logo, index }) => {
             maxWidth: 175,
             maxHeight: 175,
             mx: 'auto',
-
           }}
           slotProps={{
-              img: {
-                  style: { objectFit: 'contain' }
-              }
+            img: {
+              style: { objectFit: 'contain' },
+            },
           }}
         />
       </motion.div>

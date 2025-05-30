@@ -13,6 +13,7 @@ import {
   Button,
   Paper,
   Divider,
+  Tooltip,
 } from '@mui/material';
 import {
   FiberManualRecord,
@@ -23,7 +24,6 @@ import {
 } from '@mui/icons-material';
 import { useTheme } from '@mui/material/styles';
 import { motion } from 'framer-motion';
-import { COLORS } from '../../../constants/colors';
 
 const DescriptionModal = ({ data, open, handleClose }) => {
   const theme = useTheme();
@@ -140,7 +140,7 @@ const DescriptionModal = ({ data, open, handleClose }) => {
                 elevation={3}
                 sx={{
                   p: 3,
-                  borderRadius: 3,
+                  borderRadius: 2,
                   transition: 'all 0.3s ease',
                   '&:hover': { boxShadow: 6 },
                 }}
@@ -156,7 +156,7 @@ const DescriptionModal = ({ data, open, handleClose }) => {
                 </Stack>
 
                 {['Languages', 'Frontend', 'Backend', 'Tools'].map(
-                  (category) => {
+                  (category, idx) => {
                     const techStack = data.tech?.[category.toLowerCase()] || [];
 
                     if (!techStack.length) {
@@ -164,42 +164,60 @@ const DescriptionModal = ({ data, open, handleClose }) => {
                     }
 
                     return (
-                      <Box key={category} sx={{ mb: 2 }}>
+                      <Box key={category} sx={{ mb: idx !== 3 ? 3 : 0 }}>
                         <Typography
-                          variant="subtitle2"
-                          sx={{ mb: 1, color: 'text.secondary' }}
+                          variant="h6"
+                          sx={{ color: 'text.secondary' }}
                         >
                           {category}
                         </Typography>
+                          <Divider sx={{ mb: 2, height: 1 }} />
                         <Grid container spacing={2} alignItems="center">
                           {techStack.map(({ text, Icon }, idx) => (
-                            <Stack
-                              direction="column"
-                              alignItems="center"
-                              spacing={1.5}
-                              key={idx}
-                              sx={{
-                                px: 1.5,
-                                py: 2,
-                                borderRadius: 1,
-                                border: `1px solid ${theme.custom.border}`,
-                              }}
-                            >
-                              {Icon && (
-                                <i
-                                  className={Icon}
-                                  style={{ fontSize: 32 }}
-                                ></i>
-                              )}
-
-                              <Typography
-                                variant="body2"
-                                color="textPrimary"
-                                fontWeight={500}
+                            <Grid item key={idx} xs={4} sm={3} md={2}>
+                                <Tooltip title={text} placement="top">
+                              <Stack
+                                direction="column"
+                                alignItems="center"
+                                spacing={1.5}
+                                sx={{
+                                  px: 1,
+                                  py: 2,
+                                  borderRadius: 1,
+                                  width: 80,
+                                  border: `1px solid ${theme.custom.border}`,
+                                  background:
+                                    'linear-gradient(to bottom, #1f1f1f, #141414)',
+                                  transition: 'all 0.2s ease-in-out',
+                                  '&:hover': {
+                                    transform: 'translateY(-2px) scale(1.03)',
+                                    boxShadow: `0 2px 8px ${theme.palette.primary.main}22`,
+                                  },
+                                }}
                               >
-                                {text}
-                              </Typography>
-                            </Stack>
+                                {Icon && (
+                                  <i
+                                    className={Icon}
+                                    style={{ fontSize: 28 }}
+                                  ></i>
+                                )}
+                                <Typography
+                                  variant="body2"
+                                  color="textPrimary"
+                                  fontWeight={500}
+                                  align="center"
+                                  sx={{
+                                    display: { xs: 'none', sm: 'block' },
+                                    maxWidth: 62,
+                                    overflow: 'hidden',
+                                    textOverflow: 'ellipsis',
+                                  }}
+                                >
+                                  {text}
+                                </Typography>
+                              </Stack>
+                                </Tooltip>
+                            </Grid>
                           ))}
                         </Grid>
                       </Box>
