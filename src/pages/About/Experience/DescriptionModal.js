@@ -214,6 +214,7 @@ const DescriptionModal = ({ data, open, handleClose }) => {
                                     color="textPrimary"
                                     fontWeight={500}
                                     align="center"
+                                    noWrap
                                     sx={{
                                       display: { xs: 'none', sm: 'block' },
                                       maxWidth: 62,
