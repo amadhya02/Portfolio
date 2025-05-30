@@ -9,11 +9,9 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-  Chip,
   Grid,
   Button,
   Paper,
-  Avatar,
   Divider,
 } from '@mui/material';
 import {
@@ -22,20 +20,10 @@ import {
   Code,
   LocationOn,
   AccessTime,
-  Business,
-  Label,
 } from '@mui/icons-material';
 import { useTheme } from '@mui/material/styles';
 import { motion } from 'framer-motion';
-
-const techColors = {
-  React: '#61dafb',
-  'Node.js': '#3c873a',
-  Figma: '#a259ff',
-  TypeScript: '#3178c6',
-  JavaScript: '#f7df1e',
-  Python: '#306998',
-};
+import { COLORS } from '../../../constants/colors';
 
 const DescriptionModal = ({ data, open, handleClose }) => {
   const theme = useTheme();
@@ -54,8 +42,7 @@ const DescriptionModal = ({ data, open, handleClose }) => {
             item
             size={{ xs: 12, md: 5 }}
             sx={{
-              background:
-                theme.custom.gradients.orangeToYellow,
+              background: theme.custom.gradients.orangeToYellow,
               p: 4,
               display: 'flex',
               flexDirection: 'column',
@@ -89,7 +76,12 @@ const DescriptionModal = ({ data, open, handleClose }) => {
                   opacity: 0.75,
                 }}
               >
-                <img src={data.logo} alt="logo" width="200" style={{objectFit: 'contain'}} />
+                <img
+                  src={data.logo}
+                  alt="logo"
+                  width="200"
+                  style={{ objectFit: 'contain' }}
+                />
               </Box>
             )}
           </Grid>
@@ -130,16 +122,29 @@ const DescriptionModal = ({ data, open, handleClose }) => {
                       >
                         <ListItem disableGutters>
                           <ListItemIcon sx={{ minWidth: 28 }}>
-                              <FiberManualRecord sx={{ fontSize: 6, color: theme.palette.primary.main }} />
+                            <FiberManualRecord
+                              sx={{
+                                fontSize: 6,
+                                color: theme.palette.primary.main,
+                              }}
+                            />
                           </ListItemIcon>
-                          <ListItemText primary={point}  />
+                          <ListItemText primary={point} color="textSecondary" />
                         </ListItem>
                       </motion.div>
                     ))}
                 </List>
               </Paper>
 
-              <Paper elevation={1} sx={{ p: 3, borderRadius: 2 }}>
+              <Paper
+                elevation={3}
+                sx={{
+                  p: 3,
+                  borderRadius: 3,
+                  transition: 'all 0.3s ease',
+                  '&:hover': { boxShadow: 6 },
+                }}
+              >
                 <Stack
                   direction="row"
                   spacing={1}
@@ -149,23 +154,58 @@ const DescriptionModal = ({ data, open, handleClose }) => {
                   <Code fontSize="medium" />
                   <Typography variant="h5">Tech Stack</Typography>
                 </Stack>
-                <Stack direction="row" spacing={1} flexWrap="wrap">
-                  {(data.techStack || ['React', 'Node.js', 'Figma']).map(
-                    (tech, idx) => (
-                      <Chip
-                        key={idx}
-                        label={tech}
-                        variant="outlined"
-                        size="small"
-                        sx={{
-                          bgcolor: techColors[tech] || 'default',
-                          color: '#fff',
-                          border: 'none',
-                        }}
-                      />
-                    )
-                  )}
-                </Stack>
+
+                {['Languages', 'Frontend', 'Backend', 'Tools'].map(
+                  (category) => {
+                    const techStack = data.tech?.[category.toLowerCase()] || [];
+
+                    if (!techStack.length) {
+                      return null;
+                    }
+
+                    return (
+                      <Box key={category} sx={{ mb: 2 }}>
+                        <Typography
+                          variant="subtitle2"
+                          sx={{ mb: 1, color: 'text.secondary' }}
+                        >
+                          {category}
+                        </Typography>
+                        <Grid container spacing={2} alignItems="center">
+                          {techStack.map(({ text, Icon }, idx) => (
+                            <Stack
+                              direction="column"
+                              alignItems="center"
+                              spacing={1.5}
+                              key={idx}
+                              sx={{
+                                px: 1.5,
+                                py: 2,
+                                borderRadius: 1,
+                                border: `1px solid ${theme.custom.border}`,
+                              }}
+                            >
+                              {Icon && (
+                                <i
+                                  className={Icon}
+                                  style={{ fontSize: 32 }}
+                                ></i>
+                              )}
+
+                              <Typography
+                                variant="body2"
+                                color="textPrimary"
+                                fontWeight={500}
+                              >
+                                {text}
+                              </Typography>
+                            </Stack>
+                          ))}
+                        </Grid>
+                      </Box>
+                    );
+                  }
+                )}
               </Paper>
 
               <Divider sx={{ my: 4 }} />

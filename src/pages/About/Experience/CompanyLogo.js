@@ -29,14 +29,19 @@ const CompanyLogo = ({ logo, index }) => {
         <Avatar
           src={logo}
           alt="Institute Logo"
-          variant="rounded"
+          variant="square"
           sx={{
             width: { xs: '40vw', sm: '30vw', md: '15vw' },
             height: { xs: '40vw', sm: '30vw', md: '15vw' },
             maxWidth: 175,
             maxHeight: 175,
             mx: 'auto',
-              objectFit: 'contain'
+
+          }}
+          slotProps={{
+              img: {
+                  style: { objectFit: 'contain' }
+              }
           }}
         />
       </motion.div>

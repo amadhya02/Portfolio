@@ -40,7 +40,7 @@ const ExperienceEntry = ({ data, index, isLast }) => {
               border: `2px solid ${theme.palette.primary.main}`,
               backgroundColor: theme.palette.background.paper,
               p: 1,
-                display: 'flex',
+              display: 'flex',
             }}
           >
             <Work fontSize="medium" sx={{ margin: 'auto' }} />
@@ -100,7 +100,7 @@ const ExperienceEntry = ({ data, index, isLast }) => {
                     ...role,
                     company: data.name,
                     location: data.location,
-                      logo: data.logo,
+                    logo: data.logo,
                   }}
                 />
               </motion.div>
