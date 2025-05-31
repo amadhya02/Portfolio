@@ -12,8 +12,9 @@ const PROJECTS = [
     description:
       'A sleek corporate website designed and developed for Aerial Telecom Solutions (ATS), a leading player in telecom infrastructure and training services. The site showcases ATS’s offerings, legacy, and impact through a modern, responsive interface. Built with performance and clarity in mind, it features subtle animations, a clean information hierarchy, and seamless navigation for stakeholders across sectors.',
     techStack: [TECHNOLOGIES_ICONS.REACT],
-    featured: true,
+    featured: false,
     partnerLogo: COMPANIES_LOGO.ATS,
+    under: 'Aerial Telecom Solutions',
   },
   {
     year: 2020,
