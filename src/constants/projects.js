@@ -1,12 +1,10 @@
 import { TECHNOLOGIES_ICONS } from './technologies';
-import AtsHero from '../assets/images/ats-project-bg.png';
 import { COMPANIES_LOGO } from './experience';
 
 const PROJECTS = [
   {
     title: 'ATS Website',
     year: 2023,
-    image: AtsHero,
     liveDemoUrl: 'https://aerialtelecom.in/',
     githubUrl: null,
     tagline:

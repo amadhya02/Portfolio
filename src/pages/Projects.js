@@ -18,6 +18,7 @@ import { ArrowForwardIos } from '@mui/icons-material';
 import SectionContainer from '../components/SectionContainer';
 import PROJECTS from '../constants/projects';
 import theme from '../theme';
+import AtsHero from '../assets/images/ats-project-bg.png';
 
 export default function ProjectsPage() {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -27,6 +28,14 @@ export default function ProjectsPage() {
   const featured = PROJECTS.find((p) => p.featured);
   const others = PROJECTS.filter((p) => !p.featured);
 
+  const [offsetY, setOffsetY] = useState(0);
+
+  React.useEffect(() => {
+    const handleScroll = () => setOffsetY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <Box>
       {/* Hero Section */}
@@ -35,14 +44,28 @@ export default function ProjectsPage() {
         sx={{
           position: 'relative',
           height: '100vh',
-          backgroundImage: `url(${featured.image})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          overflow: 'hidden',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'flex-start',
         }}
       >
+        <Box
+          sx={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '120%',
+            backgroundImage: `url(${AtsHero})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            transform: `translateY(${offsetY * 0.4}px)`,
+            transition: 'transform 0.1s linear',
+            zIndex: 1,
+          }}
+        />
+
         <Box sx={{ zIndex: 2, color: '#fff', maxWidth: 700 }}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
