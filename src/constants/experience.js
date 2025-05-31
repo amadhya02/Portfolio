@@ -14,8 +14,8 @@ const EXPERIENCE = [
         duration: 'Jan, 2024 - Present',
         role: 'Software Engineer II',
         desc: [
-            'Improved code coverage and developer efficiency by developing a unit test generation using Cody, an AI-powered assistant',
-            'Developed a script to consolidate developer activity metrics from GitLab, Jira, SonarQube, and internal wikis—tracking code changes, unit tests, documentation, and repository contributions to provide actionable insights',
+          'Improved code coverage and developer efficiency by developing a unit test generation using Cody, an AI-powered assistant',
+          'Developed a script to consolidate developer activity metrics from GitLab, Jira, SonarQube, and internal wikis—tracking code changes, unit tests, documentation, and repository contributions to provide actionable insights',
           'Enabled value-based steering by providing insights into platform usage and product adoption through designing and developing a system to track how partners manage pricing.',
           'Reduced dependency on engineering for issue resolution, as measured by surveys, by creating and documenting FAQs and debugging guides.',
           'Improved system observability, resulting in faster issue detection and resolution, by building monitoring dashboards in Grafana using Terraform.',

@@ -100,7 +100,7 @@ const DescriptionModal = ({ data, open, handleClose }) => {
             component={motion.div}
             {...fadeIn(0.2)}
             sx={{
-              p: 4,
+              p: { xs: 2, sm: 4 },
               maxHeight: { sm: '600px' },
               overflowY: 'auto',
               bgcolor: 'background.paper',

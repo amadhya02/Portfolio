@@ -92,17 +92,18 @@ const ExperienceEntry = ({ data, index, isLast }) => {
                     </IconButton>
                   </Tooltip>
                 </Stack>
-
-                <DescriptionModal
-                  open={openModalIndex === i}
-                  handleClose={() => handleClose()}
-                  data={{
-                    ...role,
-                    company: data.name,
-                    location: data.location,
-                    logo: data.logo,
-                  }}
-                />
+                {openModalIndex === i && (
+                  <DescriptionModal
+                    open
+                    handleClose={() => handleClose()}
+                    data={{
+                      ...role,
+                      company: data.name,
+                      location: data.location,
+                      logo: data.logo,
+                    }}
+                  />
+                )}
               </motion.div>
             ))}
           </Box>
