@@ -4,10 +4,17 @@ import BookingLogo from '../assets/images/booking-logo.png';
 import AtsLogo from '../assets/images/ats-logo.png';
 import { TECHNOLOGIES_ICONS } from './technologies';
 
+export const COMPANIES_LOGO = {
+  BOOKING: BookingLogo,
+  CUEMATH: CuemathLogo,
+  CN: CnLogo,
+  ATS: AtsLogo,
+};
+
 const EXPERIENCE = [
   {
     name: 'Booking.com',
-    logo: BookingLogo,
+    logo: COMPANIES_LOGO.BOOKING,
     location: 'Amsterdam, Netherlands',
     roles: [
       {
@@ -77,7 +84,7 @@ const EXPERIENCE = [
   },
   {
     name: 'Aerial Telecom Solutions',
-    logo: AtsLogo,
+    logo: COMPANIES_LOGO.ATS,
     location: 'Remote',
     roles: [
       {
@@ -102,7 +109,7 @@ const EXPERIENCE = [
   },
   {
     name: 'Cuemath',
-    logo: CuemathLogo,
+    logo: COMPANIES_LOGO.CUEMATH,
     location: 'Bangalore, India',
     roles: [
       {
@@ -210,7 +217,7 @@ const EXPERIENCE = [
   },
   {
     name: 'Coding Ninjas',
-    logo: CnLogo,
+    logo: COMPANIES_LOGO.CN,
     location: 'New Delhi, India',
     roles: [
       {

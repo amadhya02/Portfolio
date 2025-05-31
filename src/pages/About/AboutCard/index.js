@@ -7,11 +7,11 @@ import { Link as ScrollLink } from 'react-scroll';
 import AboutTextBlock from './AboutTextBlock';
 import ProfileImageBlock from './ProfileImageBlock';
 import theme from '../../../theme';
+import SectionContainer from '../../../components/SectionContainer';
 
 const Index = () => {
   return (
-    <Grid
-      component="section"
+    <SectionContainer
       id="about"
       sx={{
         position: 'relative',
@@ -21,8 +21,6 @@ const Index = () => {
           flexDirection: 'column',
           justifyContent: 'center',
         },
-        px: { xs: 3, sm: 6 },
-        py: { xs: 6, sm: 10 },
       }}
     >
       <motion.div
@@ -83,7 +81,7 @@ const Index = () => {
           </ScrollLink>
         </Box>
       </motion.div>
-    </Grid>
+    </SectionContainer>
   );
 };
 
