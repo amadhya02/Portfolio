@@ -12,10 +12,10 @@ jobs:
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@master
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@master
         with:
           node-version: '21'
 
@@ -26,7 +26,7 @@ jobs:
         run: npm run build
 
       - name: Deploy to Firebase
-        uses: w9jds/firebase-action@v13
+        uses: w9jds/firebase-action@master
         with:
           args: deploy --only hosting --project amadhya-portfolio
         env:
