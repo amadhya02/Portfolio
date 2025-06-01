@@ -3,6 +3,11 @@ import { COMPANIES_LOGO } from './experience';
 import { INSTITUTE_LOGO } from './education';
 import AALogo from '../assets/images/AA-logo-white.png';
 
+const ROLE = {
+  FE: "Frontend Developer",
+  FS: "Fullstack Developer"
+}
+
 const PROJECTS = [
   {
     title: 'Portfolio',
@@ -28,6 +33,7 @@ const PROJECTS = [
     },
     partnerLogo: AALogo,
     under: 'Amadhya Anand',
+    role: ROLE.FE,
   },
   {
     title: 'Alcohol Tracker',
@@ -58,6 +64,7 @@ const PROJECTS = [
     },
     partnerLogo: INSTITUTE_LOGO.GA_TECH,
     under: 'GA Tech.',
+    role: ROLE.FS,
   },
   {
     title: 'ATS Website',
@@ -82,6 +89,7 @@ const PROJECTS = [
     },
     partnerLogo: COMPANIES_LOGO.ATS,
     under: 'Aerial Telecom Solutions',
+    role: ROLE.FE,
   },
   {
     title: 'Game Swap',
@@ -107,6 +115,7 @@ const PROJECTS = [
     },
     partnerLogo: INSTITUTE_LOGO.GA_TECH,
     under: 'GA Tech.',
+    role: ROLE.FS,
   },
   {
     year: 2020,
@@ -134,6 +143,7 @@ const PROJECTS = [
       tools: [TECHNOLOGIES_ICONS.FIGMA, TECHNOLOGIES_ICONS.GIT],
     },
     partnerLogo: AALogo,
+    role: ROLE.FS,
   },
   {
     year: 2020,
@@ -161,6 +171,7 @@ const PROJECTS = [
       tools: [TECHNOLOGIES_ICONS.FIGMA, TECHNOLOGIES_ICONS.GIT],
     },
     partnerLogo: AALogo,
+    role: ROLE.FS,
   },
   {
     year: 2019,
@@ -190,6 +201,7 @@ const PROJECTS = [
       tools: [TECHNOLOGIES_ICONS.GIT],
     },
     partnerLogo: INSTITUTE_LOGO.PEC,
+    role: ROLE.FS,
   },
   {
     year: 2019,
@@ -213,6 +225,7 @@ const PROJECTS = [
       tools: [TECHNOLOGIES_ICONS.GIT],
     },
     partnerLogo: INSTITUTE_LOGO.PEC,
+    role: ROLE.FS,
   },
   {
     year: 2019,
@@ -236,6 +249,7 @@ const PROJECTS = [
       tools: [TECHNOLOGIES_ICONS.GIT],
     },
     partnerLogo: AALogo,
+    role: ROLE.FS,
   },
 ];
 
