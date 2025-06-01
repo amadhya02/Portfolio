@@ -4,9 +4,9 @@ import { INSTITUTE_LOGO } from './education';
 import AALogo from '../assets/images/AA-logo-white.png';
 
 const ROLE = {
-  FE: "Frontend Developer",
-  FS: "Fullstack Developer"
-}
+  FE: 'Frontend Developer',
+  FS: 'Fullstack Developer',
+};
 
 const PROJECTS = [
   {
