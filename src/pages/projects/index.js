@@ -27,7 +27,7 @@ export default function ProjectsPage() {
         <Header />
         <Grid container direction="column" sx={{ width: '100%' }}>
           {PROJECTS.map((project, index) => (
-            <Grid size={{xs: 12}} key={index}>
+            <Grid size={{ xs: 12 }} key={index}>
               <ProjectItem
                 setSelectedProject={setSelectedProject}
                 project={project}

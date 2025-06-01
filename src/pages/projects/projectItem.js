@@ -5,7 +5,12 @@ import { motion } from 'framer-motion';
 import { ArrowForwardIos } from '@mui/icons-material';
 import theme from '../../theme';
 
-export default function ProjectItem({ index, project, setSelectedProject, isLast = false }) {
+export default function ProjectItem({
+  index,
+  project,
+  setSelectedProject,
+  isLast = false,
+}) {
   const handleOpen = (project) => setSelectedProject(project);
 
   return (

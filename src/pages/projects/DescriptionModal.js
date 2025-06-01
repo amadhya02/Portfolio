@@ -71,8 +71,11 @@ const DescriptionModal = ({ data, open, handleClose }) => {
               </Box>
             )}
             <Box>
-              <Typography variant="h2" fontWeight={500} gutterBottom>
+              <Typography variant="h2" fontWeight={500}>
                 {data.title}
+              </Typography>
+              <Typography variant="body1" gutterBottom>
+                {data.role}
               </Typography>
               <Stack direction="row" spacing={2}>
                 {data.liveDemoUrl && (
