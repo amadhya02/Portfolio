@@ -29,7 +29,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "npm install && npm run build && firebase deploy --only hosting --project amadhya-portfolio"
+    "deploy": "npm install && npm run build && firebase deploy --only hosting"
   },
   "lint-staged": {
     "src/**/*.{js,jsx}": [
