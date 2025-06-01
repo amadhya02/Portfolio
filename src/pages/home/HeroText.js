@@ -64,7 +64,7 @@ const HeroText = () => {
           variant="contained"
           color="primary"
           component={Link}
-          to="/work"
+          to="/projects"
           aria-label="View work"
         >
           View Work

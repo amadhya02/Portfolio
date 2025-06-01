@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Box } from '@mui/material';
+import { Box } from '@mui/material';
 import AboutCard from './AboutCard';
 import Passions from './Passions';
 import theme from '../../theme';
@@ -15,19 +15,17 @@ const AboutSection = () => {
         background: theme.custom.gradients.background,
       }}
     >
-      <Container maxWidth="lg">
-        {/* Photo + Info Section */}
-        <AboutCard />
+      {/* Photo + Info Section */}
+      <AboutCard />
 
-        <EducationSection />
+      <EducationSection />
 
-        <ExperienceTimeline />
+      <ExperienceTimeline />
 
-        <SkillsTable />
+      <SkillsTable />
 
-        {/* Passion Outside Experience */}
-        <Passions />
-      </Container>
+      {/* Passion Outside Experience */}
+      <Passions />
     </Box>
   );
 };

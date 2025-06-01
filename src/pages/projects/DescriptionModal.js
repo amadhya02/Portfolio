@@ -8,12 +8,14 @@ import {
   Grid,
   Button,
   Divider,
+  Tooltip,
+  IconButton,
 } from '@mui/material';
-import { LocationOn, AccessTime } from '@mui/icons-material';
+import { Launch, GitHub } from '@mui/icons-material';
 import { useTheme } from '@mui/material/styles';
 import { motion } from 'framer-motion';
-import TechList from '../../../components/techList';
-import DescriptionCard from '../../../components/DescriptionCard';
+import TechList from '../../components/techList';
+import DescriptionCard from '../../components/DescriptionCard';
 
 const fadeIn = (delay = 0) => ({
   initial: { opacity: 0, y: 20 },
@@ -35,7 +37,6 @@ const DescriptionModal = ({ data, open, handleClose }) => {
       <DialogContent sx={{ p: 0 }}>
         <Grid container>
           <Grid
-            item
             size={{ xs: 12, md: 5 }}
             component={motion.div}
             {...fadeIn(0)}
@@ -51,7 +52,7 @@ const DescriptionModal = ({ data, open, handleClose }) => {
               boxShadow: 'inset 0 0 20px rgba(0,0,0,0.1)',
             }}
           >
-            {data.logo && (
+            {data.partnerLogo && (
               <Box
                 sx={{
                   position: { xs: 'inherit', sm: 'absolute' },
@@ -62,7 +63,7 @@ const DescriptionModal = ({ data, open, handleClose }) => {
                 }}
               >
                 <img
-                  src={data.logo}
+                  src={data.partnerLogo}
                   alt="logo"
                   width="200"
                   style={{ objectFit: 'contain', margin: 'auto' }}
@@ -71,21 +72,36 @@ const DescriptionModal = ({ data, open, handleClose }) => {
             )}
             <Box>
               <Typography variant="h2" fontWeight={500} gutterBottom>
-                {data.role}
+                {data.title}
               </Typography>
-              <Stack direction="row" alignItems="center" spacing={1} mb={1}>
-                <AccessTime fontSize="small" />
-                <Typography variant="body2">{data.duration}</Typography>
-              </Stack>
-              <Stack direction="row" alignItems="center" spacing={1}>
-                <LocationOn fontSize="small" />
-                <Typography variant="body2">{data.location}</Typography>
+              <Stack direction="row" spacing={2}>
+                {data.liveDemoUrl && (
+                  <Tooltip title="Live Demo">
+                    <IconButton
+                      href={data.liveDemoUrl}
+                      target="_blank"
+                      sx={{ bgcolor: 'rgba(255,255,255,0.1)' }}
+                    >
+                      <Launch />
+                    </IconButton>
+                  </Tooltip>
+                )}
+                {data.githubUrl && (
+                  <Tooltip title="GitHub Repo">
+                    <IconButton
+                      href={data.githubUrl}
+                      target="_blank"
+                      sx={{ bgcolor: 'rgba(255,255,255,0.1)' }}
+                    >
+                      <GitHub />
+                    </IconButton>
+                  </Tooltip>
+                )}
               </Stack>
             </Box>
           </Grid>
 
           <Grid
-            item
             size={{ xs: 12, md: 7 }}
             component={motion.div}
             {...fadeIn(0.2)}
@@ -96,8 +112,8 @@ const DescriptionModal = ({ data, open, handleClose }) => {
               bgcolor: 'background.paper',
             }}
           >
-            <DescriptionCard description={data.desc} />
-            <TechList stack={data.tech} />
+            <DescriptionCard description={data.description} />
+            <TechList stack={data.techStack} />
             <Divider sx={{ my: 4 }} />
             <motion.div {...fadeIn(0.8)}>
               <Button variant="outlined" onClick={handleClose} fullWidth>
