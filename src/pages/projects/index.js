@@ -18,7 +18,7 @@ export default function ProjectsPage() {
       <SectionContainer
         id="projects"
         sx={{
-          height: '100vh',
+          minHeight: '100vh',
           display: 'flex',
           justifyContent: 'center',
           flexDirection: 'column',
