@@ -30,4 +30,4 @@ jobs:
         with:
           args: deploy --only hosting --project amadhya-portfolio
         env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.FIREBASE_TOKEN }}
