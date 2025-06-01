@@ -30,6 +30,36 @@ const PROJECTS = [
     under: 'Amadhya Anand',
   },
   {
+    title: 'Alcohol Tracker',
+    year: 2023,
+    liveDemoUrl: null,
+    githubUrl: null,
+    description: [
+      'This health analytics platform was developed to help users track their alcohol consumption and its correlation with health conditions.',
+      'Users could log their drinking habits, health issues, and duration of illness through a clean and interactive interface.',
+      'The system compared user data with insights from a comprehensive research dataset on alcohol consumption and health impacts.',
+      'It highlighted common patterns, symptoms, and diseases based on age groups and usage trends.',
+      'The project offered visual comparisons to show users how their consumption relates to broader data, helping raise awareness of potential health risks.',
+      'This was a collaborative group project focused on promoting health literacy through data-driven insights.',
+    ],
+    techStack: {
+      languages: [TECHNOLOGIES_ICONS.JAVASCRIPT, TECHNOLOGIES_ICONS.D3],
+      frontend: [
+        TECHNOLOGIES_ICONS.REACT,
+        TECHNOLOGIES_ICONS.CSS,
+        TECHNOLOGIES_ICONS.REACT_ROUTER,
+      ],
+      backend: [
+        TECHNOLOGIES_ICONS.NODEJS,
+        TECHNOLOGIES_ICONS.EXPRESS,
+        TECHNOLOGIES_ICONS.MY_SQL,
+      ],
+      tools: [TECHNOLOGIES_ICONS.GIT, TECHNOLOGIES_ICONS.DOCKER],
+    },
+    partnerLogo: INSTITUTE_LOGO.GA_TECH,
+    under: 'GA Tech.',
+  },
+  {
     title: 'ATS Website',
     year: 2023,
     liveDemoUrl: 'https://aerialtelecom.in/',
@@ -52,6 +82,31 @@ const PROJECTS = [
     },
     partnerLogo: COMPANIES_LOGO.ATS,
     under: 'Aerial Telecom Solutions',
+  },
+  {
+    title: 'Game Swap',
+    year: 2022,
+    liveDemoUrl: null,
+    githubUrl: null,
+    description: [
+      'Game Swap is a community-driven platform designed to facilitate the exchange of video games among users, reducing waste and promoting game accessibility.',
+      'Users can list their games for swapping, search through listings using various filters, and initiate a swap request for items they’re interested in.',
+      'Each swap request can be accepted or declined by the receiver, and once completed, users can leave ratings for transparency and reliability.',
+      'A personal dashboard allows users to manage their listings, monitor swap status, and review their full swap history for easy reference.',
+    ],
+    techStack: {
+      languages: [TECHNOLOGIES_ICONS.JAVASCRIPT, TECHNOLOGIES_ICONS.PYTHON],
+      frontend: [
+        TECHNOLOGIES_ICONS.CSS,
+        TECHNOLOGIES_ICONS.MATERIAL_UI,
+        TECHNOLOGIES_ICONS.REACT,
+        TECHNOLOGIES_ICONS.REACT_ROUTER,
+      ],
+      backend: [TECHNOLOGIES_ICONS.FLASK, TECHNOLOGIES_ICONS.MY_SQL],
+      tools: [TECHNOLOGIES_ICONS.GIT, TECHNOLOGIES_ICONS.DOCKER],
+    },
+    partnerLogo: INSTITUTE_LOGO.GA_TECH,
+    under: 'GA Tech.',
   },
   {
     year: 2020,

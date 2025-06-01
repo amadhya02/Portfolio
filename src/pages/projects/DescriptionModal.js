@@ -195,7 +195,7 @@ const DescriptionModal = ({ data, open, handleClose }) => {
                         justifyContent={{ xs: 'center', sm: 'left' }}
                       >
                         {techStack.map(({ text, Icon }, i) => (
-                          <Grid key={i} xs={4} sm={3} md={2}>
+                          <Grid key={i} size={{xs: 4, sm: 3, md: 2}}>
                             <motion.div {...fadeIn(0.3 + i * 0.05)}>
                               <Tooltip title={text} placement="top">
                                 <Stack
