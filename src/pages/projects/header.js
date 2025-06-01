@@ -12,9 +12,9 @@ const Header = () => {
       transition={{ duration: 0.6 }}
     >
       <Box sx={{ textAlign: 'left', mb: 6, mt: 6 }}>
-        <Typography variant="h5">THE JOURNEY OF</Typography>
+        <Typography variant="h5">THE ART OF</Typography>
         <GradientTitle variant="h2" sx={{ position: 'relative', zIndex: 1 }}>
-          CREATION
+          ENGINEERING
         </GradientTitle>
         <Typography
           variant="h1"
