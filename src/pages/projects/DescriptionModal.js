@@ -14,13 +14,14 @@ import {
   Paper,
   Divider,
   Tooltip,
+  IconButton,
 } from '@mui/material';
 import {
   FiberManualRecord,
   ListAlt,
   Code,
-  LocationOn,
-  AccessTime,
+  Launch,
+  GitHub,
 } from '@mui/icons-material';
 import { useTheme } from '@mui/material/styles';
 import { motion } from 'framer-motion';
@@ -82,13 +83,29 @@ const DescriptionModal = ({ data, open, handleClose }) => {
               <Typography variant="h2" fontWeight={500} gutterBottom>
                 {data.title}
               </Typography>
-              <Stack direction="row" alignItems="center" spacing={1} mb={1}>
-                <AccessTime fontSize="small" />
-                <Typography variant="body2">{data.year}</Typography>
-              </Stack>
-              <Stack direction="row" alignItems="center" spacing={1}>
-                <LocationOn fontSize="small" />
-                <Typography variant="body2">{data.location}</Typography>
+              <Stack direction="row" spacing={2}>
+                {data.liveDemoUrl && (
+                  <Tooltip title="Live Demo">
+                    <IconButton
+                      href={data.liveDemoUrl}
+                      target="_blank"
+                      sx={{ bgcolor: 'rgba(255,255,255,0.1)' }}
+                    >
+                      <Launch />
+                    </IconButton>
+                  </Tooltip>
+                )}
+                {data.githubUrl && (
+                  <Tooltip title="GitHub Repo">
+                    <IconButton
+                      href={data.githubUrl}
+                      target="_blank"
+                      sx={{ bgcolor: 'rgba(255,255,255,0.1)' }}
+                    >
+                      <GitHub />
+                    </IconButton>
+                  </Tooltip>
+                )}
               </Stack>
             </Box>
           </Grid>
@@ -164,11 +181,7 @@ const DescriptionModal = ({ data, open, handleClose }) => {
                 (category, idx) => {
                   const techStack =
                     data.techStack?.[category.toLowerCase()] || [];
-
-                  if (!techStack.length) {
-                    return null;
-                  }
-
+                  if (!techStack.length) return null;
                   return (
                     <Box key={category} sx={{ mb: idx !== 3 ? 3 : 0 }}>
                       <Typography variant="h6" sx={{ color: 'text.secondary' }}>
