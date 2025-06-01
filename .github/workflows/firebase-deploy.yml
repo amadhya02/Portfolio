@@ -1,0 +1,33 @@
+name: Deploy to Firebase Hosting
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '21'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build React App
+        run: npm run build
+
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@v13
+        with:
+          args: deploy --only hosting --project amadhya-portfolio
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
