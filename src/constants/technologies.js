@@ -29,6 +29,7 @@ export const TECHNOLOGIES_ICONS = {
   JAVASCRIPT: { Icon: 'devicon-javascript-plain', text: 'JavaScript' },
   JIRA: { Icon: 'devicon-jira-plain', text: 'Jira' },
   KAFKA: { Icon: 'devicon-apachekafka-original', text: 'Kafka' },
+  KOTLIN: { Icon: 'devicon-kotlin-plain', text: 'Kotlin' },
   KUBERNETES: { Icon: 'devicon-kubernetes-plain', text: 'Kubernetes' },
   LODASH: { Icon: 'devicon-lodash-plain', text: 'Lodash' },
   MATERIAL_UI: { Icon: 'devicon-materialui-plain', text: 'Material UI' },

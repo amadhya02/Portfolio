@@ -1,19 +1,12 @@
 import React, { useState } from 'react';
-import {
-  Box,
-  Typography,
-  Grid,
-  Button,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-} from '@mui/material';
+import { Box, Typography, Grid } from '@mui/material';
 import { motion } from 'framer-motion';
 
 import { ArrowForwardIos } from '@mui/icons-material';
-import SectionContainer from '../components/SectionContainer';
-import PROJECTS from '../constants/projects';
-import theme from '../theme';
+import SectionContainer from '../../components/SectionContainer';
+import PROJECTS from '../../constants/projects';
+import theme from '../../theme';
+import DescriptionModal from './DescriptionModal';
 
 export default function ProjectsPage() {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -47,7 +40,7 @@ export default function ProjectsPage() {
         </motion.div>
         <Grid container direction="column" sx={{ width: '100%' }}>
           {PROJECTS.map((project, index) => (
-            <Grid item key={index}>
+            <Grid key={index}>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -137,59 +130,13 @@ export default function ProjectsPage() {
       </SectionContainer>
 
       {/* Modal */}
-      <Dialog
-        open={!!selectedProject}
-        onClose={handleClose}
-        maxWidth="md"
-        fullWidth
-      >
-        {selectedProject && (
-          <>
-            <DialogTitle>{selectedProject.title}</DialogTitle>
-            <DialogContent>
-              <img
-                src={selectedProject.image}
-                alt={selectedProject.title}
-                style={{ width: '100%', marginBottom: 16 }}
-              />
-              <Typography paragraph>{selectedProject.description}</Typography>
-              <Button
-                variant="contained"
-                href={selectedProject.liveDemoUrl}
-                target="_blank"
-                sx={{ mr: 2 }}
-              >
-                Live Demo
-              </Button>
-              {selectedProject.githubUrl && (
-                <Button
-                  variant="outlined"
-                  href={selectedProject.githubUrl}
-                  target="_blank"
-                >
-                  GitHub
-                </Button>
-              )}
-              {/* Company Logo */}
-              <Box
-                sx={{
-                  position: 'absolute',
-                  bottom: 24,
-                  right: 24,
-                  zIndex: 2,
-                  opacity: 0.85,
-                }}
-              >
-                <img
-                  src={selectedProject.partnerLogo}
-                  alt={selectedProject.title}
-                  style={{ height: '10vh', opacity: 0.8 }}
-                />
-              </Box>
-            </DialogContent>
-          </>
-        )}
-      </Dialog>
+      {selectedProject && (
+        <DescriptionModal
+          open
+          handleClose={() => handleClose()}
+          data={selectedProject}
+        />
+      )}
     </Box>
   );
 }
