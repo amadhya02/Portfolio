@@ -37,6 +37,7 @@ To run this project locally:
    ```
 
 ## 🔥 Firebase Deployment
+When a pull request is merged into the main branch, a GitHub Actions workflow is triggered to automatically deploy the latest code to production. To deploy manually, run the following command:
 ```bash
 npm run deploy
 ```
