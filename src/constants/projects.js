@@ -4,6 +4,7 @@ import { INSTITUTE_LOGO } from './education';
 import AALogo from '../assets/images/AA-logo-white.png';
 
 const ROLE = {
+  BE: 'Backend Developer',
   FE: 'Frontend Developer',
   FS: 'Fullstack Developer',
 };
@@ -34,6 +35,26 @@ const PROJECTS = [
     partnerLogo: AALogo,
     under: 'Amadhya Anand',
     role: ROLE.FE,
+  },
+  {
+    title: 'Developer Data Collector',
+    year: 2025,
+    liveDemoUrl: null,
+    githubUrl: null,
+    description: [],
+    techStack: {
+      languages: [TECHNOLOGIES_ICONS.PYTHON],
+      frontend: [],
+      backend: [],
+      tools: [
+        TECHNOLOGIES_ICONS.GITLAB,
+        TECHNOLOGIES_ICONS.JIRA,
+        TECHNOLOGIES_ICONS.SONARQUBE,
+      ],
+    },
+    partnerLogo: COMPANIES_LOGO.BOOKING,
+    under: 'Booking.com',
+    role: ROLE.BE,
   },
   {
     title: 'Alcohol Tracker',
