@@ -13,7 +13,10 @@ const Header = () => {
     >
       <Box sx={{ textAlign: 'left', mb: 6, mt: 6 }}>
         <Typography variant="h5">THE ART OF</Typography>
-        <GradientTitle variant="h2" sx={{ position: 'relative', zIndex: 1 }}>
+        <GradientTitle
+          variant="h2"
+          sx={{ position: 'relative', zIndex: 1, fontWeight: 200 }}
+        >
           ENGINEERING
         </GradientTitle>
         <Typography

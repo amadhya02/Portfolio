@@ -29,40 +29,50 @@ const theme = createTheme({
     h1: {
       fontFamily: '"Space Grotesk", sans-serif',
       fontWeight: 700,
-      fontSize: '2.5rem',
+      fontSize: '3rem', // Increased from 2.5rem
       lineHeight: 1.2,
+      letterSpacing: '0.15em',
       '@media (min-width:600px)': {
-        fontSize: '3.5rem',
+        fontSize: '4rem', // Increased from 3.5rem
       },
       '@media (min-width:900px)': {
-        fontSize: '4.2rem',
+        fontSize: '5rem', // Increased from 4.2rem
       },
     },
     h2: {
       fontFamily: '"Space Grotesk", sans-serif',
       fontWeight: 700,
-      fontSize: '2rem',
+      fontSize: '2.25rem', // Increased from 2rem
+      letterSpacing: '0.1em',
       '@media (min-width:600px)': {
-        fontSize: '2.75rem',
+        fontSize: '3rem', // Increased from 2.75rem
       },
     },
     h3: {
       fontFamily: '"Space Grotesk", sans-serif',
       fontWeight: 600,
-      fontSize: '1.75rem',
+      fontSize: '2rem', // Increased from 1.75rem
+      letterSpacing: '0.1em',
     },
     h6: {
       fontWeight: 500,
-      fontSize: '1.15rem',
+      fontSize: '1.25rem', // Increased from 1.15rem
+      letterSpacing: '0.08em',
     },
     body1: {
-      fontSize: '1rem',
+      fontSize: '1.125rem', // Increased from 1rem
+      letterSpacing: '0.03em',
+      lineHeight: 1.7,
+    },
+    body2: {
+      fontSize: '0.95rem', // Increased from 0.8rem
+      letterSpacing: '0.03em',
       lineHeight: 1.6,
     },
     button: {
       textTransform: 'none',
       fontWeight: 500,
-      fontSize: '0.95rem',
+      fontSize: '1rem', // Slight bump from 0.95rem
     },
   },
   shape: {

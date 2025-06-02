@@ -3,7 +3,7 @@ import React from 'react';
 import { Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
-const GradientTitle = ({ text, variant = 'h3', sx = {}, children }) => {
+const GradientTitle = ({ variant, sx = {}, children }) => {
   const theme = useTheme();
 
   return (
@@ -13,7 +13,7 @@ const GradientTitle = ({ text, variant = 'h3', sx = {}, children }) => {
         background: theme.custom.gradients.orangeToYellow,
         WebkitBackgroundClip: 'text',
         WebkitTextFillColor: 'transparent',
-        fontWeight: 700,
+        backgroundClip: 'text',
         ...sx,
       }}
     >

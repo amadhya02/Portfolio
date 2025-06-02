@@ -35,7 +35,6 @@ const DescriptionModal = ({ data, open, handleClose }) => {
       <DialogContent sx={{ p: 0 }}>
         <Grid container>
           <Grid
-            item
             size={{ xs: 12, md: 5 }}
             component={motion.div}
             {...fadeIn(0)}
@@ -85,7 +84,6 @@ const DescriptionModal = ({ data, open, handleClose }) => {
           </Grid>
 
           <Grid
-            item
             size={{ xs: 12, md: 7 }}
             component={motion.div}
             {...fadeIn(0.2)}
