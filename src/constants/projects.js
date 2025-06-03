@@ -41,7 +41,16 @@ const PROJECTS = [
     year: 2025,
     liveDemoUrl: null,
     githubUrl: null,
-    description: [],
+    description: [
+      'A Python-based CLI tool that aggregates and reports developer activity and code quality metrics across GitLab, Jira, and SonarQube for a specified time period.',
+      'Parses merged merge requests from multiple GitLab instances, capturing detailed stats such as additions, deletions, and file changes.',
+      'Detects documentation contributions by identifying updates to README.md files in committed changes.',
+      'Calculates test coverage trends by analyzing the proportion of test files among all modified files per user and per project.',
+      'Integrates with SonarQube to retrieve and categorize assigned code quality issues by severity and type, offering a comprehensive view of technical debt.',
+      'Tracks GitLab user activity events (pushes, comments, merges, etc.) to provide behavioral insights and engagement patterns.',
+      'Queries Jira to count the number of tasks and bugs taken up by the user, broken down by project and issue type.',
+      'Monitors Jira Wiki contributions, tracking how many pages the user has authored or edited.',
+    ],
     techStack: {
       languages: [TECHNOLOGIES_ICONS.PYTHON],
       frontend: [],
