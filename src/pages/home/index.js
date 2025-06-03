@@ -4,7 +4,7 @@ import { Title, Meta } from 'react-head';
 
 import HeroText from './HeroText';
 import HeroImage from './HeroImage';
-import theme from '../../theme';
+import BgImg from '../../assets/images/background.png';
 
 const Index = () => {
   return (
@@ -14,7 +14,7 @@ const Index = () => {
         position: 'relative',
         height: '100vh',
         overflow: 'hidden',
-        background: theme.custom.gradients.background,
+        background: `url(${BgImg})`,
       }}
     >
       <Title>AA Portfolio | Full-Stack Developer</Title>

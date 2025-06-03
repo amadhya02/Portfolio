@@ -59,7 +59,7 @@ const HeroText = () => {
         </Typography>
       </Box>
 
-      <Box sx={{ mt: 4, display: 'flex', gap: 2, flexWrap: 'wrap' }}>
+      <Box sx={{ mt: 4, display: 'flex', gap: 3, flexWrap: 'wrap' }}>
         <Button
           variant="contained"
           color="primary"
