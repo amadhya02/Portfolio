@@ -31,7 +31,7 @@ const theme = createTheme({
       fontWeight: 700,
       fontSize: '3rem', // Increased from 2.5rem
       lineHeight: 1.2,
-      letterSpacing: '0.15em',
+      letterSpacing: '0.05em',
       '@media (min-width:600px)': {
         fontSize: '4rem', // Increased from 3.5rem
       },
@@ -43,7 +43,7 @@ const theme = createTheme({
       fontFamily: '"Space Grotesk", sans-serif',
       fontWeight: 700,
       fontSize: '2.25rem', // Increased from 2rem
-      letterSpacing: '0.1em',
+      letterSpacing: '0.05em',
       '@media (min-width:600px)': {
         fontSize: '3rem', // Increased from 2.75rem
       },
@@ -52,7 +52,7 @@ const theme = createTheme({
       fontFamily: '"Space Grotesk", sans-serif',
       fontWeight: 600,
       fontSize: '2rem', // Increased from 1.75rem
-      letterSpacing: '0.1em',
+      letterSpacing: '0.05em',
     },
     h6: {
       fontWeight: 500,

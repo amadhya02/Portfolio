@@ -28,9 +28,6 @@ const HeroImage = () => {
           borderRadius: 2,
           filter: `drop-shadow(0 0 30px ${alpha(theme.palette.primary.main, 0.1)})`,
           transition: '0.3s ease',
-          '&:hover': {
-            filter: `drop-shadow(0 0 40px ${alpha(theme.palette.primary.main, 0.3)})`,
-          },
         }}
       />
     </motion.div>
