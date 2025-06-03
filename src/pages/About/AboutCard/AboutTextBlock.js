@@ -41,8 +41,9 @@ const AboutTextBlock = () => (
     >
       A young, energetic, and enthusiastic engineer seeking a challenging and
       growth-oriented career as a Software Developer, with a focus on holistic
-      personal development and contributing to organizational success.
-      When I&apos;m not coding, you&apos;ll find me behind a drum set or exploring Amsterdam&apos;s canals.
+      personal development and contributing to organizational success. When
+      I&apos;m not coding, you&apos;ll find me behind a drum set or exploring
+      Amsterdam&apos;s canals.
     </Typography>
 
     {/* Location */}
