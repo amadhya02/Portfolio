@@ -35,6 +35,7 @@ export const TECHNOLOGIES_ICONS = {
   MATERIAL_UI: { Icon: 'devicon-materialui-plain', text: 'Material UI' },
   MY_SQL: { Icon: 'devicon-mysql-original', text: 'MySQL' },
   NEXTJS: { Icon: 'devicon-nextjs-plain', text: 'Next.js' },
+  NGINX: { Icon: 'devicon-nginx-original', text: 'Nginx' },
   NODEJS: { Icon: 'devicon-nodejs-plain-wordmark', text: 'Node.js' },
   NOTION: { Icon: 'devicon-notion-plain', text: 'Notion' },
   NPM: { Icon: 'devicon-npm-original-wordmark', text: 'npm' },

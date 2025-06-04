@@ -15,6 +15,8 @@ const Index = () => {
         height: '100vh',
         overflow: 'hidden',
         background: `url(${BgImg})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
       }}
     >
       <Title>AA Portfolio | Full-Stack Developer</Title>

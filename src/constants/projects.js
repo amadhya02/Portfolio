@@ -66,6 +66,43 @@ const PROJECTS = [
     role: ROLE.BE,
   },
   {
+    title: 'Metro Atlanta Saves',
+    year: 2024,
+    liveDemoUrl: "https://www.brpatl.com/",
+    githubUrl: null,
+    description: [
+      'MetroAtlantaSaves is a financial wellness platform built to help residents in the Atlanta area set and achieve savings goals.',
+      'Users can create profiles, define savings objectives, and track their progress through guided financial programs.',
+      'The platform includes key pages like About Us, Blogs, Educational Resources, and a Savings Calculator to support user learning and engagement.',
+      'An admin dashboard allows authorized users to manage dynamic forms, review user data, and monitor engagement metrics.',
+      'The frontend is built using React and Material UI, offering a clean and responsive interface.',
+      'The backend uses Express and Prisma, with PostgreSQL as the primary database.',
+      'Docker is used for containerization, with deployment handled through PM2 and Nginx.',
+      'The site is secured with Let’s Encrypt SSL and runs on a DigitalOcean VM.',
+    ],
+    techStack: {
+      languages: [TECHNOLOGIES_ICONS.TYPESCRIPT],
+      frontend: [
+        TECHNOLOGIES_ICONS.REACT,
+        TECHNOLOGIES_ICONS.REACT_ROUTER,
+        TECHNOLOGIES_ICONS.CSS,
+      ],
+      backend: [
+        TECHNOLOGIES_ICONS.NODEJS,
+        TECHNOLOGIES_ICONS.EXPRESS,
+        TECHNOLOGIES_ICONS.POSTGRESQL,
+      ],
+      tools: [
+        TECHNOLOGIES_ICONS.GIT,
+        TECHNOLOGIES_ICONS.DOCKER,
+        TECHNOLOGIES_ICONS.NGINX,
+      ],
+    },
+    partnerLogo: INSTITUTE_LOGO.GA_TECH,
+    under: 'GA Tech.',
+    role: ROLE.FS,
+  },
+  {
     title: 'Alcohol Tracker',
     year: 2023,
     liveDemoUrl: null,
