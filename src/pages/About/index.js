@@ -1,21 +1,24 @@
-import React from 'react';
-import { Box } from '@mui/material';
+import React, { Suspense } from 'react';
+import { Box, CircularProgress } from '@mui/material';
 import { Meta, Title } from 'react-head';
+
 import AboutCard from './AboutCard';
-import Passions from './Passions';
 import theme from '../../theme';
-import EducationSection from './Education';
-import SkillsTable from './Skills';
-import ExperienceTimeline from './Experience';
+
+// Lazy-loaded sections
+const EducationSection = React.lazy(() => import('./Education'));
+const ExperienceTimeline = React.lazy(() => import('./Experience'));
+const SkillsTable = React.lazy(() => import('./Skills'));
+const Passions = React.lazy(() => import('./Passions'));
+
+// Reusable loading fallback
+const Loader = () => (
+  <CircularProgress sx={{ mt: 4, mx: 'auto', display: 'block' }} />
+);
 
 const AboutSection = () => {
   return (
-    <Box
-      sx={{
-        py: 8,
-        background: theme.custom.gradients.background,
-      }}
-    >
+    <>
       <Title>About | AA Portfolio</Title>
       <Meta
         name="description"
@@ -26,13 +29,34 @@ const AboutSection = () => {
         property="og:description"
         content="Discover AA's development background, values, and expertise in building modern web apps."
       />
-      <AboutCard />
-      <EducationSection />
-      <ExperienceTimeline />
-      <SkillsTable />
-      <Passions />
-    </Box>
+
+      <Box
+        component="section"
+        sx={{
+          py: 8,
+          background: theme.custom.gradients.background,
+        }}
+      >
+        <AboutCard />
+
+        <Suspense fallback={<Loader />}>
+          <EducationSection />
+        </Suspense>
+
+        <Suspense fallback={<Loader />}>
+          <ExperienceTimeline />
+        </Suspense>
+
+        <Suspense fallback={<Loader />}>
+          <SkillsTable />
+        </Suspense>
+
+        <Suspense fallback={<Loader />}>
+          <Passions />
+        </Suspense>
+      </Box>
+    </>
   );
 };
 
-export default AboutSection;
+export default React.memo(AboutSection);

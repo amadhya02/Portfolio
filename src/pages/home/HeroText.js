@@ -6,15 +6,17 @@ import { ReactTyped } from 'react-typed';
 
 import { fadeLeft } from '../../components/MotionVariants';
 
+const MotionBox = motion.create(Box);
+
 const HeroText = () => {
   return (
-    <motion.div
+    <MotionBox
       variants={fadeLeft}
       initial="hidden"
       animate="visible"
       transition={{ duration: 0.6 }}
     >
-      {/* Thin Line */}
+      {/* Accent Line */}
       <Box
         sx={{
           width: 40,
@@ -29,7 +31,12 @@ const HeroText = () => {
         &rsaquo; Hello, I’m
       </Typography>
 
-      <Typography variant="h1" color="primary" gutterBottom>
+      <Typography
+        variant="h1"
+        color="primary"
+        gutterBottom
+        sx={{ fontWeight: 700 }}
+      >
         Amadhya <br /> Anand
       </Typography>
 
@@ -42,7 +49,12 @@ const HeroText = () => {
       </Typography>
 
       <Box sx={{ mt: 2 }}>
-        <Typography variant="h6" sx={{ fontWeight: 500 }}>
+        <Typography
+          variant="h6"
+          sx={{ fontWeight: 500 }}
+          component="div"
+          aria-label="Typed developer roles"
+        >
           <ReactTyped
             strings={[
               '🎯 Engineer by day',
@@ -81,8 +93,8 @@ const HeroText = () => {
           Download Resume
         </Button>
       </Box>
-    </motion.div>
+    </MotionBox>
   );
 };
 
-export default HeroText;
+export default React.memo(HeroText);

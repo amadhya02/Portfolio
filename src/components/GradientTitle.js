@@ -22,4 +22,4 @@ const GradientTitle = ({ variant, sx = {}, children }) => {
   );
 };
 
-export default GradientTitle;
+export default React.memo(GradientTitle);

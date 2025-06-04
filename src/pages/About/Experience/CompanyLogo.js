@@ -2,6 +2,8 @@ import React from 'react';
 import { Avatar, Grid } from '@mui/material';
 import { motion } from 'framer-motion';
 
+const MotionGrid = motion.create(Grid);
+
 const animationVariants = {
   hidden: { opacity: 0, scale: 0.8, y: 30 },
   visible: (index) => ({
@@ -18,34 +20,32 @@ const animationVariants = {
 
 const CompanyLogo = ({ logo, index }) => {
   return (
-    <Grid>
-      <motion.div
-        custom={index}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={animationVariants}
-      >
-        <Avatar
-          src={logo}
-          alt="Institute Logo"
-          variant="square"
-          sx={{
-            width: { xs: '40vw', sm: '30vw', md: '15vw' },
-            height: { xs: '40vw', sm: '30vw', md: '15vw' },
-            maxWidth: 175,
-            maxHeight: 175,
-            mx: 'auto',
-          }}
-          slotProps={{
-            img: {
-              style: { objectFit: 'contain' },
-            },
-          }}
-        />
-      </motion.div>
-    </Grid>
+    <MotionGrid
+      custom={index}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+      variants={animationVariants}
+    >
+      <Avatar
+        src={logo}
+        alt={`Company logo ${index + 1}`}
+        variant="square"
+        sx={{
+          width: { xs: '40vw', sm: '30vw', md: '15vw' },
+          height: { xs: '40vw', sm: '30vw', md: '15vw' },
+          maxWidth: 175,
+          maxHeight: 175,
+          mx: 'auto',
+        }}
+        slotProps={{
+          img: {
+            style: { objectFit: 'contain' },
+          },
+        }}
+      />
+    </MotionGrid>
   );
 };
 
-export default CompanyLogo;
+export default React.memo(CompanyLogo);

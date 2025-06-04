@@ -9,9 +9,8 @@ import DescriptionModal from './DescriptionModal';
 import ProjectItem from './projectItem';
 import Header from './header';
 
-export default function ProjectsPage() {
+const ProjectsPage = () => {
   const [selectedProject, setSelectedProject] = useState(null);
-  const handleClose = () => setSelectedProject(null);
 
   return (
     <Box sx={{ background: theme.custom.gradients.background }}>
@@ -53,10 +52,12 @@ export default function ProjectsPage() {
       {selectedProject && (
         <DescriptionModal
           open
-          handleClose={() => handleClose()}
+          handleClose={setSelectedProject.bind(null, null)}
           data={selectedProject}
         />
       )}
     </Box>
   );
-}
+};
+
+export default React.memo(ProjectsPage);

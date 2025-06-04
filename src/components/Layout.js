@@ -6,4 +6,4 @@ const Layout = ({ children }) => (
   <Box sx={{ mt: { xs: '64px', sm: '72px' }, px: 2 }}>{children}</Box>
 );
 
-export default Layout;
+export default React.memo(Layout);

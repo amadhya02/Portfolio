@@ -1,12 +1,11 @@
 import React from 'react';
-import { Grid } from '@mui/material';
+import { Grid, Box } from '@mui/material';
 import { motion } from 'framer-motion';
 
 import HobbyCard from './card';
 import SectionContainer from '../../../components/SectionContainer';
 import HOBBIES from '../../../constants/hobbies';
 
-// Animation variants
 const containerVariants = {
   hidden: {},
   visible: {
@@ -25,6 +24,8 @@ const itemVariants = {
   },
 };
 
+const MotionBox = motion.create(Box);
+
 const HobbiesSection = () => {
   return (
     <SectionContainer
@@ -33,28 +34,27 @@ const HobbiesSection = () => {
       id="hobbies"
       align="right"
     >
-      <Grid
-        container
-        spacing={4}
-        justifyContent="center"
-        component={motion.div}
+      <motion.div
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
       >
-        {HOBBIES.map((hobby) => (
-          <Grid
-            key={hobby.title}
-            component={motion.div}
-            variants={itemVariants}
-          >
-            <HobbyCard {...hobby} />
-          </Grid>
-        ))}
-      </Grid>
+        <Grid container spacing={4} justifyContent="center">
+          {HOBBIES.map((hobby) => (
+            <Grid
+              size={{ xs: 12, sm: 6 }}
+              key={hobby.title}
+              component={MotionBox}
+              variants={itemVariants}
+            >
+              <HobbyCard {...hobby} />
+            </Grid>
+          ))}
+        </Grid>
+      </motion.div>
     </SectionContainer>
   );
 };
 
-export default HobbiesSection;
+export default React.memo(HobbiesSection);

@@ -21,7 +21,12 @@ const EducationTimeline = () => {
         <Grid size={{ xs: 12, sm: 7, md: 6 }}>
           <Timeline position={isMobile ? 'right' : 'alternate'}>
             {EDUCATION.map((edu, idx) => (
-              <EducationEntry key={edu.institute} data={edu} index={idx} />
+              <EducationEntry
+                key={edu.institute || idx}
+                data={edu}
+                index={idx}
+                isLast={idx + 1 === EDUCATION.length}
+              />
             ))}
           </Timeline>
         </Grid>
@@ -30,7 +35,11 @@ const EducationTimeline = () => {
         <Grid size={{ xs: 12, sm: 5, md: 6 }}>
           <Grid container spacing={3} justifyContent="center">
             {EDUCATION.map((edu, idx) => (
-              <InstituteLogo key={edu.institute} logo={edu.logo} index={idx} />
+              <InstituteLogo
+                key={`${edu.institute}-logo`}
+                logo={edu.logo}
+                index={idx}
+              />
             ))}
           </Grid>
         </Grid>
@@ -39,4 +48,4 @@ const EducationTimeline = () => {
   );
 };
 
-export default EducationTimeline;
+export default React.memo(EducationTimeline);

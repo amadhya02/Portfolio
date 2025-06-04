@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import {
   TimelineItem,
   TimelineSeparator,
@@ -7,22 +7,29 @@ import {
   TimelineContent,
   TimelineOppositeContent,
 } from '@mui/lab';
-import { Typography, IconButton, Box, Tooltip, Stack } from '@mui/material';
-import { Work } from '@mui/icons-material';
-import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-import { useTheme } from '@mui/material/styles';
+import {
+  Typography,
+  IconButton,
+  Box,
+  Tooltip,
+  Stack,
+  useTheme,
+} from '@mui/material';
+import { Work, OpenInNew as OpenInNewIcon } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import DescriptionModal from './DescriptionModal';
+
+const MotionBox = motion.create(Box);
 
 const ExperienceEntry = ({ data, index, isLast }) => {
   const theme = useTheme();
   const [openModalIndex, setOpenModalIndex] = useState(null);
 
-  const handleOpen = (i) => setOpenModalIndex(i);
-  const handleClose = () => setOpenModalIndex(null);
+  const handleOpen = useCallback((i) => setOpenModalIndex(i), []);
+  const handleClose = useCallback(() => setOpenModalIndex(null), []);
 
   return (
-    <motion.div
+    <MotionBox
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -47,6 +54,7 @@ const ExperienceEntry = ({ data, index, isLast }) => {
           </TimelineDot>
           {!isLast && <TimelineConnector sx={{ bgcolor: 'primary.main' }} />}
         </TimelineSeparator>
+
         <TimelineContent sx={{ pb: 2 }}>
           <Typography variant="h6" fontWeight="bold">
             {data.name}
@@ -64,8 +72,8 @@ const ExperienceEntry = ({ data, index, isLast }) => {
             }}
           >
             {data.roles.map((role, i) => (
-              <motion.div
-                key={data.name + '_' + role.role}
+              <MotionBox
+                key={`${data.name}_${role.role}`}
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ delay: i * 0.1 }}
@@ -82,20 +90,23 @@ const ExperienceEntry = ({ data, index, isLast }) => {
                       {role.duration}
                     </Typography>
                   </Box>
+
                   <Tooltip title="View Work">
                     <IconButton
                       edge="end"
-                      aria-label="open"
+                      aria-label={`Open description for ${role.role}`}
+                      aria-expanded={openModalIndex === i}
                       onClick={() => handleOpen(i)}
                     >
                       <OpenInNewIcon fontSize="small" />
                     </IconButton>
                   </Tooltip>
                 </Stack>
+
                 {openModalIndex === i && (
                   <DescriptionModal
                     open
-                    handleClose={() => handleClose()}
+                    handleClose={handleClose}
                     data={{
                       ...role,
                       company: data.name,
@@ -104,13 +115,13 @@ const ExperienceEntry = ({ data, index, isLast }) => {
                     }}
                   />
                 )}
-              </motion.div>
+              </MotionBox>
             ))}
           </Box>
         </TimelineContent>
       </TimelineItem>
-    </motion.div>
+    </MotionBox>
   );
 };
 
-export default ExperienceEntry;
+export default React.memo(ExperienceEntry);

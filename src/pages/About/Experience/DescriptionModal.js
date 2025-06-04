@@ -21,6 +21,16 @@ const fadeIn = (delay = 0) => ({
   transition: { duration: 0.5, delay },
 });
 
+const modalVariants = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.4, ease: 'easeOut' },
+  },
+  exit: { opacity: 0, scale: 0.95, transition: { duration: 0.3 } },
+};
+
 const DescriptionModal = ({ data, open, handleClose }) => {
   const theme = useTheme();
 
@@ -31,9 +41,26 @@ const DescriptionModal = ({ data, open, handleClose }) => {
       maxWidth="md"
       fullWidth
       scroll="body"
+      PaperComponent={motion.div}
+      slotProps={{
+        paper: {
+          variants: modalVariants,
+          initial: 'hidden',
+          animate: 'visible',
+          exit: 'exit',
+          sx: { borderRadius: 3, overflow: 'hidden' },
+        },
+        backdrop: {
+          sx: {
+            backdropFilter: 'blur(2px)',
+            backgroundColor: 'rgba(0,0,0,0.4)',
+          },
+        },
+      }}
     >
       <DialogContent sx={{ p: 0 }}>
         <Grid container>
+          {/* Left - Logo and Info */}
           <Grid
             size={{ xs: 12, md: 5 }}
             component={motion.div}
@@ -44,9 +71,8 @@ const DescriptionModal = ({ data, open, handleClose }) => {
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'space-between',
-              position: 'relative',
               color: '#fff',
-              overflow: 'hidden',
+              position: 'relative',
               boxShadow: 'inset 0 0 20px rgba(0,0,0,0.1)',
             }}
           >
@@ -57,12 +83,11 @@ const DescriptionModal = ({ data, open, handleClose }) => {
                   bottom: 4,
                   right: 4,
                   opacity: { xs: 1, sm: 0.75 },
-                  display: 'flex',
                 }}
               >
                 <img
                   src={data.logo}
-                  alt="logo"
+                  alt="Company logo"
                   width="200"
                   style={{ objectFit: 'contain', margin: 'auto' }}
                 />
@@ -83,6 +108,7 @@ const DescriptionModal = ({ data, open, handleClose }) => {
             </Box>
           </Grid>
 
+          {/* Right - Description and Stack */}
           <Grid
             size={{ xs: 12, md: 7 }}
             component={motion.div}
@@ -97,7 +123,7 @@ const DescriptionModal = ({ data, open, handleClose }) => {
             <DescriptionCard description={data.desc} />
             <TechList stack={data.tech} />
             <Divider sx={{ my: 4 }} />
-            <motion.div {...fadeIn(0.8)}>
+            <motion.div {...fadeIn(0.4)}>
               <Button variant="outlined" onClick={handleClose} fullWidth>
                 Close
               </Button>
@@ -109,4 +135,4 @@ const DescriptionModal = ({ data, open, handleClose }) => {
   );
 };
 
-export default DescriptionModal;
+export default React.memo(DescriptionModal);

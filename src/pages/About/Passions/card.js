@@ -1,13 +1,16 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
+import { useTheme } from '@mui/material/styles';
 import GradientTitle from '../../../components/GradientTitle';
-import theme from '../../../theme';
+
+const MotionBox = motion.create(Box);
 
 const HobbyCard = ({ icon, title, description }) => {
+  const theme = useTheme();
+
   return (
-    <Box
-      component={motion.div}
+    <MotionBox
       whileHover={{ scale: 1.03 }}
       transition={{ duration: 0.3 }}
       sx={{
@@ -15,23 +18,23 @@ const HobbyCard = ({ icon, title, description }) => {
         border: `2px solid ${theme.custom.border}`,
         borderRadius: '0px 30px',
         p: { xs: 3, sm: 4 },
-        height: 225,
         maxWidth: 360,
-        backgroundColor: 'background.paper',
-        background: `transparent url(${icon})`,
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'bottom right',
+        minHeight: 225,
+        background: `url(${icon}) no-repeat bottom right`,
+        backgroundColor: theme.palette.background.paper,
         backgroundSize: 100,
       }}
     >
-      <GradientTitle variant="h5" sx={{ mb: 1 }}>
-        {title}
-      </GradientTitle>
-      <Typography variant="body1" color="text.primary">
-        {description}
-      </Typography>
-    </Box>
+      <Box>
+        <GradientTitle variant="h5" sx={{ mb: 1 }}>
+          {title}
+        </GradientTitle>
+        <Typography variant="body1" color="text.primary">
+          {description}
+        </Typography>
+      </Box>
+    </MotionBox>
   );
 };
 
-export default HobbyCard;
+export default React.memo(HobbyCard);

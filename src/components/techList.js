@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo, useMemo } from 'react';
 import { Typography, Box, Stack, Grid, Paper, Divider } from '@mui/material';
 import { Code } from '@mui/icons-material';
 import { motion } from 'framer-motion';
@@ -11,6 +11,11 @@ const fadeIn = (delay = 0) => ({
 });
 
 const TechList = ({ stack }) => {
+  const categories = useMemo(
+    () => ['Languages', 'Frontend', 'Backend', 'Tools'],
+    []
+  );
+
   return (
     <Paper
       component={motion.div}
@@ -28,13 +33,16 @@ const TechList = ({ stack }) => {
         <Typography variant="h5">Tech Stack</Typography>
       </Stack>
 
-      {['Languages', 'Frontend', 'Backend', 'Tools'].map((category, idx) => {
+      {categories.map((category, idx) => {
         const techStack = stack?.[category.toLowerCase()] || [];
 
         if (!techStack.length) return null;
 
         return (
-          <Box key={category} sx={{ mb: idx !== 3 ? 3 : 0 }}>
+          <Box
+            key={category}
+            sx={{ mb: idx !== categories.length - 1 ? 3 : 0 }}
+          >
             <Typography variant="h6" sx={{ color: 'text.secondary' }}>
               {category}
             </Typography>
@@ -43,10 +51,10 @@ const TechList = ({ stack }) => {
               container
               spacing={2}
               alignItems="center"
-              justifyContent={{ xs: 'center', sm: 'left' }}
+              justifyContent={{ xs: 'center', sm: 'flex-start' }}
             >
               {techStack.map(({ text, Icon }, i) => (
-                <Grid key={i}>
+                <Grid key={`${category}-${text}`}>
                   <motion.div {...fadeIn(0.3 + i * 0.05)}>
                     <TechCard Icon={Icon} text={text} />
                   </motion.div>
@@ -60,4 +68,4 @@ const TechList = ({ stack }) => {
   );
 };
 
-export default TechList;
+export default memo(TechList);
