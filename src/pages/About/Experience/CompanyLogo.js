@@ -5,8 +5,6 @@ import React from 'react';
 
 const MotionGrid = motion.create(Grid);
 
-const MotionGrid = motion.create(Grid);
-
 const animationVariants = {
   hidden: { opacity: 0, scale: 0.8, y: 30 },
   visible: (index) => ({

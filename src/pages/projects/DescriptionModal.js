@@ -23,12 +23,6 @@ const modalVariants = {
   exit: { opacity: 0, y: 20, scale: 0.95 },
 };
 
-const modalVariants = {
-  hidden: { opacity: 0, y: 40, scale: 0.95 },
-  visible: { opacity: 1, y: 0, scale: 1 },
-  exit: { opacity: 0, y: 20, scale: 0.95 },
-};
-
 const fadeIn = (delay = 0) => ({
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
