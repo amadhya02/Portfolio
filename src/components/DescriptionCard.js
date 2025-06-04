@@ -1,21 +1,15 @@
-import React from 'react';
-// MUI Components
-import Typography from '@mui/material/Typography';
-import Stack from '@mui/material/Stack';
+import FiberManualRecord from '@mui/icons-material/FiberManualRecord';
+import ListAlt from '@mui/icons-material/ListAlt';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Paper from '@mui/material/Paper';
-
-// MUI Icons
-import FiberManualRecord from '@mui/icons-material/FiberManualRecord';
-import ListAlt from '@mui/icons-material/ListAlt';
-
-// MUI Hook
+import Stack from '@mui/material/Stack';
 import { useTheme } from '@mui/material/styles';
-
+import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
+import React from 'react';
 
 const DescriptionCard = ({ description = [] }) => {
   const theme = useTheme();

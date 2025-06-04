@@ -1,10 +1,10 @@
-import React from 'react';
 import Box from '@mui/material/Box';
 import { useTheme } from '@mui/material/styles';
 import { motion } from 'framer-motion';
+import React from 'react';
 import { ReactTyped } from 'react-typed';
-import ItermHeader from './ItermHeader';
 
+import ItermHeader from './ItermHeader';
 import { COLORS } from '../../constants/colors';
 
 const Terminal = ({ command, children, uniqueKey, setTypingDone }) => {

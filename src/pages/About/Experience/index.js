@@ -1,11 +1,11 @@
-import React from 'react';
-import Grid from '@mui/material/Grid';
 import Timeline from '@mui/lab/Timeline';
+import Grid from '@mui/material/Grid';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import React from 'react';
 
-import ExperienceEntry from './ExperienceEntry';
 import CompanyLogo from './CompanyLogo';
+import ExperienceEntry from './ExperienceEntry';
 import SectionContainer from '../../../components/SectionContainer';
 import EXPERIENCE from '../../../constants/experience';
 

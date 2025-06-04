@@ -1,7 +1,7 @@
-import React from 'react';
-import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
 import { motion } from 'framer-motion';
+import React from 'react';
 
 import HobbyCard from './card';
 import SectionContainer from '../../../components/SectionContainer';

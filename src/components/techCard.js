@@ -1,11 +1,8 @@
-import React from 'react';
-// MUI Components
-import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
-import Tooltip from '@mui/material/Tooltip';
-
-// MUI Hook
 import { useTheme } from '@mui/material/styles';
+import Tooltip from '@mui/material/Tooltip';
+import Typography from '@mui/material/Typography';
+import React from 'react';
 
 // Memoized component for re-render efficiency
 const TechCard = ({ text, Icon }) => {

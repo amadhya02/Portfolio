@@ -1,6 +1,6 @@
-import React, { Suspense } from 'react';
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
+import React, { Suspense } from 'react';
 import { Meta, Title } from 'react-head';
 
 import AboutCard from './AboutCard';

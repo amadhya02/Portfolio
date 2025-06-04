@@ -1,8 +1,9 @@
-import React, { useCallback } from 'react';
+import ArrowForwardIos from '@mui/icons-material/ArrowForwardIos';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
-import ArrowForwardIos from '@mui/icons-material/ArrowForwardIos';
+import React, { useCallback } from 'react';
+
 import theme from '../../theme';
 
 // Create a motion-enabled MUI Box

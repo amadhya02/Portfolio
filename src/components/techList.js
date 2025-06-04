@@ -1,16 +1,13 @@
-import React, { memo, useMemo } from 'react';
-// MUI Components
-import Typography from '@mui/material/Typography';
+import Code from '@mui/icons-material/Code';
 import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
+import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
-import Divider from '@mui/material/Divider';
-
-// MUI Icon
-import Code from '@mui/icons-material/Code';
-
+import Stack from '@mui/material/Stack';
+import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
+import React, { memo, useMemo } from 'react';
+
 import TechCard from './techCard';
 
 const fadeIn = (delay = 0) => ({

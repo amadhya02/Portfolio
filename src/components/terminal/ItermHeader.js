@@ -1,6 +1,7 @@
-import React from 'react';
 import Box from '@mui/material/Box';
-import {COLORS} from "../../constants/colors";
+import React from 'react';
+
+import { COLORS } from '../../constants/colors';
 
 const colors = [COLORS.RED_CLOSE, COLORS.AMBER_MIN, COLORS.GREEN_MAX];
 

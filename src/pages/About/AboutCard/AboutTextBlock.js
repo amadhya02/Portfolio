@@ -1,15 +1,12 @@
-import React from 'react';
-// MUI Components
+import LocationOn from '@mui/icons-material/LocationOn';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-
-// MUI Icon
-import LocationOn from '@mui/icons-material/LocationOn';
-
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import React from 'react';
+import { Link } from 'react-router-dom';
+
 import GradientTitle from '../../../components/GradientTitle';
 
 const containerVariants = {

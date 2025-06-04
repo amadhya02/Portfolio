@@ -1,12 +1,11 @@
-import React from 'react';
-import Grid from '@mui/material/Grid';
 import Timeline from '@mui/lab/Timeline';
+import Grid from '@mui/material/Grid';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import React from 'react';
 
 import EducationEntry from './EducationEntry';
 import InstituteLogo from './InstituteLogo';
-
 import SectionContainer from '../../../components/SectionContainer';
 import EDUCATION from '../../../constants/education';
 

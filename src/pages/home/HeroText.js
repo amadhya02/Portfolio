@@ -1,9 +1,9 @@
-import React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { ReactTyped } from 'react-typed';
 
 import { fadeLeft } from '../../components/MotionVariants';

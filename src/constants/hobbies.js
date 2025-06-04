@@ -1,7 +1,7 @@
 import DrumsImg from '../assets/images/drum-set.png';
 import DumbellImg from '../assets/images/dumbbell.png';
-import SwimImg from '../assets/images/swimming.png';
 import LegoImg from '../assets/images/lego.png';
+import SwimImg from '../assets/images/swimming.png';
 
 const HOBBIES = [
   {

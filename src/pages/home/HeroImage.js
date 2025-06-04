@@ -1,10 +1,10 @@
-import React from 'react';
 import Box from '@mui/material/Box';
 import { useTheme, alpha } from '@mui/material/styles';
 import { motion } from 'framer-motion';
-import { fadeUp } from '../../components/MotionVariants';
+import React from 'react';
 
 import devImage from '../../assets/images/coding.png';
+import { fadeUp } from '../../components/MotionVariants';
 
 const MotionBox = motion.create(Box);
 
