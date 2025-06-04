@@ -88,7 +88,7 @@ const EXPERIENCE = [
     location: 'Remote',
     roles: [
       {
-        duration: 'Mar, 2023 - May, 2023',
+        duration: 'Mar, 2023 - Present',
         role: 'Freelance Frontend Developer',
         desc: [
           "Built a business website from scratch to showcase services, team profiles, and contact information, enhancing the company's online presence and credibility",

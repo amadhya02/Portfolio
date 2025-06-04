@@ -10,7 +10,7 @@ export const INSTITUTE_LOGO = {
 
 const EDUCATION = [
   {
-    duration: 'Aug, 2016 - Jun, 2020',
+    duration: 'Jan, 2022 - Dec, 2024',
     degree: 'M.Sc. in Computing Systems',
     institute: 'Georgia Institute of Technology',
     other: '3.8 GPA',
