@@ -5,6 +5,8 @@ import { COLORS } from '../../constants/colors';
 
 const colors = [COLORS.RED_CLOSE, COLORS.AMBER_MIN, COLORS.GREEN_MAX];
 
+const colors = ['#ff5f56', '#ffbd2e', '#27c93f'];
+
 export default function ItermHeader() {
   return (
     <Box

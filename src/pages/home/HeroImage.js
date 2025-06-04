@@ -8,6 +8,8 @@ import { fadeUp } from '../../components/MotionVariants';
 
 const MotionBox = motion.create(Box);
 
+const MotionBox = motion.create(Box);
+
 const HeroImage = () => {
   const theme = useTheme();
 
