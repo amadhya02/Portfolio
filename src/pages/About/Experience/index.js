@@ -6,13 +6,13 @@ import { useMediaQuery } from '@mui/material';
 
 import ExperienceEntry from './ExperienceEntry';
 import CompanyLogo from './CompanyLogo';
-
 import SectionContainer from '../../../components/SectionContainer';
 import EXPERIENCE from '../../../constants/experience';
 
 const ExperienceTimeline = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const total = EXPERIENCE.length;
 
   return (
     <SectionContainer
@@ -23,24 +23,26 @@ const ExperienceTimeline = () => {
     >
       <Grid container spacing={6} alignItems="center">
         {/* Timeline Section */}
-        <Grid size={{ xs: 12, sm: 7, md: 6 }}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <Timeline position={isMobile ? 'alternate' : 'right'}>
             {EXPERIENCE.map((company, idx) => (
               <ExperienceEntry
                 key={company.name}
                 data={company}
                 index={idx}
-                isLast={idx + 1 === EXPERIENCE.length}
+                isLast={idx + 1 === total}
               />
             ))}
           </Timeline>
         </Grid>
 
         {/* Logos Section */}
-        <Grid size={{ xs: 12, sm: 5, md: 6 }}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <Grid container spacing={3} justifyContent="center">
             {EXPERIENCE.map(({ logo, name }, idx) => (
-              <CompanyLogo key={name + 'logo'} logo={logo} index={idx} />
+              <Grid key={name + '-logo'}>
+                <CompanyLogo logo={logo} index={idx} />
+              </Grid>
             ))}
           </Grid>
         </Grid>
@@ -49,4 +51,4 @@ const ExperienceTimeline = () => {
   );
 };
 
-export default ExperienceTimeline;
+export default React.memo(ExperienceTimeline);

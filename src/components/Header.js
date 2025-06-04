@@ -24,4 +24,4 @@ const Header = ({ align = 'left', title, subtitle }) => {
   );
 };
 
-export default Header;
+export default React.memo(Header);

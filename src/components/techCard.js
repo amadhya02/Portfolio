@@ -2,6 +2,7 @@ import React from 'react';
 import { Typography, Stack, Tooltip } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
+// Memoized component for re-render efficiency
 const TechCard = ({ text, Icon }) => {
   const theme = useTheme();
 
@@ -17,14 +18,21 @@ const TechCard = ({ text, Icon }) => {
           borderRadius: 1,
           width: 80,
           border: `1px solid ${theme.custom.border}`,
-          transition: 'all 0.2s ease-in-out',
+          transition: 'transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out',
           '&:hover': {
             transform: 'translateY(-2px) scale(1.03)',
             boxShadow: `0 2px 8px ${theme.palette.primary.main}22`,
           },
         }}
       >
-        {Icon && <i className={Icon} style={{ fontSize: 28 }}></i>}
+        {Icon && (
+          <i
+            className={Icon}
+            style={{ fontSize: 28 }}
+            aria-hidden="true"
+            loading="lazy"
+          ></i>
+        )}
         <Typography
           variant="body2"
           color="textPrimary"
@@ -45,4 +53,4 @@ const TechCard = ({ text, Icon }) => {
   );
 };
 
-export default TechCard;
+export default React.memo(TechCard);

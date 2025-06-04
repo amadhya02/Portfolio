@@ -1,6 +1,8 @@
 import React from 'react';
 import { Box } from '@mui/material';
 
+const colors = ['#ff5f56', '#ffbd2e', '#27c93f'];
+
 export default function ItermHeader() {
   return (
     <Box
@@ -13,9 +15,10 @@ export default function ItermHeader() {
         backgroundColor: '#1e1e1e',
         borderTopLeftRadius: 2,
         borderTopRightRadius: 2,
+        width: '100%',
       }}
     >
-      {['#ff5f56', '#ffbd2e', '#27c93f'].map((color) => (
+      {colors.map((color) => (
         <Box
           key={color}
           sx={{
@@ -23,6 +26,10 @@ export default function ItermHeader() {
             height: 12,
             borderRadius: '50%',
             backgroundColor: color,
+            transition: 'transform 0.2s ease-in-out',
+            '&:hover': {
+              transform: 'scale(1.1)',
+            },
           }}
         />
       ))}

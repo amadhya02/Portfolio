@@ -6,12 +6,7 @@ import ItermHeader from './ItermHeader';
 
 import { COLORS } from '../../constants/colors';
 
-export default function Terminal({
-  command,
-  children,
-  uniqueKey,
-  setTypingDone,
-}) {
+const Terminal = ({ command, children, uniqueKey, setTypingDone }) => {
   const theme = useTheme();
 
   return (
@@ -26,40 +21,38 @@ export default function Terminal({
         sx={{
           backgroundColor: theme.palette.background.paper,
           border: `1px solid ${theme.custom.border}`,
-          borderRadius: '12px',
+          borderRadius: 2,
           boxShadow: theme.custom.shadows.softGlow,
-          fontFamily: 'Source Code Pro, monospace',
-          fontSize: '0.9rem',
+          fontFamily: '"Source Code Pro", monospace',
+          fontSize: '0.875rem',
           color: theme.palette.primary.contrastText,
           lineHeight: 1.6,
-          mb: 4,
-          p: 0,
           overflowX: 'auto',
-          maxWidth: '100%',
           width: '100%',
           display: 'flex',
           flexDirection: 'column',
-          flex: 1,
         }}
       >
         <ItermHeader />
-        <Box component="pre" sx={{ px: 2, pt: 2, mb: 0 }}>
-          <Box
-            component="span"
-            sx={{ color: COLORS.LIME, display: 'inline-block' }}
-          >
-            ${' '}
+
+        <Box component="pre" sx={{ px: 2, pt: 2 }}>
+          <Box component="span" sx={{ color: COLORS.LIME }}>
+            $&nbsp;
             <ReactTyped
               strings={[command]}
-              typeSpeed={60}
-              showCursor={true}
-              startWhenVisible={true}
+              typeSpeed={50}
+              backSpeed={0}
+              showCursor
+              smartBackspace={false}
               onComplete={() => setTypingDone(true)}
             />
           </Box>
         </Box>
+
         {children}
       </Box>
     </motion.div>
   );
-}
+};
+
+export default Terminal;

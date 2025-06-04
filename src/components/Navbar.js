@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import {
   AppBar,
   Toolbar,
@@ -24,25 +24,32 @@ const pages = [
 ];
 
 const Navbar = () => {
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
 
-  const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
+  const handleDrawerToggle = useCallback(() => {
+    setMobileOpen((prev) => !prev);
+  }, []);
+
+  const isActive = useCallback(
+    (path) => location.pathname === path,
+    [location.pathname]
+  );
 
   const drawer = (
     <Box
       sx={{
         height: '100vh',
         width: '100vw',
-        backgroundColor: 'background.default',
+        bgcolor: 'background.default',
+        px: 3,
+        py: 2,
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
-        px: 3,
-        py: 2,
       }}
     >
-      {/* Header with Logo and Close Icon */}
+      {/* Header */}
       <Box
         sx={{
           display: 'flex',
@@ -50,24 +57,15 @@ const Navbar = () => {
           alignItems: 'center',
         }}
       >
-        <Box
-          component={Link}
-          to="/"
-          onClick={handleDrawerToggle}
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            textDecoration: 'none',
-          }}
-        >
+        <Link to="/" onClick={handleDrawerToggle}>
           <Box component="img" src={AALogo} alt="AA Logo" sx={{ height: 50 }} />
-        </Box>
-        <IconButton onClick={handleDrawerToggle}>
+        </Link>
+        <IconButton onClick={handleDrawerToggle} aria-label="Close Menu">
           <CloseIcon />
         </IconButton>
       </Box>
 
-      {/* Navigation Links */}
+      {/* Navigation */}
       <Box
         sx={{
           flexGrow: 1,
@@ -77,45 +75,37 @@ const Navbar = () => {
         }}
       >
         <List>
-          {pages.map((page) => {
-            const isActive = location.pathname === page.path;
-            return (
-              <ListItem
-                key={page.name}
-                component={Link}
-                to={page.path}
-                onClick={handleDrawerToggle}
-                sx={{
-                  justifyContent: 'center',
-                  py: 2,
-                  borderRadius: 2,
-                  mb: 1,
-                  backgroundColor: isActive ? 'action.selected' : 'transparent',
-                  color: isActive ? 'primary.main' : 'text.primary',
-                  fontWeight: isActive ? 600 : 400,
-                  '&:hover': {
-                    backgroundColor: 'action.hover',
-                  },
-                }}
-              >
-                <ListItemText
-                  primary={page.name}
-                  sx={{ textAlign: 'center' }}
-                />
-              </ListItem>
-            );
-          })}
+          {pages.map(({ name, path }) => (
+            <ListItem
+              key={name}
+              component={Link}
+              to={path}
+              onClick={handleDrawerToggle}
+              sx={{
+                justifyContent: 'center',
+                py: 2,
+                mb: 1,
+                borderRadius: 2,
+                bgcolor: isActive(path) ? 'action.selected' : 'transparent',
+                color: isActive(path) ? 'primary.main' : 'text.primary',
+                fontWeight: isActive(path) ? 600 : 400,
+                '&:hover': { bgcolor: 'action.hover' },
+              }}
+            >
+              <ListItemText primary={name} sx={{ textAlign: 'center' }} />
+            </ListItem>
+          ))}
         </List>
       </Box>
 
-      {/* Optional Footer (socials, etc.) */}
+      {/* Footer */}
       <Divider sx={{ mb: 2 }} />
       <Box
         sx={{
           textAlign: 'center',
           pb: 1,
-          color: 'text.secondary',
           fontSize: '0.8rem',
+          color: 'text.secondary',
         }}
       >
         &copy; {new Date().getFullYear()} AA Portfolio
@@ -135,66 +125,53 @@ const Navbar = () => {
         }}
       >
         <Toolbar>
-          <Box
-            component={Link}
-            to="/"
-            sx={{
-              mr: 2,
-              display: 'flex',
-              alignItems: 'center',
-              cursor: 'pointer',
-              textDecoration: 'none',
-            }}
-          >
+          {/* Logo */}
+          <Link to="/" aria-label="Home">
             <Box
               component="img"
               src={AALogo}
               alt="AA Logo"
-              sx={{ height: 60 }}
+              sx={{ height: 60, mr: 2 }}
             />
-          </Box>
+          </Link>
 
           <Box sx={{ flexGrow: 1 }} />
 
           {/* Desktop Nav */}
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            {pages.map((page) => {
-              const isActive = location.pathname === page.path;
-              return (
-                <Button
-                  key={page.name}
-                  component={Link}
-                  to={page.path}
-                  sx={{
-                    color: isActive ? 'primary.main' : 'text.primary',
-                    fontWeight: isActive ? 600 : 400,
-                    borderBottom: isActive ? '2px solid' : 'none',
-                    borderColor: isActive ? 'primary.main' : 'transparent',
-                    borderRadius: 0,
-                    mx: 1,
-                    '&:hover': {
-                      color: 'primary.main',
-                    },
-                  }}
-                >
-                  {page.name}
-                </Button>
-              );
-            })}
+            {pages.map(({ name, path }) => (
+              <Button
+                key={name}
+                component={Link}
+                to={path}
+                sx={{
+                  mx: 1,
+                  borderBottom: isActive(path) ? '2px solid' : 'none',
+                  borderColor: isActive(path) ? 'primary.main' : 'transparent',
+                  fontWeight: isActive(path) ? 600 : 400,
+                  color: isActive(path) ? 'primary.main' : 'text.primary',
+                  borderRadius: 0,
+                  '&:hover': { color: 'primary.main' },
+                }}
+              >
+                {name}
+              </Button>
+            ))}
           </Box>
 
-          {/* Mobile Menu Icon */}
+          {/* Mobile Toggle */}
           <IconButton
-            color="inherit"
             edge="start"
             onClick={handleDrawerToggle}
             sx={{ display: { sm: 'none' } }}
+            aria-label="Open Menu"
           >
             <MenuIcon />
           </IconButton>
         </Toolbar>
       </AppBar>
 
+      {/* Mobile Drawer */}
       <Drawer anchor="left" open={mobileOpen} onClose={handleDrawerToggle}>
         {drawer}
       </Drawer>

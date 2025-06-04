@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Container, Grid } from '@mui/material';
+import { Box, Container } from '@mui/material';
 import { Title, Meta } from 'react-head';
 
 import HeroText from './HeroText';
@@ -8,17 +8,7 @@ import BgImg from '../../assets/images/background.png';
 
 const Index = () => {
   return (
-    <Box
-      component="section"
-      sx={{
-        position: 'relative',
-        height: '100vh',
-        overflow: 'hidden',
-        background: `url(${BgImg})`,
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-      }}
-    >
+    <>
       <Title>AA Portfolio | Full-Stack Developer</Title>
       <Meta
         name="description"
@@ -30,14 +20,29 @@ const Index = () => {
         content="Explore full-stack projects, technical skills, and digital craftsmanship by AA."
       />
       <Meta property="og:url" content="https://yourdomain.com/about" />
-      <Container maxWidth="lg" sx={{ height: '100%' }}>
-        <Grid sx={{ display: 'flex', alignItems: 'center', height: '100%' }}>
-          <HeroText />
-        </Grid>
-      </Container>
-      <HeroImage />
-    </Box>
+
+      <Box
+        component="section"
+        sx={{
+          position: 'relative',
+          height: '100vh',
+          overflow: 'hidden',
+          backgroundImage: `url(${BgImg})`,
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          willChange: 'transform',
+        }}
+      >
+        <Container maxWidth="lg" sx={{ height: '100%' }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+            <HeroText />
+          </Box>
+        </Container>
+        <HeroImage />
+      </Box>
+    </>
   );
 };
 
-export default Index;
+export default React.memo(Index);

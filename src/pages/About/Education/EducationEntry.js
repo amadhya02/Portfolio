@@ -12,7 +12,7 @@ import { School } from '@mui/icons-material';
 import { useTheme } from '@mui/material/styles';
 import { motion } from 'framer-motion';
 
-const EducationEntry = ({ data, index }) => {
+const EducationEntry = ({ data, index, isLast }) => {
   const theme = useTheme();
 
   return (
@@ -24,6 +24,7 @@ const EducationEntry = ({ data, index }) => {
     >
       <TimelineItem>
         <TimelineOppositeContent sx={{ display: { xs: 'none' } }} />
+
         <TimelineSeparator>
           <TimelineDot
             sx={{
@@ -37,10 +38,9 @@ const EducationEntry = ({ data, index }) => {
           >
             <School fontSize="medium" sx={{ margin: 'auto' }} />
           </TimelineDot>
-          {index !== 2 && (
-            <TimelineConnector sx={{ bgcolor: 'primary.main' }} />
-          )}
+          {!isLast && <TimelineConnector sx={{ bgcolor: 'primary.main' }} />}
         </TimelineSeparator>
+
         <TimelineContent sx={{ pb: 4 }}>
           <Typography variant="h6" fontWeight="bold" gutterBottom>
             {data.institute}
@@ -60,4 +60,4 @@ const EducationEntry = ({ data, index }) => {
   );
 };
 
-export default EducationEntry;
+export default React.memo(EducationEntry);

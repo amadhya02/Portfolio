@@ -36,6 +36,11 @@ const getExpYears = () => {
   return Math.floor(months / 12);
 };
 
+const socialIconVariants = {
+  hidden: { opacity: 0, x: -20 },
+  visible: { opacity: 1, x: 0 },
+};
+
 const ProfileImageBlock = () => (
   <Grid
     size={{ xs: 12, sm: 5 }}
@@ -70,18 +75,13 @@ const ProfileImageBlock = () => (
         }}
       >
         {SOCIAL.map(({ id, title, icon, link }) => (
-          <motion.div
-            key={id}
-            variants={{
-              hidden: { opacity: 0, x: -20 },
-              visible: { opacity: 1, x: 0 },
-            }}
-          >
+          <motion.div key={id} variants={socialIconVariants}>
             <Tooltip title={title}>
               <IconButton
                 href={link}
                 target="_blank"
-                aria-label={id}
+                rel="noopener noreferrer"
+                aria-label={title}
                 sx={{
                   backgroundColor: theme.palette.primary.main,
                   color: 'white',
@@ -102,13 +102,13 @@ const ProfileImageBlock = () => (
         ))}
       </Box>
 
-      {/* Main Image */}
+      {/* Main Profile Image */}
       <motion.img
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.8 }}
         src={MyselfImg}
-        alt="Amadhya Anand playing drums"
+        alt="Amadhya Anand seated behind a drum kit"
         style={{
           width: '100%',
           maxWidth: 280,
@@ -123,7 +123,7 @@ const ProfileImageBlock = () => (
       <Box
         component="img"
         src={ProfileOverlayImg}
-        alt="Amadhya working overlay"
+        alt="Overlay: Amadhya working on laptop"
         sx={{
           display: { xs: 'none', md: 'block' },
           position: 'absolute',
@@ -174,4 +174,4 @@ const ProfileImageBlock = () => (
   </Grid>
 );
 
-export default ProfileImageBlock;
+export default React.memo(ProfileImageBlock);

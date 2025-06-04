@@ -68,7 +68,7 @@ const PROJECTS = [
   {
     title: 'Metro Atlanta Saves',
     year: 2024,
-    liveDemoUrl: "https://www.brpatl.com/",
+    liveDemoUrl: 'https://www.brpatl.com/',
     githubUrl: null,
     description: [
       'MetroAtlantaSaves is a financial wellness platform built to help residents in the Atlanta area set and achieve savings goals.',

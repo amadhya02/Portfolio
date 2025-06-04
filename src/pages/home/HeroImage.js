@@ -6,15 +6,17 @@ import { fadeUp } from '../../components/MotionVariants';
 
 import devImage from '../../assets/images/coding.png';
 
+const MotionBox = motion.create(Box);
+
 const HeroImage = () => {
   const theme = useTheme();
 
   return (
-    <motion.div
+    <MotionBox
       variants={fadeUp}
       initial="hidden"
       animate="visible"
-      transition={{ duration: 0.8 }}
+      transition={{ duration: 0.8, ease: 'easeOut' }}
       style={{ position: 'absolute', bottom: 0, right: 0 }}
     >
       <Box
@@ -26,12 +28,15 @@ const HeroImage = () => {
           width: '100%',
           maxWidth: '50vw',
           borderRadius: 2,
-          filter: `drop-shadow(0 0 30px ${alpha(theme.palette.primary.main, 0.1)})`,
-          transition: '0.3s ease',
+          filter: `drop-shadow(0 0 30px ${alpha(
+            theme.palette.primary.main,
+            0.1
+          )})`,
+          transition: 'transform 0.3s ease',
         }}
       />
-    </motion.div>
+    </MotionBox>
   );
 };
 
-export default HeroImage;
+export default React.memo(HeroImage);
