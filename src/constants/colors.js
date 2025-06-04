@@ -1,5 +1,6 @@
 export const COLORS = {
   AKAROA: '#DBCFB4',
+  AMBER_MIN: '#ffbd2e',
   ALTO: '#D9D9D9',
   BLACK: '#000000',
   BOMBAY_LIGHT: 'rgba(174, 178, 182, 0.45)',
@@ -12,6 +13,7 @@ export const COLORS = {
   DESERT: '#BC581F',
   EBONY_CLAY: '#29333E',
   EMPEROR: '#535353',
+  GREEN_MAX: '#27c93f',
   HEATHERED_GRAY: '#BDB197',
   LIGHT_TUNDORA: 'rgba(72, 72, 72, 0.35)',
   LIME: '#00ff00',
@@ -21,6 +23,7 @@ export const COLORS = {
   NOBEL: '#B3B3B3',
   OUTER_SPACE_LIGHT: '#323840',
   PERL_BUSH: '#E1DACB',
+  RED_CLOSE: '#ff5f56',
   SHUTTLE_GRAY_DARK: '#5E656F',
   SHUTTLE_GRAY_LIGHT: '#566576',
   SHUTTLE_GRAY: '#5A6169',

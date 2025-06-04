@@ -1,7 +1,8 @@
 import React from 'react';
-import { Box } from '@mui/material';
+import Box from '@mui/material/Box';
+import {COLORS} from "../../constants/colors";
 
-const colors = ['#ff5f56', '#ffbd2e', '#27c93f'];
+const colors = [COLORS.RED_CLOSE, COLORS.AMBER_MIN, COLORS.GREEN_MAX];
 
 export default function ItermHeader() {
   return (

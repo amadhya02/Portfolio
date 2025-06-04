@@ -1,5 +1,6 @@
 import React from 'react';
-import { Box, Container } from '@mui/material';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
 import { Title, Meta } from 'react-head';
 
 import HeroText from './HeroText';

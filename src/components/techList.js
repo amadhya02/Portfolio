@@ -1,6 +1,15 @@
 import React, { memo, useMemo } from 'react';
-import { Typography, Box, Stack, Grid, Paper, Divider } from '@mui/material';
-import { Code } from '@mui/icons-material';
+// MUI Components
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
+import Grid from '@mui/material/Grid';
+import Paper from '@mui/material/Paper';
+import Divider from '@mui/material/Divider';
+
+// MUI Icon
+import Code from '@mui/icons-material/Code';
+
 import { motion } from 'framer-motion';
 import TechCard from './techCard';
 

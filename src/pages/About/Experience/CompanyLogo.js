@@ -1,5 +1,6 @@
 import React from 'react';
-import { Avatar, Grid } from '@mui/material';
+import Avatar from '@mui/material/Avatar';
+import Grid from '@mui/material/Grid';
 import { motion } from 'framer-motion';
 
 const MotionGrid = motion.create(Grid);

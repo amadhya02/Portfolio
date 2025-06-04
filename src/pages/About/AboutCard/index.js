@@ -1,6 +1,13 @@
 import React from 'react';
-import { Grid, Typography, IconButton, Box } from '@mui/material';
-import { KeyboardArrowDown } from '@mui/icons-material';
+// MUI Components
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+import IconButton from '@mui/material/IconButton';
+import Box from '@mui/material/Box';
+
+// MUI Icon
+import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
+
 import { motion } from 'framer-motion';
 import { Link as ScrollLink } from 'react-scroll';
 

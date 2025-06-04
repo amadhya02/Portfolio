@@ -1,5 +1,6 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
 import { useTheme } from '@mui/material/styles';
 import GradientTitle from '../../../components/GradientTitle';

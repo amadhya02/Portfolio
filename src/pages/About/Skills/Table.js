@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Box } from '@mui/material';
+import Box from '@mui/material/Box';
 import { motion } from 'framer-motion';
 import SKILLS from '../../../constants/skills';
 import Terminal from '../../../components/terminal';

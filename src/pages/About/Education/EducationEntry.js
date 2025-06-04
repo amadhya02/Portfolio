@@ -1,15 +1,21 @@
 import React from 'react';
-import {
-  TimelineItem,
-  TimelineSeparator,
-  TimelineDot,
-  TimelineConnector,
-  TimelineContent,
-  TimelineOppositeContent,
-} from '@mui/lab';
-import { Typography } from '@mui/material';
-import { School } from '@mui/icons-material';
+// MUI Lab
+import TimelineItem from '@mui/lab/TimelineItem';
+import TimelineSeparator from '@mui/lab/TimelineSeparator';
+import TimelineDot from '@mui/lab/TimelineDot';
+import TimelineConnector from '@mui/lab/TimelineConnector';
+import TimelineContent from '@mui/lab/TimelineContent';
+import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent';
+
+// MUI Core
+import Typography from '@mui/material/Typography';
+
+// MUI Icons
+import School from '@mui/icons-material/School';
+
+// MUI Theme
 import { useTheme } from '@mui/material/styles';
+
 import { motion } from 'framer-motion';
 
 const EducationEntry = ({ data, index, isLast }) => {

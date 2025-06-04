@@ -1,17 +1,16 @@
 import React from 'react';
-import {
-  Typography,
-  Box,
-  Stack,
-  Dialog,
-  DialogContent,
-  Grid,
-  Button,
-  Divider,
-  Tooltip,
-  IconButton,
-} from '@mui/material';
-import { Launch, GitHub } from '@mui/icons-material';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
+import Dialog from '@mui/material/Dialog';
+import DialogContent from '@mui/material/DialogContent';
+import Grid from '@mui/material/Grid';
+import Button from '@mui/material/Button';
+import Divider from '@mui/material/Divider';
+import Tooltip from '@mui/material/Tooltip';
+import IconButton from '@mui/material/IconButton';
+import Launch from '@mui/icons-material/Launch';
+import GitHub from '@mui/icons-material/GitHub';
 import { useTheme } from '@mui/material/styles';
 import { motion, AnimatePresence } from 'framer-motion';
 import TechList from '../../components/techList';

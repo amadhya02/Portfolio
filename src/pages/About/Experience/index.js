@@ -1,8 +1,8 @@
 import React from 'react';
-import { Grid } from '@mui/material';
-import { Timeline } from '@mui/lab';
+import Grid from '@mui/material/Grid';
+import Timeline from '@mui/lab/Timeline';
 import { useTheme } from '@mui/material/styles';
-import { useMediaQuery } from '@mui/material';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 import ExperienceEntry from './ExperienceEntry';
 import CompanyLogo from './CompanyLogo';

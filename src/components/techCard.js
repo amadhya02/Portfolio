@@ -1,5 +1,10 @@
 import React from 'react';
-import { Typography, Stack, Tooltip } from '@mui/material';
+// MUI Components
+import Typography from '@mui/material/Typography';
+import Stack from '@mui/material/Stack';
+import Tooltip from '@mui/material/Tooltip';
+
+// MUI Hook
 import { useTheme } from '@mui/material/styles';
 
 // Memoized component for re-render efficiency

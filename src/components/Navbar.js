@@ -1,19 +1,21 @@
 import React, { useState, useCallback } from 'react';
-import {
-  AppBar,
-  Toolbar,
-  Box,
-  Button,
-  IconButton,
-  Drawer,
-  List,
-  ListItem,
-  ListItemText,
-  Divider,
-} from '@mui/material';
-import { Link, useLocation } from 'react-router-dom';
+// MUI Components
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import Drawer from '@mui/material/Drawer';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import Divider from '@mui/material/Divider';
+
+// MUI Icons
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+
+import { Link, useLocation } from 'react-router-dom';
 
 import AALogo from '../assets/images/AA-logo.png';
 

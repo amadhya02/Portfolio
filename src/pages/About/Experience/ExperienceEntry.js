@@ -1,21 +1,24 @@
 import React, { useState, useCallback } from 'react';
-import {
-  TimelineItem,
-  TimelineSeparator,
-  TimelineDot,
-  TimelineConnector,
-  TimelineContent,
-  TimelineOppositeContent,
-} from '@mui/lab';
-import {
-  Typography,
-  IconButton,
-  Box,
-  Tooltip,
-  Stack,
-  useTheme,
-} from '@mui/material';
-import { Work, OpenInNew as OpenInNewIcon } from '@mui/icons-material';
+// MUI Lab
+import TimelineItem from '@mui/lab/TimelineItem';
+import TimelineSeparator from '@mui/lab/TimelineSeparator';
+import TimelineDot from '@mui/lab/TimelineDot';
+import TimelineConnector from '@mui/lab/TimelineConnector';
+import TimelineContent from '@mui/lab/TimelineContent';
+import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent';
+
+// MUI Core
+import Typography from '@mui/material/Typography';
+import IconButton from '@mui/material/IconButton';
+import Box from '@mui/material/Box';
+import Tooltip from '@mui/material/Tooltip';
+import Stack from '@mui/material/Stack';
+import { useTheme } from '@mui/material/styles';
+
+// MUI Icons
+import Work from '@mui/icons-material/Work';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+
 import { motion } from 'framer-motion';
 import DescriptionModal from './DescriptionModal';
 

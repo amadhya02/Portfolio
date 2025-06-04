@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Meta, Title } from 'react-head';
-import { Box, CircularProgress } from '@mui/material';
+import Box from '@mui/material/Box';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const Contact = () => {
   const [loading, setLoading] = useState(true);

@@ -1,6 +1,13 @@
 import React from 'react';
-import { Box, Button, Grid, Typography } from '@mui/material';
-import { LocationOn } from '@mui/icons-material';
+// MUI Components
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+
+// MUI Icon
+import LocationOn from '@mui/icons-material/LocationOn';
+
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import GradientTitle from '../../../components/GradientTitle';

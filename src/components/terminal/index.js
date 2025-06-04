@@ -1,5 +1,6 @@
 import React from 'react';
-import { Box, useTheme } from '@mui/material';
+import Box from '@mui/material/Box';
+import { useTheme } from '@mui/material/styles';
 import { motion } from 'framer-motion';
 import { ReactTyped } from 'react-typed';
 import ItermHeader from './ItermHeader';
@@ -44,6 +45,7 @@ const Terminal = ({ command, children, uniqueKey, setTypingDone }) => {
               backSpeed={0}
               showCursor
               smartBackspace={false}
+              startWhenVisible
               onComplete={() => setTypingDone(true)}
             />
           </Box>

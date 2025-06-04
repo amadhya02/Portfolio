@@ -1,5 +1,8 @@
 import React, { useMemo } from 'react';
-import { Box, useTheme, useMediaQuery, Grid } from '@mui/material';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 import Table from './Table';
 import SKILLS from '../../../constants/skills';
