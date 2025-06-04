@@ -1,19 +1,19 @@
-import React from 'react';
-import {
-  Typography,
-  Box,
-  Stack,
-  Dialog,
-  DialogContent,
-  Grid,
-  Button,
-  Divider,
-} from '@mui/material';
-import { LocationOn, AccessTime } from '@mui/icons-material';
+import AccessTime from '@mui/icons-material/AccessTime';
+import LocationOn from '@mui/icons-material/LocationOn';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogContent from '@mui/material/DialogContent';
+import Divider from '@mui/material/Divider';
+import Grid from '@mui/material/Grid';
+import Stack from '@mui/material/Stack';
 import { useTheme } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
-import TechList from '../../../components/techList';
+import React from 'react';
+
 import DescriptionCard from '../../../components/DescriptionCard';
+import TechList from '../../../components/techList';
 
 const fadeIn = (delay = 0) => ({
   initial: { opacity: 0, y: 20 },

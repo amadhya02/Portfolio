@@ -1,9 +1,10 @@
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
 import React from 'react';
-import { Box, Container } from '@mui/material';
 import { Title, Meta } from 'react-head';
 
-import HeroText from './HeroText';
 import HeroImage from './HeroImage';
+import HeroText from './HeroText';
 import BgImg from '../../assets/images/background.png';
 
 const Index = () => {

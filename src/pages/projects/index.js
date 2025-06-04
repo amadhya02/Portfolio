@@ -1,13 +1,14 @@
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
 import React, { useState } from 'react';
-import { Box, Grid } from '@mui/material';
 import { Meta, Title } from 'react-head';
 
+import DescriptionModal from './DescriptionModal';
+import Header from './header';
+import ProjectItem from './projectItem';
 import SectionContainer from '../../components/SectionContainer';
 import PROJECTS from '../../constants/projects';
 import theme from '../../theme';
-import DescriptionModal from './DescriptionModal';
-import ProjectItem from './projectItem';
-import Header from './header';
 
 const ProjectsPage = () => {
   const [selectedProject, setSelectedProject] = useState(null);

@@ -1,10 +1,17 @@
-import React from 'react';
-import { Box, Grid, IconButton, Tooltip, Typography } from '@mui/material';
+import Email from '@mui/icons-material/Email';
+import GitHub from '@mui/icons-material/GitHub';
+import LinkedIn from '@mui/icons-material/LinkedIn';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import IconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip';
+import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
-import { Email, GitHub, LinkedIn } from '@mui/icons-material';
-import theme from '../../../theme';
+import React from 'react';
+
 import MyselfImg from '../../../assets/images/myself.jpg';
 import ProfileOverlayImg from '../../../assets/images/profile-overlay.png';
+import theme from '../../../theme';
 
 const SOCIAL = [
   {

@@ -1,21 +1,21 @@
-import React from 'react';
-import {
-  Typography,
-  Box,
-  Stack,
-  Dialog,
-  DialogContent,
-  Grid,
-  Button,
-  Divider,
-  Tooltip,
-  IconButton,
-} from '@mui/material';
-import { Launch, GitHub } from '@mui/icons-material';
+import GitHub from '@mui/icons-material/GitHub';
+import Launch from '@mui/icons-material/Launch';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogContent from '@mui/material/DialogContent';
+import Divider from '@mui/material/Divider';
+import Grid from '@mui/material/Grid';
+import IconButton from '@mui/material/IconButton';
+import Stack from '@mui/material/Stack';
 import { useTheme } from '@mui/material/styles';
+import Tooltip from '@mui/material/Tooltip';
+import Typography from '@mui/material/Typography';
 import { motion, AnimatePresence } from 'framer-motion';
-import TechList from '../../components/techList';
+import React from 'react';
+
 import DescriptionCard from '../../components/DescriptionCard';
+import TechList from '../../components/techList';
 
 const modalVariants = {
   hidden: { opacity: 0, y: 40, scale: 0.95 },

@@ -3,11 +3,30 @@
     "react-app",
     "plugin:jsx-a11y/recommended",
     "plugin:react/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
     "prettier"
   ],
-  "plugins": ["jsx-a11y", "react"],
+  "plugins": ["jsx-a11y", "react", "import"],
   "rules": {
-    "react/prop-types": "off"
+    "react/prop-types": "off",
+    "import/order": [
+      "warn",
+      {
+        "groups": [
+          "builtin",      // e.g., fs, path
+          "external",     // e.g., react, lodash
+          "internal",     // e.g., @components/*
+          ["parent", "sibling", "index"]
+        ],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ]
   },
   "settings": {
     "react": {

@@ -1,22 +1,20 @@
-import React, { useState, useCallback } from 'react';
-import {
-  TimelineItem,
-  TimelineSeparator,
-  TimelineDot,
-  TimelineConnector,
-  TimelineContent,
-  TimelineOppositeContent,
-} from '@mui/lab';
-import {
-  Typography,
-  IconButton,
-  Box,
-  Tooltip,
-  Stack,
-  useTheme,
-} from '@mui/material';
-import { Work, OpenInNew as OpenInNewIcon } from '@mui/icons-material';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import Work from '@mui/icons-material/Work';
+import TimelineConnector from '@mui/lab/TimelineConnector';
+import TimelineContent from '@mui/lab/TimelineContent';
+import TimelineDot from '@mui/lab/TimelineDot';
+import TimelineItem from '@mui/lab/TimelineItem';
+import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent';
+import TimelineSeparator from '@mui/lab/TimelineSeparator';
+import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
+import Stack from '@mui/material/Stack';
+import { useTheme } from '@mui/material/styles';
+import Tooltip from '@mui/material/Tooltip';
+import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
+import React, { useState, useCallback } from 'react';
+
 import DescriptionModal from './DescriptionModal';
 
 const MotionBox = motion.create(Box);

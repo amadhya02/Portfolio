@@ -1,6 +1,7 @@
-import React from 'react';
-import { Box, Typography } from '@mui/material';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
+import React from 'react';
 
 const Header = ({ align = 'left', title, subtitle }) => {
   return (

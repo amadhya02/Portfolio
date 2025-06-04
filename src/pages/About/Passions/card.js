@@ -1,7 +1,9 @@
-import React from 'react';
-import { Box, Typography } from '@mui/material';
-import { motion } from 'framer-motion';
+import Box from '@mui/material/Box';
 import { useTheme } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
+import { motion } from 'framer-motion';
+import React from 'react';
+
 import GradientTitle from '../../../components/GradientTitle';
 
 const MotionBox = motion.create(Box);

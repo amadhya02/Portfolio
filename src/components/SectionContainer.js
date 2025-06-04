@@ -1,5 +1,7 @@
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
 import React from 'react';
-import { Box, Container } from '@mui/material';
+
 import Header from './Header';
 
 // Memoized for performance

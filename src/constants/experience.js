@@ -1,8 +1,8 @@
-import CuemathLogo from '../assets/images/cuemath-logo.png';
-import CnLogo from '../assets/images/cn-logo.png';
-import BookingLogo from '../assets/images/booking-logo.png';
-import AtsLogo from '../assets/images/ats-logo.png';
 import { TECHNOLOGIES_ICONS } from './technologies';
+import AtsLogo from '../assets/images/ats-logo.png';
+import BookingLogo from '../assets/images/booking-logo.png';
+import CnLogo from '../assets/images/cn-logo.png';
+import CuemathLogo from '../assets/images/cuemath-logo.png';
 
 export const COMPANIES_LOGO = {
   BOOKING: BookingLogo,

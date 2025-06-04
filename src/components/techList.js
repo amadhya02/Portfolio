@@ -1,7 +1,13 @@
-import React, { memo, useMemo } from 'react';
-import { Typography, Box, Stack, Grid, Paper, Divider } from '@mui/material';
-import { Code } from '@mui/icons-material';
+import Code from '@mui/icons-material/Code';
+import Box from '@mui/material/Box';
+import Divider from '@mui/material/Divider';
+import Grid from '@mui/material/Grid';
+import Paper from '@mui/material/Paper';
+import Stack from '@mui/material/Stack';
+import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
+import React, { memo, useMemo } from 'react';
+
 import TechCard from './techCard';
 
 const fadeIn = (delay = 0) => ({

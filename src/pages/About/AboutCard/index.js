@@ -1,13 +1,16 @@
-import React from 'react';
-import { Grid, Typography, IconButton, Box } from '@mui/material';
-import { KeyboardArrowDown } from '@mui/icons-material';
+import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
+import React from 'react';
 import { Link as ScrollLink } from 'react-scroll';
 
 import AboutTextBlock from './AboutTextBlock';
 import ProfileImageBlock from './ProfileImageBlock';
-import theme from '../../../theme';
 import SectionContainer from '../../../components/SectionContainer';
+import theme from '../../../theme';
 
 const AboutSection = () => {
   return (

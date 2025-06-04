@@ -1,7 +1,7 @@
+import { useTheme } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
 import React from 'react';
 
-import { Typography } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
 
 const GradientTitle = ({ variant, sx = {}, children }) => {
   const theme = useTheme();
