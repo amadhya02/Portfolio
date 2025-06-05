@@ -1,25 +1,21 @@
 {
-  "short_name": "AA",
   "name": "Amadhya Anand Portfolio",
+  "short_name": "AA",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#141A21",
+  "theme_color": "#FF9811",
+  "orientation": "portrait",
   "icons": [
     {
-      "src": "AA-logo.png",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "/AA-logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
     },
     {
-      "src": "AA-logo.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "AA-logo.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "src": "/AA-logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  ]
 }
