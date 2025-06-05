@@ -33,7 +33,7 @@ To run this project locally:
    ```
 3. **Start the development server**:
     ```bash
-   npm install 
+   npm start 
    ```
 
 ## 🔥 Firebase Deployment
