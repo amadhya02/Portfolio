@@ -148,7 +148,7 @@ const Navbar = () => {
                   borderColor: isActive(path) ? 'primary.main' : 'transparent',
                   fontWeight: isActive(path) ? 600 : 400,
                   color: isActive(path) ? 'primary.main' : 'text.primary',
-                  borderRadius: 0,
+                  borderRadius: 1,
                   '&:hover': { color: 'primary.main' },
                 }}
               >

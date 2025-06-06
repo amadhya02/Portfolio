@@ -1,13 +1,10 @@
 import FiberManualRecord from '@mui/icons-material/FiberManualRecord';
-import ListAlt from '@mui/icons-material/ListAlt';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Paper from '@mui/material/Paper';
-import Stack from '@mui/material/Stack';
 import { useTheme } from '@mui/material/styles';
-import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
 import React from 'react';
 
@@ -25,18 +22,12 @@ const DescriptionCard = ({ description = [] }) => {
       transition={{ duration: 0.5 }}
       elevation={1}
       sx={{
-        p: 3,
+        px: 3,
+        py: 1,
         borderRadius: 2,
         mb: 3,
       }}
     >
-      {/* Title */}
-      <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 2 }}>
-        <ListAlt fontSize="medium" />
-        <Typography variant="h5">Description</Typography>
-      </Stack>
-
-      {/* Bullet Points */}
       <List dense>
         {description.map((point, idx) => (
           <motion.div
@@ -47,8 +38,8 @@ const DescriptionCard = ({ description = [] }) => {
             transition={{ delay: idx * 0.05, duration: 0.3 }}
             style={{ listStyle: 'none' }}
           >
-            <ListItem disableGutters>
-              <ListItemIcon sx={{ minWidth: 28 }}>
+            <ListItem disableGutters alignItems="flex-start">
+              <ListItemIcon sx={{ minWidth: 28, mt: 1.75 }}>
                 <FiberManualRecord
                   sx={{ fontSize: 6, color: theme.palette.primary.main }}
                 />
