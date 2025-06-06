@@ -3,9 +3,9 @@ import Grid from '@mui/material/Grid';
 import React, { useState } from 'react';
 import { Meta, Title } from 'react-head';
 
-import DescriptionModal from './DescriptionModal';
 import Header from './header';
 import ProjectItem from './projectItem';
+import ProjectModal from './ProjectModal';
 import SectionContainer from '../../components/SectionContainer';
 import PROJECTS from '../../constants/projects';
 import theme from '../../theme';
@@ -51,7 +51,7 @@ const ProjectsPage = () => {
 
       {/* Modal */}
       {selectedProject && (
-        <DescriptionModal
+        <ProjectModal
           open
           handleClose={setSelectedProject.bind(null, null)}
           data={selectedProject}

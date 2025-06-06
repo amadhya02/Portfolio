@@ -15,7 +15,7 @@ import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
 import React, { useState, useCallback } from 'react';
 
-import DescriptionModal from './DescriptionModal';
+import ExpModal from './ExpModal';
 
 const MotionBox = motion.create(Box);
 
@@ -89,7 +89,7 @@ const ExperienceEntry = ({ data, index, isLast }) => {
                     </Typography>
                   </Box>
 
-                  <Tooltip title="View Work">
+                  <Tooltip title="Learn More...">
                     <IconButton
                       edge="end"
                       aria-label={`Open description for ${role.role}`}
@@ -102,7 +102,7 @@ const ExperienceEntry = ({ data, index, isLast }) => {
                 </Stack>
 
                 {openModalIndex === i && (
-                  <DescriptionModal
+                  <ExpModal
                     open
                     handleClose={handleClose}
                     data={{

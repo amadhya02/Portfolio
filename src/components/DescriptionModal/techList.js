@@ -1,9 +1,7 @@
-import Code from '@mui/icons-material/Code';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
-import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
 import React, { memo, useMemo } from 'react';
@@ -34,11 +32,6 @@ const TechList = ({ stack }) => {
         '&:hover': { boxShadow: 6 },
       }}
     >
-      <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 2 }}>
-        <Code fontSize="medium" />
-        <Typography variant="h5">Tech Stack</Typography>
-      </Stack>
-
       {categories.map((category, idx) => {
         const techStack = stack?.[category.toLowerCase()] || [];
 
