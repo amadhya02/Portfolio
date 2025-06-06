@@ -122,7 +122,7 @@ const Index = ({ description, techStack, open, handleClose, children, logo }) =>
                         sx={{
                             px: { xs: 2, sm: 4 },
                             py: 1,
-                            height: { sm: '600px' },
+                            height: { sm: '80vh' },
                             overflowY: 'auto',
                             bgcolor: 'background.paper',
                         }}
