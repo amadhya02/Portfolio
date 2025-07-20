@@ -9,8 +9,9 @@ import React from 'react';
 import DescriptionModal from "../../components/DescriptionModal";
 
 const ProjectModal = ({ data, open, handleClose }) => {
+  console.log(data);
   return (
-      <DescriptionModal description={data.description} techStack={data.techStack} open={open} handleClose={handleClose} logo={data.logo}>
+      <DescriptionModal description={data.description} techStack={data.techStack} open={open} handleClose={handleClose} logo={data.partnerLogo}>
         <Typography variant="h2" fontWeight={500}>
           {data.title}
         </Typography>
