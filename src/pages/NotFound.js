@@ -1,14 +1,33 @@
 import { Box, Typography, Button } from '@mui/material';
 import { motion } from 'framer-motion';
 import React from 'react';
+import { Meta, Title } from 'react-head';
 import { Link } from 'react-router-dom';
 
+import CanonicalLink from '../components/CanonicalLink';
 import GradientTitle from '../components/GradientTitle';
+import { SEO_CONFIG } from '../constants/seo';
 
 const NotFound = () => {
   return (
-    <Box
-      sx={{
+    <>
+      <Title>404 - Page Not Found | Amadhya Anand Portfolio</Title>
+      <Meta
+        name="description"
+        content="The page you're looking for doesn't exist. Return to Amadhya Anand's portfolio homepage."
+      />
+      <Meta name="robots" content="noindex, follow" />
+      <Meta property="og:title" content="404 - Page Not Found | Amadhya Anand Portfolio" />
+      <Meta
+        property="og:description"
+        content="The page you're looking for doesn't exist. Return to Amadhya Anand's portfolio homepage."
+      />
+      <Meta property="og:url" content={`${SEO_CONFIG.siteUrl}/404`} />
+      <Meta property="og:type" content="website" />
+      <CanonicalLink url={`${SEO_CONFIG.siteUrl}/404`} />
+
+      <Box
+        sx={{
         minHeight: '100vh',
         display: 'flex',
         flexDirection: 'column',
@@ -17,8 +36,8 @@ const NotFound = () => {
         textAlign: 'center',
         px: 2,
       }}
-    >
-      <motion.div
+      >
+        <motion.div
         initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -51,8 +70,9 @@ const NotFound = () => {
             Go Home
           </Button>
         </motion.div>
-      </motion.div>
-    </Box>
+        </motion.div>
+      </Box>
+    </>
   );
 };
 
