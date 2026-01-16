@@ -11,6 +11,30 @@ const ROLE = {
 
 const PROJECTS = [
   {
+    title: 'Dobson Fitness',
+    year: 2026,
+    liveDemoUrl: 'https://dobson-fitness.vercel.app/en',
+    githubUrl: null,
+    description: [
+      'A modern fitness website built with Next.js, offering a sleek and responsive user experience for fitness enthusiasts seeking workout programs, training resources, and wellness content.',
+      'The platform features a clean, performance-optimized design with seamless navigation, ensuring fast page loads and smooth interactions across desktop and mobile devices.',
+      'Implemented with Next.js for server-side rendering and optimized performance, enhancing SEO and user engagement.',
+      'The design emphasizes accessibility and user-friendly interfaces, making fitness information easily accessible to users of all technical backgrounds.',
+    ],
+    techStack: {
+      languages: [TECHNOLOGIES_ICONS.JAVASCRIPT],
+      frontend: [
+        TECHNOLOGIES_ICONS.CSS,
+        TECHNOLOGIES_ICONS.NEXTJS,
+      ],
+      backend: [],
+      tools: [TECHNOLOGIES_ICONS.GIT],
+    },
+    partnerLogo: AALogo,
+    under: 'Amadhya Anand',
+    role: ROLE.FE,
+  },
+  {
     title: 'Portfolio',
     year: 2025,
     liveDemoUrl: '#',

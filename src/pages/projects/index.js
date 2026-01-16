@@ -6,8 +6,10 @@ import { Meta, Title } from 'react-head';
 import Header from './header';
 import ProjectItem from './projectItem';
 import ProjectModal from './ProjectModal';
+import CanonicalLink from '../../components/CanonicalLink';
 import SectionContainer from '../../components/SectionContainer';
 import PROJECTS from '../../constants/projects';
+import { SEO_CONFIG } from '../../constants/seo';
 import theme from '../../theme';
 
 const ProjectsPage = () => {
@@ -15,16 +17,28 @@ const ProjectsPage = () => {
 
   return (
     <Box sx={{ background: theme.custom.gradients.background }}>
-      <Title>Projects | AA Portfolio</Title>
+      <Title>Projects | Amadhya Anand Portfolio</Title>
       <Meta
         name="description"
-        content="Explore AA's portfolio of full-stack projects — from clean UI builds to complex backends, each crafted with care."
+        content="Explore Amadhya Anand's portfolio of full-stack projects — from clean UI builds to complex backends, each crafted with care."
       />
-      <Meta property="og:title" content="Projects | AA Portfolio" />
+      <Meta name="keywords" content="Amadhya Anand, projects, portfolio, full-stack applications, React projects, web development projects" />
+      <Meta name="robots" content="index, follow" />
+      <Meta property="og:title" content="Projects | Amadhya Anand Portfolio" />
       <Meta
         property="og:description"
-        content="A showcase of real-world full-stack applications, design systems, and scalable solutions built by AA."
+        content="A showcase of real-world full-stack applications, design systems, and scalable solutions built by Amadhya Anand."
       />
+      <Meta property="og:url" content={`${SEO_CONFIG.siteUrl}/projects`} />
+      <Meta property="og:image" content={`${SEO_CONFIG.siteUrl}${SEO_CONFIG.ogImageUrl}`} />
+      <Meta property="og:image:width" content={SEO_CONFIG.ogImageWidth} />
+      <Meta property="og:image:height" content={SEO_CONFIG.ogImageHeight} />
+      <Meta property="og:type" content="website" />
+      <Meta name="twitter:card" content="summary_large_image" />
+      <Meta name="twitter:title" content="Projects | Amadhya Anand Portfolio" />
+      <Meta name="twitter:description" content="A showcase of real-world full-stack applications, design systems, and scalable solutions built by Amadhya Anand." />
+      <Meta name="twitter:image" content={`${SEO_CONFIG.siteUrl}${SEO_CONFIG.ogImageUrl}`} />
+      <CanonicalLink url={`${SEO_CONFIG.siteUrl}/projects`} />
       <SectionContainer
         id="projects"
         sx={{
