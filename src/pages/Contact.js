@@ -3,22 +3,36 @@ import CircularProgress from '@mui/material/CircularProgress';
 import React, { useState } from 'react';
 import { Meta, Title } from 'react-head';
 
+import CanonicalLink from '../components/CanonicalLink';
+import { SEO_CONFIG } from '../constants/seo';
+
 const Contact = () => {
   const [loading, setLoading] = useState(true);
 
   return (
     <Box sx={{ height: '100vh', pt: { xs: 8, sm: 0 }, position: 'relative' }}>
-      <Title>Contact | AA Portfolio</Title>
+      <Title>Contact | Amadhya Anand Portfolio</Title>
       <Meta
         name="description"
-        content="Get in touch with AA for collaborations, freelance work, or just to say hello."
+        content="Get in touch with Amadhya Anand for collaborations, freelance work, or just to say hello."
       />
-      <Meta property="og:title" content="Contact | AA Portfolio" />
+      <Meta name="keywords" content="Amadhya Anand, contact, hire developer, freelance, collaboration" />
+      <Meta name="robots" content="index, follow" />
+      <Meta property="og:title" content="Contact | Amadhya Anand Portfolio" />
       <Meta
         property="og:description"
-        content="Let's connect! Reach out to AA for development work, partnerships, or feedback."
+        content="Let's connect! Reach out to Amadhya Anand for development work, partnerships, or feedback."
       />
-      <Meta property="og:url" content="https://yourdomain.com/contact" />
+      <Meta property="og:url" content={`${SEO_CONFIG.siteUrl}/contact`} />
+      <Meta property="og:image" content={`${SEO_CONFIG.siteUrl}${SEO_CONFIG.ogImageUrl}`} />
+      <Meta property="og:image:width" content={SEO_CONFIG.ogImageWidth} />
+      <Meta property="og:image:height" content={SEO_CONFIG.ogImageHeight} />
+      <Meta property="og:type" content="website" />
+      <Meta name="twitter:card" content="summary_large_image" />
+      <Meta name="twitter:title" content="Contact | Amadhya Anand Portfolio" />
+      <Meta name="twitter:description" content="Let's connect! Reach out to Amadhya Anand for development work, partnerships, or feedback." />
+      <Meta name="twitter:image" content={`${SEO_CONFIG.siteUrl}${SEO_CONFIG.ogImageUrl}`} />
+      <CanonicalLink url={`${SEO_CONFIG.siteUrl}/contact`} />
 
       {/* Spinner */}
       {loading && (
