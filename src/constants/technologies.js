@@ -10,6 +10,10 @@ export const TECHNOLOGIES_ICONS = {
   DJANGO: { Icon: 'devicon-django-plain', text: 'Django' },
   DOCKER: { Icon: 'devicon-docker-plain', text: 'Docker' },
   DROPWIZARD: { Icon: 'devicon-dropwizard-plain', text: 'Dropwizard' },
+  DYNAMODB: {
+    Icon: 'devicon-amazonwebservices-plain-wordmark',
+    text: 'DynamoDB',
+  },
   ELASTIC_SEARCH: {
     Icon: 'devicon-elasticsearch-plain',
     text: 'ElasticSearch',
@@ -49,7 +53,9 @@ export const TECHNOLOGIES_ICONS = {
   REDUX: { Icon: 'devicon-redux-original', text: 'Redux' },
   SENTRY: { Icon: 'devicon-sentry-original', text: 'Sentry' },
   SONARQUBE: { Icon: 'devicon-sonarqube-original', text: 'SonarQube' },
+  SQS: { Icon: 'devicon-amazonwebservices-plain-wordmark', text: 'AWS SQS' },
   SWAGGER: { Icon: 'devicon-swagger-plain', text: 'Swagger' },
+  TAILWIND: { Icon: 'devicon-tailwindcss-plain', text: 'Tailwind CSS' },
   TERRAFORM: { Icon: 'devicon-terraform-plain', text: 'Terraform' },
   TYPESCRIPT: { Icon: 'devicon-typescript-plain', text: 'TypeScript' },
   VS_CODE: { Icon: 'devicon-vscode-plain', text: 'VS Code' },

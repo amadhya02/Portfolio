@@ -21,6 +21,8 @@ const EXPERIENCE = [
         duration: 'Jan, 2024 - Present',
         role: 'Software Engineer II',
         desc: [
+          'Reduced CSV processing time from 10 hours to 26 minutes for 500K-entry files by architecting an event-driven system on AWS (Lambda, SQS, DynamoDB) to replace the legacy cron-based pipeline, with built-in monitoring and visibility.',
+          'Enabled multiple products and teams to onboard onto the pipeline independently within minutes, by designing a generic, config-driven (YAML) system with an AI-assisted onboarding prompt and a schema-driven frontend.',
           'Improved code coverage and developer efficiency by developing a unit test generation using Cody, an AI-powered assistant',
           'Developed a script to consolidate developer activity metrics from GitLab, Jira, SonarQube, and internal wikis—tracking code changes, unit tests, documentation, and repository contributions to provide actionable insights',
           'Enabled value-based steering by providing insights into platform usage and product adoption through designing and developing a system to track how partners manage pricing.',
@@ -34,14 +36,18 @@ const EXPERIENCE = [
             TECHNOLOGIES_ICONS.JAVA,
             TECHNOLOGIES_ICONS.PERL,
             TECHNOLOGIES_ICONS.PYTHON,
+            TECHNOLOGIES_ICONS.TYPESCRIPT,
           ],
           frontend: [],
           backend: [
+            TECHNOLOGIES_ICONS.AWS_LAMBDA,
             TECHNOLOGIES_ICONS.DROPWIZARD,
+            TECHNOLOGIES_ICONS.DYNAMODB,
             TECHNOLOGIES_ICONS.GRAFANA,
             TECHNOLOGIES_ICONS.HADOOP,
             TECHNOLOGIES_ICONS.KAFKA,
             TECHNOLOGIES_ICONS.MY_SQL,
+            TECHNOLOGIES_ICONS.SQS,
             TECHNOLOGIES_ICONS.TERRAFORM,
           ],
           tools: [

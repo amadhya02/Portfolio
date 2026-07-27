@@ -11,20 +11,20 @@ const ROLE = {
 
 const PROJECTS = [
   {
-    title: 'Dobson Fitness',
+    title: 'TrueNorth Gym',
     year: 2026,
-    liveDemoUrl: 'https://dobson-fitness.vercel.app/en',
+    liveDemoUrl: 'https://truenorthgym.nl/en',
     githubUrl: null,
     description: [
-      'A modern fitness website built with Next.js, offering a sleek and responsive user experience for fitness enthusiasts seeking workout programs, training resources, and wellness content.',
-      'The platform features a clean, performance-optimized design with seamless navigation, ensuring fast page loads and smooth interactions across desktop and mobile devices.',
-      'Implemented with Next.js for server-side rendering and optimized performance, enhancing SEO and user engagement.',
-      'The design emphasizes accessibility and user-friendly interfaces, making fitness information easily accessible to users of all technical backgrounds.',
+      'A modern, bilingual (English/Dutch) fitness website built with Next.js and the App Router, offering a sleek and responsive user experience for fitness enthusiasts seeking workout programs, training resources, and wellness content.',
+      'Implemented internationalized routing and a shared design-token system for consistent theming across locales, styled with Tailwind CSS.',
+      'Optimized for Core Web Vitals and Lighthouse performance, with improved SEO metadata and Open Graph image generation for better discoverability and link previews.',
+      'Deployed on Cloudflare, with a clean, accessible, performance-optimized design ensuring fast page loads and smooth interactions across desktop and mobile devices.',
     ],
     techStack: {
-      languages: [TECHNOLOGIES_ICONS.JAVASCRIPT],
+      languages: [TECHNOLOGIES_ICONS.TYPESCRIPT],
       frontend: [
-        TECHNOLOGIES_ICONS.CSS,
+        TECHNOLOGIES_ICONS.TAILWIND,
         TECHNOLOGIES_ICONS.NEXTJS,
       ],
       backend: [],
@@ -33,6 +33,31 @@ const PROJECTS = [
     partnerLogo: AALogo,
     under: 'Amadhya Anand',
     role: ROLE.FE,
+  },
+  {
+    title: 'CSV Processing System',
+    year: 2026,
+    liveDemoUrl: null,
+    githubUrl: null,
+    description: [
+      'An event-driven, serverless system built on AWS to replace a legacy cron-based CSV ingestion pipeline, reducing processing time for 500K-entry files from 10 hours to 26 minutes.',
+      'Built as a generic platform so multiple products and teams can onboard independently, using a config-driven (YAML) schema and an AI-assisted prompt that guides new products through setup in minutes.',
+      "Includes a config-driven UI layer — the frontend dynamically renders forms and views based on a product's YAML schema, removing the need for custom frontend work per product.",
+      'Added monitoring and observability throughout the pipeline for real-time visibility into processing status and failures.',
+    ],
+    techStack: {
+      languages: [TECHNOLOGIES_ICONS.TYPESCRIPT, TECHNOLOGIES_ICONS.JAVA],
+      frontend: [],
+      backend: [
+        TECHNOLOGIES_ICONS.AWS_LAMBDA,
+        TECHNOLOGIES_ICONS.SQS,
+        TECHNOLOGIES_ICONS.DYNAMODB,
+      ],
+      tools: [],
+    },
+    partnerLogo: COMPANIES_LOGO.BOOKING,
+    under: 'Booking.com',
+    role: ROLE.FS,
   },
   {
     title: 'Portfolio',
