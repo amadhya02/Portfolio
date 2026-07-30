@@ -1,10 +1,7 @@
-import { render, screen } from '@testing-library/react';
-import React from 'react';
+import theme from './theme';
 
-import App from './App';
-
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test('uses the portfolio design system', () => {
+  expect(theme.palette.mode).toBe('dark');
+  expect(theme.palette.primary.main).toBe('#FF9811');
+  expect(theme.typography.h1.fontFamily).toContain('Space Grotesk');
 });

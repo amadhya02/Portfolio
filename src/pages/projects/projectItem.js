@@ -1,102 +1,90 @@
-import ArrowForwardIos from '@mui/icons-material/ArrowForwardIos';
+import ArrowForward from '@mui/icons-material/ArrowForward';
 import Box from '@mui/material/Box';
+import Chip from '@mui/material/Chip';
 import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
 import React, { useCallback } from 'react';
 
-import theme from '../../theme';
+import ProjectVisual from '../../components/ProjectVisual';
 
-// Create a motion-enabled MUI Box
-const MotionBox = motion.create(Box);
+const getTechnologies = (project) =>
+  Object.values(project.techStack)
+    .flat()
+    .map((technology) => technology.text)
+    .filter(Boolean)
+    .slice(0, 4);
 
-function ProjectItem({ index, project, setSelectedProject, isLast = false }) {
+function ProjectItem({ index, project, setSelectedProject }) {
   const handleOpen = useCallback(() => {
     setSelectedProject(project);
   }, [project, setSelectedProject]);
 
   return (
-    <MotionBox
-      initial={{ opacity: 0, y: 20 }}
+    <Box
+      component={motion.article}
+      initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      viewport={{ once: true, amount: 0.12 }}
+      transition={{ duration: 0.45, delay: (index % 2) * 0.05 }}
       role="button"
       tabIndex={0}
+      aria-label={`Open ${project.title} case study`}
       onClick={handleOpen}
-      onKeyDown={(e) => {
-        if (e.key === 'Enter') handleOpen();
+      onKeyDown={(event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          handleOpen();
+        }
       }}
       sx={{
+        height: '100%',
+        p: 1.25,
         display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        borderBottom: isLast ? '' : `1px solid ${theme.custom.border}`,
+        flexDirection: 'column',
+        border: '1px solid',
+        borderColor: 'rgba(255,255,255,0.09)',
+        borderRadius: 4,
+        bgcolor: '#10171E',
         cursor: 'pointer',
-        p: 4,
-        transition: 'background-color 0.3s ease, transform 0.2s ease',
+        transition: 'transform 0.25s ease, border-color 0.25s ease',
         '&:hover': {
-          backgroundColor: 'rgba(255, 255, 255, 0.05)',
-          transform: 'scale(1.01)',
+          transform: 'translateY(-6px)',
+          borderColor: 'rgba(255,152,17,0.48)',
+          '& .project-link': { color: 'primary.main' },
+          '& .project-link svg': { transform: 'translateX(4px)' },
         },
       }}
     >
-      {/* Left Section */}
-      <Box sx={{ display: 'flex', alignItems: 'center' }}>
-        <Typography
-          variant="h6"
-          color="textSecondary"
-          sx={{ fontWeight: 300, width: 32, mr: 2 }}
-        >
-          {String(index + 1).padStart(2, '0')}
+      <ProjectVisual project={project} index={index} compact />
+
+      <Box sx={{ p: { xs: 1.75, sm: 2.25 }, pt: { xs: 2.25, sm: 2.75 }, flex: 1, display: 'flex', flexDirection: 'column' }}>
+        <Typography variant="body2" color="text.secondary">
+          0{index + 1} · {project.year} · {project.under}
         </Typography>
-        <Typography
-          variant="body2"
-          color="textSecondary"
-          sx={{ mr: 2, display: { xs: 'none', sm: 'block' } }}
-        >
-          {project.year}
-        </Typography>
-        <Typography
-          variant="h4"
-          sx={{
-            cursor: 'pointer',
-            transition: 'color 0.2s ease',
-            '&:hover': {
-              color: 'primary.main',
-            },
-          }}
-        >
+        <Typography variant="h3" sx={{ mt: 1, mb: 1.25 }}>
           {project.title}
         </Typography>
-      </Box>
-
-      {/* Right Section */}
-      <Box
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-          transition: 'transform 0.3s ease',
-          '&:hover': {
-            transform: 'translateX(4px)',
-          },
-        }}
-      >
-        <Typography
-          variant="body2"
-          color="textSecondary"
-          sx={{ display: { xs: 'none', md: 'block' } }}
-        >
-          {project.under || 'Web Development'}
+        <Typography variant="body2" color="text.secondary" sx={{ mb: 2.25, flex: 1 }}>
+          {project.description[0]}
         </Typography>
-        <ArrowForwardIos
-          size="small"
-          sx={{
-            ml: 1,
-            color: 'text.secondary',
-            transition: 'transform 0.3s ease',
-          }}
-        />
+
+        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.6, mb: 2.25 }}>
+          {getTechnologies(project).map((name) => (
+            <Chip
+              key={name}
+              label={name}
+              size="small"
+              sx={{ bgcolor: 'rgba(255,255,255,0.045)', color: 'text.secondary' }}
+            />
+          ))}
+        </Box>
+
+        <Box className="project-link" sx={{ display: 'flex', alignItems: 'center', gap: 1, fontWeight: 600, transition: 'color 0.2s ease' }}>
+          View case study
+          <ArrowForward sx={{ fontSize: 18, transition: 'transform 0.2s ease' }} />
+        </Box>
       </Box>
-    </MotionBox>
+    </Box>
   );
 }
 

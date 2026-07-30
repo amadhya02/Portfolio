@@ -11,8 +11,8 @@ const HOBBIES = [
     icon: DrumsImg,
   },
   {
-    title: 'Gymming',
-    description: 'Strength and discipline — gym sessions are my power zone.',
+    title: 'Strength training',
+    description: 'A steady practice in patience, discipline, and progression.',
     icon: DumbellImg,
   },
   {
@@ -21,8 +21,8 @@ const HOBBIES = [
     icon: SwimImg,
   },
   {
-    title: 'Legos',
-    description: 'Creative problem-solving and building block by block.',
+    title: 'Lego builds',
+    description: 'Making something tangible, one small decision at a time.',
     icon: LegoImg,
   },
 ];

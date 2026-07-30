@@ -1,8 +1,17 @@
+import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import React from 'react';
+import Typography from '@mui/material/Typography';
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from 'framer-motion';
+import React, { useRef } from 'react';
 import { Title, Meta } from 'react-head';
 
+import FeaturedProjects from './FeaturedProjects';
 import HeroImage from './HeroImage';
 import HeroText from './HeroText';
 import BgImg from '../../assets/images/background.png';
@@ -11,6 +20,26 @@ import StructuredData from '../../components/StructuredData';
 import { SEO_CONFIG, SOCIAL_PROFILES, SOCIAL_PROFILES_ARRAY } from '../../constants/seo';
 
 const Index = () => {
+  const heroRef = useRef(null);
+  const prefersReducedMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ['start start', 'end start'],
+  });
+  const backgroundY = useTransform(scrollYProgress, [0, 1], [0, 170]);
+  const copyY = useTransform(scrollYProgress, [0, 1], [0, 62]);
+  const copyOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.72, 1],
+    [1, 0.96, 0.62]
+  );
+  const portraitY = useTransform(scrollYProgress, [0, 1], [0, 230]);
+  const cueOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.16, 0.34],
+    [1, 1, 0]
+  );
+
   return (
     <>
       <Title>Amadhya Anand | Full-Stack Developer Portfolio</Title>
@@ -73,24 +102,110 @@ const Index = () => {
       />
 
       <Box
-        component="section"
+        ref={heroRef}
         sx={{
           position: 'relative',
-          height: '100vh',
-          overflow: 'hidden',
-          backgroundImage: `url(${BgImg})`,
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          willChange: 'transform',
+          height: '200svh',
+          bgcolor: '#070B0F',
         }}
       >
-        <Container maxWidth="lg" sx={{ height: '100%' }}>
-          <Box sx={{ display: 'flex', alignItems: 'center', height: '100%' }}>
-            <HeroText />
+        <Box
+          component="section"
+          sx={{
+            position: 'sticky',
+            top: 0,
+            height: '100svh',
+            overflow: 'hidden',
+            isolation: 'isolate',
+          }}
+        >
+        <Box
+          component={motion.div}
+          aria-hidden="true"
+          style={{ y: prefersReducedMotion ? 0 : backgroundY }}
+          sx={{
+            position: 'absolute',
+            zIndex: -2,
+            inset: '-14% 0',
+            backgroundImage: `url(${BgImg})`,
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            opacity: 0.72,
+          }}
+        />
+        <Box
+          aria-hidden="true"
+          sx={{
+            position: 'absolute',
+            zIndex: -1,
+            inset: 0,
+            background:
+              'linear-gradient(90deg, rgba(5,10,15,0.7) 0%, rgba(5,10,15,0.24) 58%, rgba(5,10,15,0.5) 100%)',
+            pointerEvents: 'none',
+          }}
+        />
+
+        <Container maxWidth="lg" sx={{ minHeight: '100svh' }}>
+          <Box
+            sx={{
+              position: 'relative',
+              zIndex: 1,
+              display: 'grid',
+              gridTemplateColumns: '1fr',
+              alignItems: 'center',
+              minHeight: '100svh',
+              pt: { xs: 12, md: 10 },
+              pb: { xs: 10, md: 7 },
+            }}
+          >
+            <Box
+              component={motion.div}
+              style={{
+                y: prefersReducedMotion ? 0 : copyY,
+                opacity: prefersReducedMotion ? 1 : copyOpacity,
+              }}
+            >
+              <HeroText />
+            </Box>
           </Box>
         </Container>
-        <HeroImage />
+
+        <HeroImage
+          parallaxY={portraitY}
+          reduceMotion={prefersReducedMotion}
+        />
+
+        <Box
+          component={motion.div}
+          aria-hidden="true"
+          style={{ opacity: prefersReducedMotion ? 1 : cueOpacity }}
+          animate={prefersReducedMotion ? undefined : { y: [0, 7, 0] }}
+          transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
+          sx={{
+            position: 'absolute',
+            left: { xs: 16, sm: 'max(24px, calc((100vw - 1152px) / 2))' },
+            bottom: 24,
+            display: { xs: 'none', md: 'flex' },
+            alignItems: 'center',
+            gap: 0.75,
+            color: 'text.secondary',
+          }}
+        >
+          <KeyboardArrowDown sx={{ color: 'primary.main' }} />
+          <Typography variant="caption">Scroll to explore</Typography>
+        </Box>
+        </Box>
+      </Box>
+      <Box
+        sx={{
+          position: 'relative',
+          zIndex: 2,
+          mt: '-100svh',
+          boxShadow: '0 -28px 70px rgba(0,0,0,0.34)',
+        }}
+      >
+        <FeaturedProjects />
       </Box>
     </>
   );

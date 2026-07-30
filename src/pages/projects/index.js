@@ -1,7 +1,9 @@
+import ArrowOutward from '@mui/icons-material/ArrowOutward';
 import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import React, { useState } from 'react';
+import Typography from '@mui/material/Typography';
+import React, { useEffect, useState } from 'react';
 import { Meta, Title } from 'react-head';
+import { useLocation } from 'react-router-dom';
 
 import Header from './header';
 import ProjectItem from './projectItem';
@@ -14,6 +16,17 @@ import theme from '../../theme';
 
 const ProjectsPage = () => {
   const [selectedProject, setSelectedProject] = useState(null);
+  const location = useLocation();
+
+  useEffect(() => {
+    const requestedProject = location.state?.projectTitle;
+    if (requestedProject) {
+      setSelectedProject(
+        PROJECTS.find((project) => project.title === requestedProject) || null
+      );
+      window.history.replaceState({}, document.title);
+    }
+  }, [location.state]);
 
   return (
     <Box sx={{ background: theme.custom.gradients.background }}>
@@ -43,24 +56,98 @@ const ProjectsPage = () => {
         id="projects"
         sx={{
           minHeight: '100vh',
-          display: 'flex',
-          justifyContent: 'center',
-          flexDirection: 'column',
+          py: 0,
+          pb: { xs: 8, md: 10 },
         }}
       >
         <Header />
-        <Grid container direction="column" sx={{ width: '100%' }}>
-          {PROJECTS.map((project, index) => (
-            <Grid size={{ xs: 12 }} key={index}>
-              <ProjectItem
-                setSelectedProject={setSelectedProject}
-                project={project}
-                index={index}
-                isLast={index + 1 === PROJECTS.length}
-              />
-            </Grid>
+        <Box sx={{ pt: { xs: 7, md: 9 }, mb: 3 }}>
+          <Typography
+            variant="body2"
+            sx={{ color: 'primary.main', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase' }}
+          >
+            Featured projects
+          </Typography>
+        </Box>
+        <Box
+          sx={{
+            display: 'grid',
+            gridTemplateColumns: { xs: '1fr', md: 'repeat(2, minmax(0, 1fr))' },
+            gap: 2,
+          }}
+        >
+          {PROJECTS.slice(0, 6).map((project, index) => (
+            <ProjectItem
+              key={project.title}
+              setSelectedProject={setSelectedProject}
+              project={project}
+              index={index}
+            />
           ))}
-        </Grid>
+        </Box>
+
+        <Box sx={{ mt: { xs: 8, md: 10 } }}>
+          <Box sx={{ mb: 4, display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, justifyContent: 'space-between', gap: 2 }}>
+            <Box>
+              <Typography
+                variant="body2"
+                sx={{ color: 'primary.main', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', mb: 1 }}
+              >
+                Archive
+              </Typography>
+              <Typography variant="h2">
+                Earlier work
+              </Typography>
+            </Box>
+            <Typography color="text.secondary" sx={{ maxWidth: 410, alignSelf: { sm: 'flex-end' } }}>
+              Experiments, client work, and products that shaped how I build today.
+            </Typography>
+          </Box>
+
+          <Box sx={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+            {PROJECTS.slice(6).map((project, archiveIndex) => (
+              <Box
+                key={project.title}
+                component="button"
+                type="button"
+                onClick={() => setSelectedProject(project)}
+                sx={{
+                  width: '100%',
+                  p: 0,
+                  py: { xs: 2.25, md: 2.5 },
+                  display: 'grid',
+                  gridTemplateColumns: { xs: '46px 1fr auto', md: '70px 1.4fr 0.7fr 0.5fr auto' },
+                  gap: { xs: 1.5, md: 3 },
+                  alignItems: 'center',
+                  textAlign: 'left',
+                  color: 'text.primary',
+                  bgcolor: 'transparent',
+                  border: 0,
+                  borderBottom: '1px solid rgba(255,255,255,0.1)',
+                  cursor: 'pointer',
+                  '&:hover': {
+                    '& .archive-title': { color: 'primary.main' },
+                    '& .archive-arrow': { transform: 'translate(3px, -3px)' },
+                  },
+                }}
+              >
+                <Typography variant="body2" color="text.secondary">
+                  {String(archiveIndex + 7).padStart(2, '0')}
+                </Typography>
+                <Typography className="archive-title" variant="h6" sx={{ transition: 'color 0.2s ease' }}>
+                  {project.title}
+                </Typography>
+                <Typography variant="body2" color="text.secondary" sx={{ display: { xs: 'none', md: 'block' } }}>
+                  {project.under}
+                </Typography>
+                <Typography variant="body2" color="text.secondary" sx={{ display: { xs: 'none', md: 'block' } }}>
+                  {project.year}
+                </Typography>
+                <ArrowOutward className="archive-arrow" sx={{ color: 'text.secondary', transition: 'transform 0.2s ease' }} />
+              </Box>
+            ))}
+          </Box>
+        </Box>
       </SectionContainer>
 
       {/* Modal */}

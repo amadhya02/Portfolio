@@ -18,7 +18,10 @@ const AboutSection = () => {
       id="about"
       sx={{
         position: 'relative',
-        minHeight: '96vh',
+        minHeight: { xs: 'auto', md: '88vh' },
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
         [theme.breakpoints.down('md')]: {
           display: 'flex',
           flexDirection: 'column',
@@ -26,7 +29,6 @@ const AboutSection = () => {
         },
       }}
     >
-      {/* Section Title */}
       <Box
         component={motion.div}
         initial={{ opacity: 0, y: -30 }}
@@ -34,12 +36,17 @@ const AboutSection = () => {
         transition={{ duration: 0.6 }}
       >
         <Typography
-          variant="h1"
-          color="text.textHeading"
-          sx={{ mb: 6 }}
-          align="right"
+          variant="body2"
+          color="primary"
+          sx={{ mb: 1.5, fontWeight: 700, letterSpacing: '0.13em', textTransform: 'uppercase' }}
         >
-          ABOUT ME
+          About
+        </Typography>
+        <Typography
+          variant="h2"
+          sx={{ mb: { xs: 6, md: 8 }, maxWidth: 760 }}
+        >
+          An engineer guided by curiosity, clarity, and care.
         </Typography>
       </Box>
 
@@ -56,7 +63,7 @@ const AboutSection = () => {
         transition={{ duration: 2, repeat: Infinity }}
         sx={{
           position: 'absolute',
-          bottom: 50,
+          bottom: 24,
           left: '50%',
           transform: 'translateX(-50%)',
           display: { xs: 'none', sm: 'block' },

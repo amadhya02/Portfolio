@@ -5,9 +5,14 @@ import React from 'react';
 
 const Header = ({ align = 'left', title, subtitle }) => {
   return (
-    <Box sx={{ mb: 4 }}>
+    <Box sx={{ mb: { xs: 4, md: 6 } }}>
       {/* Subtitle */}
-      <Typography variant="h5" color="text.secondary" align={align}>
+      <Typography
+        variant="body2"
+        color="primary"
+        align={align}
+        sx={{ fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', mb: 1 }}
+      >
         {subtitle}
       </Typography>
 
@@ -17,7 +22,7 @@ const Header = ({ align = 'left', title, subtitle }) => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <Typography variant="h2" color="primary" align={align}>
+        <Typography variant="h2" color="text.primary" align={align}>
           {title}
         </Typography>
       </motion.div>

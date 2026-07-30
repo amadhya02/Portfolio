@@ -6,8 +6,8 @@ const theme = createTheme({
   palette: {
     mode: 'dark',
     background: {
-      default: COLORS.BUNKER_DARK,
-      paper: COLORS.BUNKER_DARK,
+      default: '#0B1016',
+      paper: '#111820',
     },
     primary: {
       main: COLORS.WEST_SIDE,
@@ -17,9 +17,9 @@ const theme = createTheme({
       main: COLORS.HEATHERED_GRAY,
     },
     text: {
-      primary: COLORS.WHITE,
-      secondary: COLORS.SILVER_CHALICE,
-      textHeading: COLORS.BRIGHT_GRAY,
+      primary: '#F5F7FA',
+      secondary: '#A6AFBA',
+      textHeading: '#56616E',
     },
   },
   typography: {
@@ -30,54 +30,56 @@ const theme = createTheme({
     h1: {
       fontFamily: '"Space Grotesk", sans-serif',
       fontWeight: 700,
-      fontSize: '3rem', // Increased from 2.5rem
-      lineHeight: 1.2,
-      letterSpacing: '0.05em',
+      fontSize: '2.75rem',
+      lineHeight: 1.02,
+      letterSpacing: '-0.045em',
       '@media (min-width:600px)': {
-        fontSize: '4rem', // Increased from 3.5rem
+        fontSize: '3.75rem',
       },
       '@media (min-width:900px)': {
-        fontSize: '5rem', // Increased from 4.2rem
+        fontSize: '4.75rem',
       },
     },
     h2: {
       fontFamily: '"Space Grotesk", sans-serif',
       fontWeight: 700,
-      fontSize: '2.25rem', // Increased from 2rem
-      letterSpacing: '0.05em',
+      fontSize: '1.9rem',
+      lineHeight: 1.1,
+      letterSpacing: '-0.035em',
       '@media (min-width:600px)': {
-        fontSize: '3rem', // Increased from 2.75rem
+        fontSize: '2.75rem',
       },
     },
     h3: {
       fontFamily: '"Space Grotesk", sans-serif',
       fontWeight: 600,
-      fontSize: '2rem', // Increased from 1.75rem
-      letterSpacing: '0.05em',
+      fontSize: '1.5rem',
+      lineHeight: 1.15,
+      letterSpacing: '-0.025em',
     },
     h6: {
-      fontWeight: 500,
-      fontSize: '1.25rem', // Increased from 1.15rem
-      letterSpacing: '0.08em',
+      fontWeight: 600,
+      fontSize: '1rem',
+      letterSpacing: '0.02em',
     },
     body1: {
-      fontSize: '1.125rem', // Increased from 1rem
-      letterSpacing: '0.03em',
-      lineHeight: 1.7,
+      fontSize: '1rem',
+      letterSpacing: '-0.005em',
+      lineHeight: 1.65,
     },
     body2: {
-      fontSize: '0.95rem', // Increased from 0.8rem
-      letterSpacing: '0.03em',
+      fontSize: '0.875rem',
+      letterSpacing: 0,
       lineHeight: 1.6,
     },
     button: {
       textTransform: 'none',
       fontWeight: 500,
-      fontSize: '1rem', // Slight bump from 0.95rem
+      fontSize: '0.925rem',
     },
   },
   shape: {
-    borderRadius: 8,
+    borderRadius: 14,
   },
   components: {
     MuiButton: {
@@ -86,11 +88,12 @@ const theme = createTheme({
       },
       styleOverrides: {
         root: {
-          padding: '12px 32px',
-          borderRadius: 12,
+          minHeight: 44,
+          padding: '9px 21px',
+          borderRadius: 999,
           textTransform: 'none',
-          fontWeight: 500,
-          transition: 'all 0.3s ease',
+          fontWeight: 600,
+          transition: 'transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease',
         },
         outlined: {
           color: COLORS.WHITE,
@@ -104,8 +107,24 @@ const theme = createTheme({
         contained: {
           '&:hover': {
             transform: 'translateY(-2px)',
-            boxShadow: `0 4px 12px rgba(255, 152, 17, 0.3)`,
+            boxShadow: '0 10px 28px rgba(255, 152, 17, 0.25)',
           },
+        },
+      },
+    },
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          backgroundColor: '#0B1016',
+          backgroundImage:
+            'radial-gradient(circle at 80% 8%, rgba(255, 152, 17, 0.05), transparent 24rem)',
+        },
+        '::selection': {
+          backgroundColor: 'rgba(255, 152, 17, 0.35)',
+        },
+        'a:focus-visible, button:focus-visible, [tabindex]:focus-visible': {
+          outline: '2px solid #FF9811',
+          outlineOffset: 3,
         },
       },
     },
@@ -114,7 +133,8 @@ const theme = createTheme({
     gradients: {
       orangeToYellow:
         'linear-gradient(277.46deg, rgb(255, 123, 49) -32.36%, rgb(255, 168, 0) 103.85%)',
-      background: 'radial-gradient(circle at center, #1e2a36, #0f141b 80%)',
+      background:
+        'radial-gradient(circle at 75% 10%, rgba(37, 52, 65, 0.7), transparent 34rem), #0B1016',
     },
     shadows: {
       softGlow: '0 0 20px rgba(255, 152, 17, 0.15)',

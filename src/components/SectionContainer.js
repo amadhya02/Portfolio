@@ -18,8 +18,8 @@ const SectionContainer = ({
       <Box
         id={id}
         sx={{
-          px: { xs: 4, sm: 6, md: 12 },
-          py: 4,
+          px: { xs: 0, sm: 2, md: 3 },
+          py: { xs: 5, md: 7 },
           ...sx,
         }}
       >

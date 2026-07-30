@@ -52,17 +52,22 @@ const AboutTextBlock = () => (
 
     <motion.div variants={itemVariants}>
       <Typography variant="body1" fontWeight={500} sx={{ mb: 2 }}>
-        Fueled by curiosity, shaped by code — building meaningful software
+        I turn complicated product and engineering problems into software that
+        feels clear, reliable, and genuinely useful.
       </Typography>
     </motion.div>
 
     <motion.div variants={itemVariants}>
       <Typography variant="body1" color="text.secondary" sx={{ mb: 2 }}>
-        A young, energetic, and enthusiastic engineer seeking a challenging and
-        growth-oriented career as a Software Developer, with a focus on holistic
-        personal development and contributing to organizational success. When
-        I&apos;m not coding, you&apos;ll find me behind a drum set or exploring
-        Amsterdam&apos;s canals.
+        Since 2020, I&apos;ve worked across frontend experiences, backend
+        systems, and cloud platforms. I enjoy finding the structure inside
+        ambiguous problems, collaborating closely with product teams, and
+        shipping solutions that remain maintainable after launch.
+      </Typography>
+      <Typography variant="body1" color="text.secondary" sx={{ mb: 2 }}>
+        Away from the screen, I&apos;m usually behind a drum set, swimming, or
+        exploring Amsterdam&apos;s canals. The same sense of rhythm and
+        curiosity tends to find its way back into my work.
       </Typography>
     </motion.div>
 
@@ -102,7 +107,7 @@ const AboutTextBlock = () => (
             to="/contact"
             aria-label="Navigate to contact form to hire Amadhya Anand"
           >
-            Hire Me
+            Start a conversation
           </Button>
         </motion.div>
       </Box>

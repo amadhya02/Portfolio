@@ -1,38 +1,48 @@
 import Box from '@mui/material/Box';
-import { useTheme, alpha } from '@mui/material/styles';
+import { alpha, useTheme } from '@mui/material/styles';
 import { motion } from 'framer-motion';
 import React from 'react';
 
 import devImage from '../../assets/images/coding.png';
-import { fadeUp } from '../../components/MotionVariants';
 
 const MotionBox = motion.create(Box);
 
-const HeroImage = () => {
+const HeroImage = ({ parallaxY, reduceMotion }) => {
   const theme = useTheme();
 
   return (
     <MotionBox
-      variants={fadeUp}
-      initial="hidden"
-      animate="visible"
+      initial={{ x: 28 }}
+      animate={{ x: 0 }}
       transition={{ duration: 0.8, ease: 'easeOut' }}
-      style={{ position: 'absolute', bottom: 0, right: 0 }}
+      style={{ y: reduceMotion ? 0 : parallaxY }}
+      sx={{
+        position: 'absolute',
+        zIndex: 0,
+        right: 0,
+        bottom: { xs: -18, md: 0 },
+        width: { xs: '70vw', sm: '62vw', md: '50vw' },
+        maxWidth: 768,
+        opacity: { xs: 0.42, sm: 0.58, md: 1 },
+        pointerEvents: 'none',
+      }}
     >
       <Box
         component="img"
         src={devImage}
-        alt="Developer Illustration of Amadhya Anand"
-        loading="lazy"
+        alt="Developer illustration"
         sx={{
+          display: 'block',
           width: '100%',
-          maxWidth: '50vw',
           borderRadius: 2,
           filter: `drop-shadow(0 0 30px ${alpha(
             theme.palette.primary.main,
             0.1
           )})`,
-          transition: 'transform 0.3s ease',
+          maskImage: {
+            xs: 'linear-gradient(135deg, transparent 4%, rgba(0,0,0,0.3) 32%, black 62%)',
+            md: 'none',
+          },
         }}
       />
     </MotionBox>

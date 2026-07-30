@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+import Footer from './components/Footer';
 import LoadingFallback from './components/LoadingFallback';
 import Navbar from './components/Navbar';
 import ScrollToTop from './components/ScrollToTop';
@@ -26,6 +27,7 @@ const App = () => {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
+      <Footer />
     </Router>
   );
 };

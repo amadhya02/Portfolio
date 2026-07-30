@@ -10,7 +10,6 @@ import { motion } from 'framer-motion';
 import React from 'react';
 
 import MyselfImg from '../../../assets/images/myself.jpg';
-import ProfileOverlayImg from '../../../assets/images/profile-overlay.png';
 import theme from '../../../theme';
 
 const SOCIAL = [
@@ -109,7 +108,6 @@ const ProfileImageBlock = () => (
         ))}
       </Box>
 
-      {/* Main Profile Image */}
       <motion.img
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
@@ -118,35 +116,15 @@ const ProfileImageBlock = () => (
         alt="Amadhya Anand seated behind a drum kit"
         style={{
           width: '100%',
-          maxWidth: 280,
+          maxWidth: 360,
+          aspectRatio: '4 / 5',
           objectFit: 'cover',
-          borderRadius: '12px',
-          boxShadow: '0 6px 24px rgba(0,0,0,0.4)',
+          borderRadius: '24px',
+          boxShadow: '0 28px 70px rgba(0,0,0,0.38)',
           zIndex: 2,
         }}
       />
 
-      {/* Overlay Image */}
-      <Box
-        component="img"
-        src={ProfileOverlayImg}
-        alt="Overlay: Amadhya working on laptop"
-        sx={{
-          display: { xs: 'none', md: 'block' },
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          transform: 'translate(-30%, 25%)',
-          width: '18vw',
-          maxWidth: 240,
-          borderRadius: 2,
-          objectFit: 'cover',
-          boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
-          zIndex: 3,
-        }}
-      />
-
-      {/* Experience Tag */}
       <Box
         component={motion.div}
         initial={{ y: 40, opacity: 0 }}
@@ -156,12 +134,13 @@ const ProfileImageBlock = () => (
           mt: 2,
           position: 'absolute',
           bottom: -30,
-          backgroundColor: 'background.paper',
+          backgroundColor: '#111820',
+          border: '1px solid rgba(255,255,255,0.1)',
           borderLeft: `4px solid ${theme.palette.primary.main}`,
           px: 2,
           py: 1,
           borderRadius: 2,
-          boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+          boxShadow: '0 14px 35px rgba(0,0,0,0.28)',
           zIndex: 4,
           [theme.breakpoints.up('lg')]: {
             bottom: -40,
@@ -174,7 +153,7 @@ const ProfileImageBlock = () => (
           {getExpYears()}+
         </Typography>
         <Typography variant="body2" color="text.secondary" noWrap>
-          Successful Years
+          Years building products
         </Typography>
       </Box>
     </Box>
