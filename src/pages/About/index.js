@@ -684,7 +684,7 @@ const WorkIndex = () => {
                     component="span"
                     sx={{ color: 'primary.main', fontWeight: 800 }}
                   >
-                    seven years
+                    6+ years
                   </Box>{' '}
                   · product to systems
                 </Typography>
@@ -719,18 +719,6 @@ const WorkIndex = () => {
                 cursor: 'pointer',
                 overflow: 'hidden',
                 transition: 'border-color 220ms ease',
-                '&::after': {
-                  content: '"CURRENT"',
-                  position: 'absolute',
-                  right: { xs: -8, md: 24 },
-                  bottom: { xs: -12, md: -22 },
-                  color: 'rgba(255,255,255,0.025)',
-                  fontSize: { xs: '4.25rem', md: '7rem' },
-                  fontWeight: 900,
-                  letterSpacing: '-0.06em',
-                  lineHeight: 1,
-                  pointerEvents: 'none',
-                },
                 '&:hover, &:focus-visible': {
                   borderLeftColor: 'primary.main',
                 },
@@ -1187,20 +1175,6 @@ const WorkIndex = () => {
               bgcolor: '#0B1016',
               backgroundImage:
                 'radial-gradient(circle at 82% 110%, rgba(111,214,179,0.045), transparent 25rem)',
-              '&::before': {
-                content: '"OFFLINE"',
-                position: 'absolute',
-                right: { md: '3%' },
-                bottom: { md: -38 },
-                display: { xs: 'none', md: 'block' },
-                color: 'rgba(255,255,255,0.018)',
-                fontFamily: '"Space Grotesk", sans-serif',
-                fontSize: '8.5rem',
-                fontWeight: 800,
-                lineHeight: 1,
-                letterSpacing: '-0.07em',
-                pointerEvents: 'none',
-              },
             }}
           >
             <Container
