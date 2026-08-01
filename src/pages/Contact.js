@@ -10,17 +10,13 @@ import Link from '@mui/material/Link';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import {
-  motion,
-  useReducedMotion,
-  useScroll,
-  useTransform,
-} from 'framer-motion';
-import React, { useRef, useState } from 'react';
+import { motion, useTransform } from 'framer-motion';
+import React, { useState } from 'react';
 import { Meta, Title } from 'react-head';
 
 import CanonicalLink from '../components/CanonicalLink';
 import { SEO_CONFIG, SOCIAL_PROFILES } from '../constants/seo';
+import useParallaxScroll from '../hooks/useParallaxScroll';
 
 const contactLinks = [
   {
@@ -45,14 +41,9 @@ const contactLinks = [
 
 const Contact = () => {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
-  const heroRef = useRef(null);
-  const prefersReducedMotion = useReducedMotion();
+  const { ref: heroRef, scrollYProgress, prefersReducedMotion, disableParallax } =
+    useParallaxScroll(['start start', 'end start']);
   const isMobile = useMediaQuery('(max-width:599.95px)');
-  const disableParallax = useMediaQuery('(max-width:899.95px)');
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ['start start', 'end start'],
-  });
   const gridY = useTransform(scrollYProgress, [0, 1], [0, 160]);
   const copyY = useTransform(scrollYProgress, [0, 1], [0, 64]);
   const copyOpacity = useTransform(

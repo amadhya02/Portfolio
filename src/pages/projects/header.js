@@ -2,23 +2,15 @@ import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import {
-  motion,
-  useReducedMotion,
-  useScroll,
-  useTransform,
-} from 'framer-motion';
-import React, { useRef } from 'react';
+import { motion, useTransform } from 'framer-motion';
+import React from 'react';
+
+import useParallaxScroll from '../../hooks/useParallaxScroll';
 
 const Header = () => {
-  const heroRef = useRef(null);
-  const prefersReducedMotion = useReducedMotion();
+  const { ref: heroRef, scrollYProgress, prefersReducedMotion, disableParallax } =
+    useParallaxScroll();
   const isMobile = useMediaQuery('(max-width:599.95px)');
-  const disableParallax = useMediaQuery('(max-width:899.95px)');
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ['start start', 'end end'],
-  });
   const contentY = useTransform(scrollYProgress, [0, 1], [0, 56]);
   const contentOpacity = useTransform(
     scrollYProgress,

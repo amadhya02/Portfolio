@@ -2,17 +2,8 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import React from 'react';
 
-import Header from './Header';
-
 // Memoized for performance
-const SectionContainer = ({
-  children,
-  align = 'left',
-  title,
-  subtitle,
-  id,
-  sx = {},
-}) => {
+const SectionContainer = ({ children, id, sx = {} }) => {
   return (
     <Container maxWidth="lg">
       <Box
@@ -23,9 +14,6 @@ const SectionContainer = ({
           ...sx,
         }}
       >
-        {(title || subtitle) && (
-          <Header align={align} title={title} subtitle={subtitle} />
-        )}
         {children}
       </Box>
     </Container>
