@@ -14,9 +14,6 @@
 export const SEO_CONFIG = {
   siteUrl: 'https://amadhya-portfolio.web.app',
   siteName: 'Amadhya Anand Portfolio',
-  defaultTitle: 'Amadhya Anand | Full-Stack Developer Portfolio',
-  defaultDescription:
-    'Amadhya Anand is a full-stack engineer who turns ambiguous product problems into fast, dependable systems and thoughtful user experiences.',
   author: 'Amadhya Anand',
   // Using current AA-logo.png (1024x1024 square format)
   // Social platforms will resize as needed. For optimal results, consider creating
@@ -31,9 +28,3 @@ export const SOCIAL_PROFILES = {
   linkedin: 'https://www.linkedin.com/in/amadhya-anand-1761b8169/',
   email: 'amadhya.anand@gmail.com',
 };
-
-// Array format for structured data
-export const SOCIAL_PROFILES_ARRAY = [
-  SOCIAL_PROFILES.github,
-  SOCIAL_PROFILES.linkedin,
-];

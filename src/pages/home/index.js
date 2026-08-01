@@ -11,12 +11,7 @@ import HeroImage from './HeroImage';
 import HeroText from './HeroText';
 import BgImg from '../../assets/images/background.webp';
 import CanonicalLink from '../../components/CanonicalLink';
-import StructuredData from '../../components/StructuredData';
-import {
-  SEO_CONFIG,
-  SOCIAL_PROFILES,
-  SOCIAL_PROFILES_ARRAY,
-} from '../../constants/seo';
+import { SEO_CONFIG } from '../../constants/seo';
 import useParallaxScroll from '../../hooks/useParallaxScroll';
 
 const Index = () => {
@@ -75,41 +70,6 @@ const Index = () => {
       />
       <Meta name="twitter:url" content={`${SEO_CONFIG.siteUrl}/`} />
       <CanonicalLink url={`${SEO_CONFIG.siteUrl}/`} />
-      <StructuredData
-        data={{
-          '@context': 'https://schema.org',
-          '@type': 'Person',
-          name: 'Amadhya Anand',
-          alternateName: 'AA',
-          jobTitle: 'Full-Stack Developer',
-          email: SOCIAL_PROFILES.email,
-          url: SEO_CONFIG.siteUrl,
-          image: `${SEO_CONFIG.siteUrl}${SEO_CONFIG.ogImageUrl}`,
-          sameAs: SOCIAL_PROFILES_ARRAY,
-          knowsAbout: [
-            'Web Development',
-            'Full-Stack Development',
-            'React',
-            'Node.js',
-            'JavaScript',
-            'Frontend Development',
-            'Backend Development',
-          ],
-        }}
-      />
-      <StructuredData
-        data={{
-          '@context': 'https://schema.org',
-          '@type': 'WebSite',
-          name: SEO_CONFIG.siteName,
-          url: SEO_CONFIG.siteUrl,
-          description: SEO_CONFIG.defaultDescription,
-          author: {
-            '@type': 'Person',
-            name: SEO_CONFIG.author,
-          },
-        }}
-      />
 
       <Box
         ref={heroRef}
