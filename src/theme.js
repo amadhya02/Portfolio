@@ -93,7 +93,8 @@ const theme = createTheme({
           borderRadius: 999,
           textTransform: 'none',
           fontWeight: 600,
-          transition: 'transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease',
+          transition:
+            'transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease',
         },
         outlined: {
           color: COLORS.WHITE,
@@ -105,9 +106,36 @@ const theme = createTheme({
           },
         },
         contained: {
+          boxShadow: 'none',
           '&:hover': {
-            transform: 'translateY(-2px)',
-            boxShadow: '0 10px 28px rgba(255, 152, 17, 0.25)',
+            transform: 'none',
+            boxShadow: 'none',
+          },
+        },
+        containedPrimary: {
+          color: '#10151B',
+          backgroundColor: COLORS.WEST_SIDE,
+          boxShadow: 'inset 0 0 0 1px rgba(255, 255, 255, 0.1)',
+          '& .MuiButton-endIcon': {
+            transition: 'transform 0.2s ease',
+          },
+          '&:hover': {
+            color: '#10151B',
+            backgroundColor: '#FFAA38',
+            boxShadow: 'inset 0 0 0 1px rgba(255, 255, 255, 0.14)',
+            '& .MuiButton-endIcon': {
+              transform: 'translateX(3px)',
+            },
+          },
+          '&:active': {
+            backgroundColor: '#F28A00',
+            transform: 'translateY(1px)',
+          },
+          '@media (prefers-reduced-motion: reduce)': {
+            transition: 'none',
+            '& .MuiButton-endIcon': {
+              transition: 'none',
+            },
           },
         },
       },

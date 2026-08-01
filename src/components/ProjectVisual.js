@@ -46,7 +46,7 @@ const VISUALS = {
   },
 };
 
-const ProjectVisual = ({ project, index = 0, compact = false }) => {
+const ProjectVisual = ({ compact = false, index = 0, project }) => {
   const visual = VISUALS[project.title] || {
     metric: String(project.year),
     label: project.role,
@@ -63,22 +63,21 @@ const ProjectVisual = ({ project, index = 0, compact = false }) => {
         height: '100%',
         overflow: 'hidden',
         borderRadius: compact ? 3 : 4,
-        background: `radial-gradient(circle at 80% 15%, ${visual.accent}35, transparent 42%), linear-gradient(145deg, #18212A 0%, #0D141B 100%)`,
+        background: `radial-gradient(circle at 88% 8%, ${visual.accent}38, transparent 46%), linear-gradient(145deg, #18212A 0%, #0B1117 100%)`,
         border: '1px solid rgba(255,255,255,0.08)',
-      }}
-    >
-      <Box
-        sx={{
+        '&::before': {
+          content: '""',
           position: 'absolute',
-          inset: compact ? 14 : 22,
-          border: '1px solid rgba(255,255,255,0.08)',
-          borderRadius: 3,
+          inset: 0,
           background:
             'linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)',
           backgroundSize: '32px 32px',
-        }}
-      />
-
+          maskImage:
+            'linear-gradient(to bottom, transparent 0%, black 18%, black 86%, transparent 100%)',
+          pointerEvents: 'none',
+        },
+      }}
+    >
       <Box
         sx={{
           position: 'absolute',
@@ -97,7 +96,14 @@ const ProjectVisual = ({ project, index = 0, compact = false }) => {
         {visual.icon}
       </Box>
 
-      <Box sx={{ position: 'absolute', left: compact ? 28 : 40, right: 30, bottom: compact ? 26 : 38 }}>
+      <Box
+        sx={{
+          position: 'absolute',
+          left: compact ? 28 : 40,
+          right: 30,
+          bottom: compact ? 26 : 38,
+        }}
+      >
         <Typography
           sx={{
             fontFamily: '"Space Grotesk", sans-serif',
@@ -109,7 +115,10 @@ const ProjectVisual = ({ project, index = 0, compact = false }) => {
         >
           {visual.metric}
         </Typography>
-        <Typography variant="body2" sx={{ color: visual.accent, maxWidth: 260 }}>
+        <Typography
+          variant="body2"
+          sx={{ color: visual.accent, maxWidth: 260 }}
+        >
           {visual.label}
         </Typography>
       </Box>

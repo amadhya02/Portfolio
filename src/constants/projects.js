@@ -23,10 +23,7 @@ const PROJECTS = [
     ],
     techStack: {
       languages: [TECHNOLOGIES_ICONS.TYPESCRIPT],
-      frontend: [
-        TECHNOLOGIES_ICONS.TAILWIND,
-        TECHNOLOGIES_ICONS.NEXTJS,
-      ],
+      frontend: [TECHNOLOGIES_ICONS.TAILWIND, TECHNOLOGIES_ICONS.NEXTJS],
       backend: [],
       tools: [TECHNOLOGIES_ICONS.GIT],
     },
