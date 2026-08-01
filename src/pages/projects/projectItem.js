@@ -136,6 +136,9 @@ function ProjectItem({
           sx={{
             mt: 1.25,
             mb: 1.25,
+            fontSize: isLead
+              ? { xs: '1.9rem', sm: '2.2rem', md: '2.75rem' }
+              : undefined,
             overflowWrap: 'anywhere',
             transition: 'color 0.2s ease',
           }}

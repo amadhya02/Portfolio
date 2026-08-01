@@ -66,6 +66,7 @@ const Footer = () => (
             display: 'inline-flex',
             alignItems: 'center',
             gap: 1,
+            minHeight: 44,
             color: 'text.primary',
             fontFamily: '"Space Grotesk", sans-serif',
             fontWeight: 600,
@@ -96,12 +97,21 @@ const Footer = () => (
           component={RouterLink}
           to="/"
           variant="body2"
-          sx={{ color: 'text.primary', fontWeight: 600, textDecoration: 'none' }}
+          sx={{
+            minHeight: 44,
+            display: 'inline-flex',
+            alignItems: 'center',
+            color: 'text.primary',
+            fontWeight: 600,
+            textDecoration: 'none',
+          }}
         >
           Amadhya Anand · Amsterdam
         </Typography>
 
-        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: { xs: 2, md: 3 } }}>
+        <Box
+          sx={{ display: 'flex', flexWrap: 'wrap', gap: { xs: 1.5, md: 2.5 } }}
+        >
           {PAGE_LINKS.map(({ label, to }) => (
             <Link
               key={label}
@@ -110,14 +120,23 @@ const Footer = () => (
               color="text.secondary"
               underline="none"
               variant="body2"
-              sx={{ '&:hover': { color: 'primary.main' } }}
+              sx={{
+                minHeight: 44,
+                minWidth: 44,
+                display: 'inline-flex',
+                alignItems: 'center',
+                px: 0.25,
+                '&:hover': { color: 'primary.main' },
+              }}
             >
               {label}
             </Link>
           ))}
         </Box>
 
-        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: { xs: 2, md: 2.5 } }}>
+        <Box
+          sx={{ display: 'flex', flexWrap: 'wrap', gap: { xs: 1.5, md: 2 } }}
+        >
           {SOCIAL_LINKS.map(({ label, href }) => (
             <Link
               key={label}
@@ -131,6 +150,8 @@ const Footer = () => (
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: 0.4,
+                minHeight: 44,
+                px: 0.25,
                 '&:hover': { color: 'primary.main' },
               }}
             >

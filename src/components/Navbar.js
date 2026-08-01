@@ -47,6 +47,7 @@ const Navbar = () => {
       aria-current={isActive(path) ? 'page' : undefined}
       sx={{
         minHeight: mobile ? 64 : 44,
+        minWidth: 44,
         justifyContent: mobile ? 'flex-start' : 'center',
         width: mobile ? '100%' : 'auto',
         px: mobile ? 0 : 1.75,
@@ -87,18 +88,39 @@ const Navbar = () => {
       >
         <Container maxWidth="lg">
           <Toolbar disableGutters sx={{ minHeight: { xs: 68, sm: 76 } }}>
-            <Link to="/" aria-label="Amadhya Anand home">
+            <Box
+              component={Link}
+              to="/"
+              aria-label="Amadhya Anand home"
+              sx={{
+                width: 44,
+                height: 44,
+                display: 'grid',
+                placeItems: 'center',
+              }}
+            >
               <Box
                 component="img"
                 src={AALogo}
                 alt=""
-                sx={{ display: 'block', width: 40, height: 40, objectFit: 'contain' }}
+                sx={{
+                  display: 'block',
+                  width: 40,
+                  height: 40,
+                  objectFit: 'contain',
+                }}
               />
-            </Link>
+            </Box>
 
             <Box sx={{ flexGrow: 1 }} />
 
-            <Box sx={{ display: { xs: 'none', sm: 'flex' }, alignItems: 'center', gap: 0.5 }}>
+            <Box
+              sx={{
+                display: { xs: 'none', sm: 'flex' },
+                alignItems: 'center',
+                gap: 0.5,
+              }}
+            >
               {pages.map((page) => (
                 <NavLink key={page.path} {...page} />
               ))}
@@ -114,7 +136,12 @@ const Navbar = () => {
 
             <IconButton
               onClick={handleDrawerToggle}
-              sx={{ display: { sm: 'none' }, color: 'text.primary' }}
+              sx={{
+                width: 44,
+                height: 44,
+                display: { sm: 'none' },
+                color: 'text.primary',
+              }}
               aria-label="Open navigation"
             >
               <MenuIcon />
@@ -131,12 +158,26 @@ const Navbar = () => {
       >
         <Container
           maxWidth="sm"
-          sx={{ minHeight: '100dvh', display: 'flex', flexDirection: 'column', py: 2 }}
+          sx={{
+            minHeight: '100dvh',
+            display: 'flex',
+            flexDirection: 'column',
+            py: 2,
+          }}
         >
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <Box component="img" src={AALogo} alt="" sx={{ width: 42, height: 42 }} />
+            <Box
+              component="img"
+              src={AALogo}
+              alt=""
+              sx={{ width: 42, height: 42 }}
+            />
             <Box sx={{ flex: 1 }} />
-            <IconButton onClick={handleDrawerToggle} aria-label="Close navigation">
+            <IconButton
+              onClick={handleDrawerToggle}
+              aria-label="Close navigation"
+              sx={{ width: 44, height: 44 }}
+            >
               <CloseIcon />
             </IconButton>
           </Box>
@@ -144,7 +185,13 @@ const Navbar = () => {
           <Box
             component="nav"
             aria-label="Primary navigation"
-            sx={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 1 }}
+            sx={{
+              flex: 1,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              gap: 1,
+            }}
           >
             {pages.map((page) => (
               <NavLink key={page.path} {...page} mobile />

@@ -9,6 +9,7 @@ import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import {
   motion,
   useReducedMotion,
@@ -46,6 +47,8 @@ const Contact = () => {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const heroRef = useRef(null);
   const prefersReducedMotion = useReducedMotion();
+  const isMobile = useMediaQuery('(max-width:599.95px)');
+  const disableParallax = useMediaQuery('(max-width:899.95px)');
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ['start start', 'end start'],
@@ -60,7 +63,10 @@ const Contact = () => {
   const linksY = useTransform(scrollYProgress, [0, 1], [0, 210]);
 
   const handleChange = (event) => {
-    setForm((current) => ({ ...current, [event.target.name]: event.target.value }));
+    setForm((current) => ({
+      ...current,
+      [event.target.name]: event.target.value,
+    }));
   };
 
   const handleSubmit = (event) => {
@@ -79,12 +85,21 @@ const Contact = () => {
         name="description"
         content="Get in touch with Amadhya Anand for collaborations, freelance work, or product engineering opportunities."
       />
-      <Meta name="keywords" content="Amadhya Anand, contact, hire developer, freelance, collaboration" />
+      <Meta
+        name="keywords"
+        content="Amadhya Anand, contact, hire developer, freelance, collaboration"
+      />
       <Meta name="robots" content="index, follow" />
       <Meta property="og:title" content="Contact | Amadhya Anand Portfolio" />
-      <Meta property="og:description" content="Start a conversation with Amadhya Anand about software, products, or collaboration." />
+      <Meta
+        property="og:description"
+        content="Start a conversation with Amadhya Anand about software, products, or collaboration."
+      />
       <Meta property="og:url" content={`${SEO_CONFIG.siteUrl}/contact`} />
-      <Meta property="og:image" content={`${SEO_CONFIG.siteUrl}${SEO_CONFIG.ogImageUrl}`} />
+      <Meta
+        property="og:image"
+        content={`${SEO_CONFIG.siteUrl}${SEO_CONFIG.ogImageUrl}`}
+      />
       <CanonicalLink url={`${SEO_CONFIG.siteUrl}/contact`} />
 
       <Box
@@ -104,7 +119,9 @@ const Contact = () => {
         <Box
           component={motion.div}
           aria-hidden="true"
-          style={{ y: prefersReducedMotion ? 0 : gridY }}
+          style={{
+            y: prefersReducedMotion || disableParallax ? 0 : gridY,
+          }}
           sx={{
             position: 'absolute',
             zIndex: -1,
@@ -133,20 +150,30 @@ const Contact = () => {
             <Box
               component={motion.div}
               style={{
-                y: prefersReducedMotion ? 0 : copyY,
-                opacity: prefersReducedMotion ? 1 : copyOpacity,
+                y: prefersReducedMotion || disableParallax ? 0 : copyY,
+                opacity:
+                  prefersReducedMotion || disableParallax ? 1 : copyOpacity,
               }}
             >
               <Typography
                 variant="body2"
-                sx={{ color: 'primary.main', fontWeight: 700, letterSpacing: '0.13em', textTransform: 'uppercase', mb: 1.5 }}
+                sx={{
+                  color: 'primary.main',
+                  fontWeight: 700,
+                  letterSpacing: '0.13em',
+                  textTransform: 'uppercase',
+                  mb: 1.5,
+                }}
               >
                 Contact
               </Typography>
               <Typography variant="h1">
                 Let&apos;s build something useful.
               </Typography>
-              <Typography color="text.secondary" sx={{ mt: 2.5, maxWidth: 560 }}>
+              <Typography
+                color="text.secondary"
+                sx={{ mt: 2.5, maxWidth: 560 }}
+              >
                 Have a product challenge, an engineering opportunity, or a
                 thoughtful idea? Send me the context and I&apos;ll get back to
                 you within two business days.
@@ -155,7 +182,9 @@ const Contact = () => {
 
             <Box
               component={motion.div}
-              style={{ y: prefersReducedMotion ? 0 : linksY }}
+              style={{
+                y: prefersReducedMotion || disableParallax ? 0 : linksY,
+              }}
               sx={{
                 display: 'grid',
                 borderTop: '1px solid rgba(255,255,255,0.11)',
@@ -166,7 +195,9 @@ const Contact = () => {
                   key={label}
                   href={href}
                   target={href.startsWith('http') ? '_blank' : undefined}
-                  rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  rel={
+                    href.startsWith('http') ? 'noopener noreferrer' : undefined
+                  }
                   underline="none"
                   sx={{
                     py: { xs: 1.8, sm: 2.1 },
@@ -182,12 +213,20 @@ const Contact = () => {
                     },
                   }}
                 >
-                  <Box sx={{ color: 'primary.main', display: 'flex' }}>{icon}</Box>
-                  <Box sx={{ flex: 1 }}>
-                    <Typography variant="body2" sx={{ fontWeight: 600 }}>{label}</Typography>
-                    <Typography variant="body2" color="text.secondary">{value}</Typography>
+                  <Box sx={{ color: 'primary.main', display: 'flex' }}>
+                    {icon}
                   </Box>
-                  <ArrowOutward sx={{ fontSize: 19, color: 'text.secondary' }} />
+                  <Box sx={{ flex: 1 }}>
+                    <Typography variant="body2" sx={{ fontWeight: 600 }}>
+                      {label}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {value}
+                    </Typography>
+                  </Box>
+                  <ArrowOutward
+                    sx={{ fontSize: 19, color: 'text.secondary' }}
+                  />
                 </Link>
               ))}
             </Box>
@@ -195,7 +234,10 @@ const Contact = () => {
         </Container>
       </Box>
 
-      <Box component="section" sx={{ py: { xs: 8, md: 10 }, bgcolor: '#0F161D' }}>
+      <Box
+        component="section"
+        sx={{ py: { xs: 8, md: 10 }, bgcolor: '#0F161D' }}
+      >
         <Container maxWidth="md">
           <Box
             sx={{
@@ -209,13 +251,25 @@ const Contact = () => {
             <Box>
               <Typography
                 variant="body2"
-                sx={{ color: 'primary.main', fontWeight: 700, letterSpacing: '0.13em', textTransform: 'uppercase', mb: 1.25 }}
+                sx={{
+                  color: 'primary.main',
+                  fontWeight: 700,
+                  letterSpacing: '0.13em',
+                  textTransform: 'uppercase',
+                  mb: 1.25,
+                }}
               >
                 Your context
               </Typography>
-              <Typography variant="h2">Tell me about the opportunity.</Typography>
+              <Typography variant="h2">
+                Tell me about the opportunity.
+              </Typography>
             </Box>
-            <Typography variant="body2" color="text.secondary" sx={{ maxWidth: 430 }}>
+            <Typography
+              variant="body2"
+              color="text.secondary"
+              sx={{ maxWidth: 430 }}
+            >
               Add the essentials below. This opens your email client with the
               details ready to send.
             </Typography>
@@ -229,7 +283,13 @@ const Contact = () => {
               borderTop: '1px solid rgba(255,255,255,0.12)',
             }}
           >
-            <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' }, gap: 2 }}>
+            <Box
+              sx={{
+                display: 'grid',
+                gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' },
+                gap: 2,
+              }}
+            >
               <TextField
                 label="Your name"
                 name="name"
@@ -255,11 +315,16 @@ const Contact = () => {
               onChange={handleChange}
               required
               multiline
-              minRows={7}
+              minRows={isMobile ? 5 : 7}
               fullWidth
               sx={{ mt: 2 }}
             />
-            <Button type="submit" variant="contained" endIcon={<ArrowForward />} sx={{ mt: 3 }}>
+            <Button
+              type="submit"
+              variant="contained"
+              endIcon={<ArrowForward />}
+              sx={{ mt: 3, width: { xs: '100%', sm: 'auto' } }}
+            >
               Compose email
             </Button>
           </Box>

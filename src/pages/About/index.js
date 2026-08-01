@@ -7,6 +7,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import {
   motion,
   useReducedMotion,
@@ -521,12 +522,12 @@ const WorkIndex = () => {
         sx={{
           position: 'relative',
           zIndex: 2,
-          mt: '-100svh',
+          mt: { xs: 0, md: '-100svh' },
           pt: { xs: 9, md: 14 },
           pb: 0,
           overflow: 'hidden',
           bgcolor: '#0B1016',
-          borderTop: '1px solid rgba(255,255,255,0.1)',
+          borderTop: { xs: 0, md: '1px solid rgba(255,255,255,0.1)' },
           boxShadow: '0 -28px 70px rgba(0,0,0,0.34)',
           '&::before': {
             content: '""',
@@ -1038,8 +1039,8 @@ const WorkIndex = () => {
               <Box
                 sx={{
                   display: 'grid',
-                  gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)' },
-                  gap: { xs: 6.5, sm: 5, md: 7 },
+                  gridTemplateColumns: { xs: '1fr', md: 'repeat(2, 1fr)' },
+                  gap: { xs: 6.5, md: 7 },
                   alignItems: 'start',
                 }}
               >
@@ -1048,7 +1049,7 @@ const WorkIndex = () => {
                     key={item.institute}
                     sx={{
                       position: 'relative',
-                      pt: { xs: 0, sm: index === 1 ? 9 : 0 },
+                      pt: { xs: 0, md: index === 1 ? 9 : 0 },
                       pl: { xs: 2.5, md: 3 },
                       borderLeft: '2px solid',
                       borderColor:
@@ -1058,7 +1059,7 @@ const WorkIndex = () => {
                       '&::before': {
                         content: '""',
                         position: 'absolute',
-                        top: { xs: 0, sm: index === 1 ? 72 : 0 },
+                        top: { xs: 0, md: index === 1 ? 72 : 0 },
                         left: -5,
                         width: 8,
                         height: 8,
@@ -1427,7 +1428,13 @@ const WorkIndex = () => {
         </Box>
 
         <DialogContent
-          sx={{ px: { xs: 2.2, sm: 4.5 }, py: { xs: 3.5, sm: 5 } }}
+          sx={{
+            px: { xs: 2.2, sm: 4.5 },
+            py: { xs: 3.5, sm: 5 },
+            scrollbarWidth: 'none',
+            msOverflowStyle: 'none',
+            '&::-webkit-scrollbar': { display: 'none' },
+          }}
         >
           {selectedCompany && (
             <CareerDetail
@@ -1445,9 +1452,10 @@ const WorkIndex = () => {
 const AboutSection = () => {
   const heroRef = useRef(null);
   const prefersReducedMotion = useReducedMotion();
+  const disableParallax = useMediaQuery('(max-width:899.95px)');
   const { scrollYProgress } = useScroll({
     target: heroRef,
-    offset: ['start start', 'end start'],
+    offset: ['start start', 'end end'],
   });
   const gridY = useTransform(scrollYProgress, [0, 1], [0, 170]);
   const copyY = useTransform(scrollYProgress, [0, 1], [0, 62]);
@@ -1494,14 +1502,14 @@ const AboutSection = () => {
         ref={heroRef}
         sx={{
           position: 'relative',
-          height: '200svh',
+          height: { xs: '100svh', md: '200svh' },
           bgcolor: '#090E13',
         }}
       >
         <Box
           component="section"
           sx={{
-            position: 'sticky',
+            position: { xs: 'relative', md: 'sticky' },
             top: 0,
             height: '100svh',
             overflow: 'hidden',
@@ -1521,7 +1529,9 @@ const AboutSection = () => {
           <Box
             component={motion.div}
             aria-hidden="true"
-            style={{ y: prefersReducedMotion ? 0 : gridY }}
+            style={{
+              y: prefersReducedMotion || disableParallax ? 0 : gridY,
+            }}
             sx={{
               position: 'absolute',
               inset: '-12% 0',
@@ -1554,13 +1564,14 @@ const AboutSection = () => {
             <Box
               component={motion.div}
               style={{
-                y: prefersReducedMotion ? 0 : copyY,
-                opacity: prefersReducedMotion ? 1 : copyOpacity,
+                y: prefersReducedMotion || disableParallax ? 0 : copyY,
+                opacity:
+                  prefersReducedMotion || disableParallax ? 1 : copyOpacity,
               }}
               sx={{
                 position: 'absolute',
                 zIndex: 3,
-                top: { xs: '22%', md: '23%' },
+                top: { xs: '16%', sm: '18%', md: '23%' },
                 left: { xs: 16, sm: 24 },
                 right: { xs: 16, sm: 24 },
                 maxWidth: 830,
@@ -1587,24 +1598,44 @@ const AboutSection = () => {
                 variant="h1"
                 sx={{
                   maxWidth: 800,
-                  fontSize: { xs: '3.15rem', sm: '4.5rem', md: '5.7rem' },
-                  lineHeight: { xs: 0.98, md: 0.93 },
+                  fontSize: {
+                    xs: 'clamp(2.1rem, 9.5vw, 2.65rem)',
+                    sm: '3.8rem',
+                    md: '5.7rem',
+                  },
+                  lineHeight: { xs: 1.02, md: 0.93 },
                   letterSpacing: '-0.055em',
                 }}
               >
-                I work in systems.
-                <br />I think in{' '}
-                <Box component="span" sx={{ color: 'primary.main' }}>
-                  rhythm.
+                <Box
+                  component="span"
+                  sx={{
+                    display: 'block',
+                    whiteSpace: { xs: 'nowrap', md: 'normal' },
+                  }}
+                >
+                  I work in systems.
+                </Box>
+                <Box
+                  component="span"
+                  sx={{
+                    display: 'block',
+                    whiteSpace: { xs: 'nowrap', md: 'normal' },
+                  }}
+                >
+                  I think in{' '}
+                  <Box component="span" sx={{ color: 'primary.main' }}>
+                    rhythm.
+                  </Box>
                 </Box>
               </Typography>
               <Typography
                 color="text.secondary"
                 sx={{
                   mt: 3,
-                  maxWidth: { xs: 525, md: 590 },
-                  fontSize: { md: '1.08rem' },
-                  lineHeight: 1.75,
+                  maxWidth: { xs: 525, sm: 440, md: 590 },
+                  fontSize: { xs: '0.92rem', md: '1.08rem' },
+                  lineHeight: { xs: 1.62, md: 1.75 },
                 }}
               >
                 Full-stack engineer at Booking.com, drawn to the messy space
@@ -1615,17 +1646,25 @@ const AboutSection = () => {
             <Box
               component={motion.figure}
               style={{
-                y: prefersReducedMotion ? 0 : imageY,
+                y: prefersReducedMotion || disableParallax ? 0 : imageY,
               }}
               sx={{
                 position: 'absolute',
                 zIndex: 1,
                 m: 0,
                 right: { xs: 16, sm: 24, md: 16 },
-                bottom: { xs: 34, sm: 48, md: 0 },
-                width: { xs: 184, sm: 250, md: 360 },
-                height: { xs: 255, sm: 340, md: '66%' },
+                top: { xs: '60%', sm: 'auto' },
+                bottom: { xs: 'auto', sm: 42, md: 0 },
+                width: { xs: 152, sm: 220, md: 360 },
+                height: { xs: 210, sm: 300, md: '66%' },
                 maxHeight: 560,
+                opacity: { xs: 0.82, sm: 0.82, md: 1 },
+                '@media (max-width:599.95px) and (max-height:700px)': {
+                  top: '61%',
+                  width: 132,
+                  height: 182,
+                  opacity: 0.68,
+                },
               }}
             >
               <Box
@@ -1637,6 +1676,7 @@ const AboutSection = () => {
                     content: '""',
                     position: 'absolute',
                     inset: '-12px 12px 12px -12px',
+                    display: { xs: 'none', sm: 'block' },
                     borderTop: '1px solid rgba(255,152,17,0.55)',
                     borderLeft: '1px solid rgba(255,152,17,0.55)',
                   },
@@ -1676,6 +1716,7 @@ const AboutSection = () => {
                     whiteSpace: 'nowrap',
                     writingMode: 'vertical-rl',
                     boxShadow: '0 10px 28px rgba(0,0,0,0.28)',
+                    display: { xs: 'none', sm: 'block' },
                   }}
                 >
                   Off-screen / on rhythm
@@ -1688,8 +1729,8 @@ const AboutSection = () => {
                 position: 'absolute',
                 zIndex: 3,
                 left: { xs: 16, sm: 24 },
-                bottom: { xs: 52, sm: 66, md: 54 },
-                width: { xs: 155, sm: 245, md: 330 },
+                bottom: { xs: 32, sm: 58, md: 54 },
+                width: { xs: 135, sm: 220, md: 330 },
                 pt: 2,
                 borderTop: '1px solid rgba(255,255,255,0.16)',
                 display: 'flex',

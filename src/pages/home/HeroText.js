@@ -30,7 +30,9 @@ const HeroText = () => (
         bgcolor: 'rgba(10,15,20,0.45)',
       }}
     >
-      <Box sx={{ width: 7, height: 7, borderRadius: '50%', bgcolor: '#5CD69B' }} />
+      <Box
+        sx={{ width: 7, height: 7, borderRadius: '50%', bgcolor: '#5CD69B' }}
+      />
       <Typography variant="body2" color="text.secondary">
         Open to thoughtful collaborations
       </Typography>
@@ -59,14 +61,29 @@ const HeroText = () => (
     <Typography
       variant="body1"
       color="text.secondary"
-      sx={{ mt: 2.5, maxWidth: 580, fontSize: { xs: '0.95rem', sm: '1.05rem' } }}
+      sx={{
+        mt: 2.5,
+        maxWidth: 580,
+        fontSize: { xs: '0.95rem', sm: '1.05rem' },
+      }}
     >
       I&apos;m Amadhya Anand, an Amsterdam-based full-stack engineer who turns
       ambiguous product problems into fast, dependable systems and thoughtful
       user experiences.
     </Typography>
 
-    <Box sx={{ mt: 3.25, display: 'flex', gap: 1.25, flexWrap: 'wrap' }}>
+    <Box
+      sx={{
+        mt: 3.25,
+        display: 'flex',
+        gap: 1.25,
+        flexWrap: 'wrap',
+        '@media (max-width:420px)': {
+          flexDirection: 'column',
+          '& .MuiButton-root': { width: '100%' },
+        },
+      }}
+    >
       <Button
         variant="contained"
         component={Link}
@@ -92,13 +109,15 @@ const HeroText = () => (
         borderTop: '1px solid',
         borderColor: 'rgba(255,255,255,0.09)',
         display: 'flex',
-        alignItems: 'center',
+        alignItems: 'flex-start',
         gap: 1,
         color: 'text.secondary',
       }}
     >
-      <LocationOnOutlined sx={{ fontSize: 18, color: 'primary.main' }} />
-      <Typography variant="body2">
+      <LocationOnOutlined
+        sx={{ mt: 0.25, flexShrink: 0, fontSize: 18, color: 'primary.main' }}
+      />
+      <Typography variant="body2" sx={{ overflowWrap: 'anywhere' }}>
         Software Engineer II at Booking.com · Amsterdam
       </Typography>
     </Box>

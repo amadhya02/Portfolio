@@ -89,7 +89,7 @@ const ProjectsPage = () => {
           sx={{
             position: 'relative',
             zIndex: 2,
-            mt: '-100svh',
+            mt: { xs: 0, md: '-100svh' },
             pt: { xs: 7, md: 9 },
             '&::before': {
               content: '""',

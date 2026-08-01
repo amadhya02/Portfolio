@@ -316,7 +316,7 @@ const FeaturedProjects = () => {
                 sx={{
                   display: 'grid',
                   gridTemplateColumns: { xs: '1fr', md: '1.05fr 0.95fr' },
-                  gap: { xs: 3, md: 5 },
+                  gap: { xs: 0, md: 5 },
                   alignItems: 'center',
                   cursor: 'pointer',
                   outline: 'none',
@@ -365,28 +365,69 @@ const FeaturedProjects = () => {
                 </Box>
 
                 <Box
-                  sx={{ order: { md: index % 2 === 1 ? 1 : 2 }, px: { md: 2 } }}
+                  sx={{
+                    order: { md: index % 2 === 1 ? 1 : 2 },
+                    px: { xs: 1, sm: 1.5, md: 2 },
+                    pt: { xs: 2.25, sm: 2.5, md: 0 },
+                    pb: { xs: 1, md: 0 },
+                    minWidth: 0,
+                  }}
                 >
-                  <Typography
-                    variant="body2"
-                    color="text.secondary"
-                    sx={{ mb: 1.5 }}
+                  <Box
+                    sx={{
+                      minWidth: 0,
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 1.25,
+                    }}
                   >
-                    0{index + 1} / {project.year} · {project.under}
-                  </Typography>
+                    <Typography
+                      variant="body2"
+                      sx={{ color: 'primary.main', fontWeight: 650 }}
+                    >
+                      0{index + 1}
+                    </Typography>
+                    <Box
+                      sx={{
+                        width: 28,
+                        height: '1px',
+                        flexShrink: 0,
+                        bgcolor: 'rgba(255,255,255,0.16)',
+                      }}
+                    />
+                    <Typography
+                      variant="body2"
+                      color="text.secondary"
+                      noWrap
+                      sx={{ minWidth: 0 }}
+                    >
+                      {project.year} · {project.under}
+                    </Typography>
+                  </Box>
                   <Typography
                     className="home-project-title"
                     variant="h2"
-                    sx={{ mb: 1.25 }}
+                    sx={{
+                      mt: 1.1,
+                      mb: 1,
+                      fontSize: {
+                        xs: '1.7rem',
+                        sm: '2.2rem',
+                        md: '2.75rem',
+                      },
+                      overflowWrap: 'anywhere',
+                    }}
                   >
                     {project.title}
                   </Typography>
                   <Typography
+                    variant="body2"
                     color="text.secondary"
                     sx={{
-                      mb: 2.25,
+                      mb: { xs: 1.75, sm: 2, md: 2.25 },
                       maxWidth: 460,
                       fontSize: { md: '1.05rem' },
+                      overflowWrap: 'anywhere',
                     }}
                   >
                     {summary}
@@ -401,7 +442,7 @@ const FeaturedProjects = () => {
                       gap: 1,
                       color: 'text.primary',
                       fontFamily: '"Space Grotesk", sans-serif',
-                      fontSize: '0.875rem',
+                      fontSize: { xs: '0.82rem', sm: '0.875rem' },
                       fontWeight: 600,
                       lineHeight: 1.75,
                     }}

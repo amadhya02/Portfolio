@@ -124,7 +124,15 @@ const ProjectModal = ({
 
       <DialogContent
         ref={contentRef}
-        sx={{ minHeight: 0, flex: '1 1 auto', overflowY: 'auto', p: 0 }}
+        sx={{
+          minHeight: 0,
+          flex: '1 1 auto',
+          overflowY: 'auto',
+          scrollbarWidth: 'none',
+          msOverflowStyle: 'none',
+          '&::-webkit-scrollbar': { display: 'none' },
+          p: 0,
+        }}
       >
         <Box
           sx={{
@@ -467,7 +475,10 @@ const ProjectModal = ({
                 variant="body2"
                 color="text.primary"
                 noWrap
-                sx={{ lineHeight: 1.35 }}
+                sx={{
+                  lineHeight: 1.35,
+                  '@media (max-width:400px)': { display: 'none' },
+                }}
               >
                 {previousProject?.title}
               </Typography>
@@ -501,7 +512,10 @@ const ProjectModal = ({
                 variant="body2"
                 color="text.primary"
                 noWrap
-                sx={{ lineHeight: 1.35 }}
+                sx={{
+                  lineHeight: 1.35,
+                  '@media (max-width:400px)': { display: 'none' },
+                }}
               >
                 {nextProject?.title}
               </Typography>

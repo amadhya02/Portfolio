@@ -1,6 +1,7 @@
 import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import {
   motion,
   useReducedMotion,
@@ -12,9 +13,11 @@ import React, { useRef } from 'react';
 const Header = () => {
   const heroRef = useRef(null);
   const prefersReducedMotion = useReducedMotion();
+  const isMobile = useMediaQuery('(max-width:599.95px)');
+  const disableParallax = useMediaQuery('(max-width:899.95px)');
   const { scrollYProgress } = useScroll({
     target: heroRef,
-    offset: ['start start', 'end start'],
+    offset: ['start start', 'end end'],
   });
   const contentY = useTransform(scrollYProgress, [0, 1], [0, 56]);
   const contentOpacity = useTransform(
@@ -32,18 +35,18 @@ const Header = () => {
       ref={heroRef}
       sx={{
         position: 'relative',
-        height: '200svh',
+        height: { xs: '100svh', md: '200svh' },
       }}
     >
       <Box
         component="header"
         sx={{
-          position: 'sticky',
+          position: { xs: 'relative', md: 'sticky' },
           top: 0,
           width: '100vw',
           ml: 'calc(50% - 50vw)',
           height: '100svh',
-          minHeight: 620,
+          minHeight: { xs: 560, sm: 620 },
           display: 'flex',
           alignItems: 'center',
           overflow: 'hidden',
@@ -55,7 +58,9 @@ const Header = () => {
         <Box
           component={motion.div}
           aria-hidden="true"
-          style={{ y: prefersReducedMotion ? 0 : gridY }}
+          style={{
+            y: prefersReducedMotion || disableParallax ? 0 : gridY,
+          }}
           sx={{
             position: 'absolute',
             zIndex: -3,
@@ -84,8 +89,8 @@ const Header = () => {
           component={motion.div}
           aria-hidden="true"
           style={{
-            y: prefersReducedMotion ? 0 : orbY,
-            scale: prefersReducedMotion ? 1 : orbScale,
+            y: prefersReducedMotion || disableParallax ? 0 : orbY,
+            scale: prefersReducedMotion || disableParallax ? 1 : orbScale,
           }}
           sx={{
             position: 'absolute',
@@ -107,19 +112,40 @@ const Header = () => {
               border: '1px solid rgba(255,152,17,0.16)',
               borderRadius: '50%',
             },
-            '&::after': {
-              content: '""',
-              position: 'absolute',
-              width: 6,
-              height: 6,
-              top: '18%',
-              right: '18%',
-              borderRadius: '50%',
-              bgcolor: 'primary.main',
-              boxShadow: '0 0 18px rgba(255,152,17,0.55)',
-            },
           }}
         >
+          <Box
+            component={motion.div}
+            aria-hidden="true"
+            animate={prefersReducedMotion ? undefined : { rotate: 360 }}
+            transition={{
+              duration: isMobile ? 32 : 22,
+              ease: 'linear',
+              repeat: Infinity,
+            }}
+            sx={{
+              position: 'absolute',
+              inset: { xs: 8, md: 12 },
+              borderRadius: '50%',
+              pointerEvents: 'none',
+            }}
+          >
+            <Box
+              sx={{
+                position: 'absolute',
+                top: -3,
+                left: '50%',
+                width: 6,
+                height: 6,
+                borderRadius: '50%',
+                bgcolor: 'primary.main',
+                boxShadow:
+                  '0 0 0 4px rgba(255,152,17,0.08), 0 0 18px rgba(255,152,17,0.58)',
+                transform: 'translateX(-50%)',
+              }}
+            />
+          </Box>
+
           <Box sx={{ position: 'relative', textAlign: 'center' }}>
             <Typography
               sx={{
@@ -153,8 +179,9 @@ const Header = () => {
         <Box
           component={motion.div}
           style={{
-            y: prefersReducedMotion ? 0 : contentY,
-            opacity: prefersReducedMotion ? 1 : contentOpacity,
+            y: prefersReducedMotion || disableParallax ? 0 : contentY,
+            opacity:
+              prefersReducedMotion || disableParallax ? 1 : contentOpacity,
           }}
           sx={{
             width: {
