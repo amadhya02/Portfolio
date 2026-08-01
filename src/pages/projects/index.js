@@ -48,7 +48,7 @@ const ProjectsPage = () => {
       <Title>Projects | Amadhya Anand Portfolio</Title>
       <Meta
         name="description"
-        content="Explore Amadhya Anand's portfolio of full-stack projects — from clean UI builds to complex backends, each crafted with care."
+        content="Full-stack projects by Amadhya Anand — from clean UI builds to scalable backend systems, each built with care."
       />
       <Meta
         name="keywords"
@@ -58,7 +58,7 @@ const ProjectsPage = () => {
       <Meta property="og:title" content="Projects | Amadhya Anand Portfolio" />
       <Meta
         property="og:description"
-        content="A showcase of real-world full-stack applications, design systems, and scalable solutions built by Amadhya Anand."
+        content="Full-stack projects by Amadhya Anand — from clean UI builds to scalable backend systems, each built with care."
       />
       <Meta property="og:url" content={`${SEO_CONFIG.siteUrl}/projects`} />
       <Meta
@@ -72,7 +72,7 @@ const ProjectsPage = () => {
       <Meta name="twitter:title" content="Projects | Amadhya Anand Portfolio" />
       <Meta
         name="twitter:description"
-        content="A showcase of real-world full-stack applications, design systems, and scalable solutions built by Amadhya Anand."
+        content="Full-stack projects by Amadhya Anand — from clean UI builds to scalable backend systems, each built with care."
       />
       <Meta
         name="twitter:image"

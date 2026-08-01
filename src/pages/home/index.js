@@ -37,7 +37,7 @@ const Index = () => {
       <Title>Amadhya Anand | Full-Stack Developer Portfolio</Title>
       <Meta
         name="description"
-        content="Welcome to the portfolio of Amadhya Anand — a full-stack developer crafting scalable, modern web applications with clean design and great UX."
+        content="Amadhya Anand is a full-stack engineer who turns ambiguous product problems into fast, dependable systems and thoughtful user experiences."
       />
       <Meta
         name="keywords"
@@ -50,7 +50,7 @@ const Index = () => {
       />
       <Meta
         property="og:description"
-        content="Explore full-stack projects, technical skills, and digital craftsmanship by Amadhya Anand."
+        content="Amadhya Anand is a full-stack engineer who turns ambiguous product problems into fast, dependable systems and thoughtful user experiences."
       />
       <Meta property="og:url" content={`${SEO_CONFIG.siteUrl}/`} />
       <Meta
@@ -67,7 +67,7 @@ const Index = () => {
       />
       <Meta
         name="twitter:description"
-        content="Explore full-stack projects, technical skills, and digital craftsmanship by Amadhya Anand."
+        content="Amadhya Anand is a full-stack engineer who turns ambiguous product problems into fast, dependable systems and thoughtful user experiences."
       />
       <Meta
         name="twitter:image"

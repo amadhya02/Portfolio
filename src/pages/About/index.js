@@ -89,7 +89,7 @@ const AboutSection = () => {
       <Title>About | Amadhya Anand Portfolio</Title>
       <Meta
         name="description"
-        content="Learn about Amadhya Anand's journey, experience, and philosophy as a full-stack engineer focused on performance, reliability, and thoughtful product experiences."
+        content="The experience, education, and engineering philosophy behind Amadhya Anand's work as a full-stack engineer focused on performance and reliability."
       />
       <Meta
         name="keywords"
@@ -99,7 +99,7 @@ const AboutSection = () => {
       <Meta property="og:title" content="About | Amadhya Anand Portfolio" />
       <Meta
         property="og:description"
-        content="Discover Amadhya Anand's development background, values, and expertise in building modern products."
+        content="The experience, education, and engineering philosophy behind Amadhya Anand's work as a full-stack engineer focused on performance and reliability."
       />
       <Meta property="og:url" content={`${SEO_CONFIG.siteUrl}/about`} />
       <Meta

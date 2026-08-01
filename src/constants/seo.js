@@ -16,7 +16,7 @@ export const SEO_CONFIG = {
   siteName: 'Amadhya Anand Portfolio',
   defaultTitle: 'Amadhya Anand | Full-Stack Developer Portfolio',
   defaultDescription:
-    'Explore the creative and technical work of Amadhya Anand — a full-stack developer building modern, performant web apps with clean design and thoughtful user experiences.',
+    'Amadhya Anand is a full-stack engineer who turns ambiguous product problems into fast, dependable systems and thoughtful user experiences.',
   author: 'Amadhya Anand',
   // Using current AA-logo.png (1024x1024 square format)
   // Social platforms will resize as needed. For optimal results, consider creating

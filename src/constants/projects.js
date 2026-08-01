@@ -59,13 +59,13 @@ const PROJECTS = [
   {
     title: 'Portfolio',
     year: 2025,
-    liveDemoUrl: '#',
+    liveDemoUrl: 'https://amadhya-portfolio.web.app',
     githubUrl: 'https://github.com/amadhya02/Portfolio',
     description: [
       'A thoughtfully designed and custom-built developer portfolio showcasing professional experience, technical projects, education, and skills through an interactive and visually refined interface.',
       'Built from scratch using React and Framer Motion to enable smooth transitions and subtle animations that enhance user engagement without compromising performance.',
       'The design emphasizes clarity, minimalism, and responsiveness — optimized for both desktop and mobile devices — with dark mode support and consistent theming.',
-      'Features include modular sections (Projects, Experience, Education, Contact), reusable components, and seamless navigation, providing a cohesive narrative of the developer’s journey.',
+      'Features include modular sections (About, Projects, Contact), reusable components, and seamless navigation, providing a cohesive narrative of the developer’s journey.',
     ],
     techStack: {
       languages: [TECHNOLOGIES_ICONS.JAVASCRIPT],
@@ -121,7 +121,7 @@ const PROJECTS = [
       'Users can create profiles, define savings objectives, and track their progress through guided financial programs.',
       'The platform includes key pages like About Us, Blogs, Educational Resources, and a Savings Calculator to support user learning and engagement.',
       'An admin dashboard allows authorized users to manage dynamic forms, review user data, and monitor engagement metrics.',
-      'The frontend is built using React and Material UI, offering a clean and responsive interface.',
+      'The frontend is built using React, offering a clean and responsive interface.',
       'The backend uses Express and Prisma, with PostgreSQL as the primary database.',
       'Docker is used for containerization, with deployment handled through PM2 and Nginx.',
       'The site is secured with Let’s Encrypt SSL and runs on a DigitalOcean VM.',
@@ -145,7 +145,7 @@ const PROJECTS = [
       ],
     },
     partnerLogo: INSTITUTE_LOGO.GA_TECH,
-    under: 'GA Tech.',
+    under: 'Georgia Tech',
     role: ROLE.FS,
   },
   {
@@ -176,7 +176,7 @@ const PROJECTS = [
       tools: [TECHNOLOGIES_ICONS.GIT, TECHNOLOGIES_ICONS.DOCKER],
     },
     partnerLogo: INSTITUTE_LOGO.GA_TECH,
-    under: 'GA Tech.',
+    under: 'Georgia Tech',
     role: ROLE.FS,
   },
   {
@@ -227,7 +227,7 @@ const PROJECTS = [
       tools: [TECHNOLOGIES_ICONS.GIT, TECHNOLOGIES_ICONS.DOCKER],
     },
     partnerLogo: INSTITUTE_LOGO.GA_TECH,
-    under: 'GA Tech.',
+    under: 'Georgia Tech',
     role: ROLE.FS,
   },
   {

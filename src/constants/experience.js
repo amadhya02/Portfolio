@@ -22,14 +22,13 @@ const EXPERIENCE = [
         role: 'Software Engineer II',
         desc: [
           'Reduced CSV processing time from 10 hours to 26 minutes for 500K-entry files by architecting an event-driven system on AWS (Lambda, SQS, DynamoDB) to replace the legacy cron-based pipeline, with built-in monitoring and visibility.',
-          'Enabled multiple products and teams to onboard onto the pipeline independently within minutes, by designing a generic, config-driven (YAML) system with an AI-assisted onboarding prompt and a schema-driven frontend.',
-          'Improved code coverage and developer efficiency by developing a unit test generation using Cody, an AI-powered assistant',
-          'Developed a script to consolidate developer activity metrics from GitLab, Jira, SonarQube, and internal wikis—tracking code changes, unit tests, documentation, and repository contributions to provide actionable insights',
+          'Enabled multiple products and teams to onboard independently within minutes, by designing a generic, config-driven (YAML) system with an AI-assisted onboarding prompt and a schema-driven frontend.',
+          'Improved code coverage and developer efficiency by building a unit test generator using Cody, an AI-powered assistant.',
+          'Developed a script to consolidate developer activity metrics from GitLab, Jira, SonarQube, and internal wikis—tracking code changes, unit tests, documentation, and repository contributions to provide actionable insights.',
           'Enabled value-based steering by providing insights into platform usage and product adoption through designing and developing a system to track how partners manage pricing.',
           'Reduced dependency on engineering for issue resolution, as measured by surveys, by creating and documenting FAQs and debugging guides.',
           'Improved system observability, resulting in faster issue detection and resolution, by building monitoring dashboards in Grafana using Terraform.',
-          'Improved code maintainability and reduced redundancy by modernizing the legacy codebase and eliminating inefficiencies, through proposing and documenting enhancements to partner-facing platforms.',
-          'Improved the legacy codebase, enabling faster time-to-market and increased maintainability, by increasing test coverage and refactoring code.',
+          'Modernized the legacy codebase by increasing test coverage, refactoring code, and documenting enhancements to partner-facing platforms — improving maintainability, reducing redundancy, and speeding up time-to-market.',
         ],
         tech: {
           languages: [
@@ -66,8 +65,8 @@ const EXPERIENCE = [
         role: 'Software Engineer I',
         desc: [
           'Enhanced partner eligibility automation by replacing reliance on a static list with a cron job, improving accuracy and efficiency.',
-          'Improved reliability and maintainability by migrating a partner-facing promotions endpoint from a legacy Perl codebase to a modern Java stack',
-          'Designed and developed a system for a derived product using Kafka pipelines and existing services, empowering product adoption observability under the Value-Based Steering initiative.',
+          'Improved reliability and maintainability by migrating a partner-facing promotions endpoint from a legacy Perl codebase to a modern Java stack.',
+          'Designed and developed a system for a derived product using Kafka pipelines and existing services, empowering observability into product adoption under the Value-Based Steering initiative.',
         ],
         tech: {
           languages: [TECHNOLOGIES_ICONS.JAVA, TECHNOLOGIES_ICONS.PERL],
@@ -97,7 +96,7 @@ const EXPERIENCE = [
         duration: 'Mar, 2023 - Present',
         role: 'Freelance Frontend Developer',
         desc: [
-          "Built a business website from scratch to showcase services, team profiles, and contact information, enhancing the company's online presence and credibility",
+          "Built a business website from scratch to showcase services, team profiles, and contact information, enhancing the company's online presence and credibility.",
         ],
         tech: {
           languages: [TECHNOLOGIES_ICONS.JAVASCRIPT],
@@ -121,10 +120,9 @@ const EXPERIENCE = [
       {
         duration: 'Apr, 2022 - Aug, 2022',
         role: 'Senior Software Developer',
-
         desc: [
           'Enhanced real-time communication between students and teachers by enabling seamless audio/video calls and screen sharing through the integration of third-party SDKs.',
-          'Improved data-driven decision-making by providing insights through an analytics dashboard by implementing frontend instrumentation and leveraging collected data.',
+          'Improved data-driven decision-making by building an analytics dashboard that surfaced insights from frontend instrumentation and collected data.',
         ],
         tech: {
           languages: [TECHNOLOGIES_ICONS.JAVASCRIPT, TECHNOLOGIES_ICONS.PYTHON],
@@ -157,12 +155,12 @@ const EXPERIENCE = [
         duration: 'July, 2020 - Mar, 2022',
         role: 'Software Developer',
         desc: [
-          'Enhanced teaching and learning experience by developing and maintaining core features for the online classroom platform used by teachers and students',
-          'Improved classroom review by optimizing post-processing of audio/video call recordings and addressing performance issues during live classes',
-          'Elevated the classroom experience for teachers by implementing UX-focused enhancements and stability improvements',
-          'Enhanced demo sessions for teachers and students by building interactive features, including support for teacher-led presentations',
-          'Enabled scalable event tracking and insights by developing SDKs for the in-house analytics system',
-          'Provided actionable insights into student performance by building a monthly progress report, helping students, teachers, and parents monitor academic trends',
+          'Enhanced teaching and learning experience by developing and maintaining core features for the online classroom platform used by teachers and students.',
+          'Improved classroom review by optimizing post-processing of audio/video call recordings and addressing performance issues during live classes.',
+          'Elevated the classroom experience for teachers by implementing UX-focused enhancements and stability improvements.',
+          'Enhanced demo sessions for teachers and students by building interactive features, including support for teacher-led presentations.',
+          'Enabled scalable event tracking and insights by developing SDKs for the in-house analytics system.',
+          'Provided actionable insights into student performance by building a monthly progress report, helping students, teachers, and parents monitor academic trends.',
         ],
         tech: {
           languages: [
@@ -198,9 +196,9 @@ const EXPERIENCE = [
         duration: 'Jan, 2019 - Jun, 2019',
         role: 'Software Developer Intern',
         desc: [
-          'Improved user engagement and lead conversion by designing and developing responsive landing pages for Cuemath’s website',
-          'Enabled promotional and event features by developing APIs for coupon code generation, upcoming events, and other functionalities',
-          'Improved data management and reduced manual effort by building a Flask-based service to handle assessment-related operations',
+          'Improved user engagement and lead conversion by designing and developing responsive landing pages for Cuemath’s website.',
+          'Enabled promotional and event features by developing APIs for coupon code generation, upcoming events, and other functionalities.',
+          'Improved data management and reduced manual effort by building a Flask-based service to handle assessment-related operations.',
         ],
         tech: {
           languages: [TECHNOLOGIES_ICONS.JAVASCRIPT, TECHNOLOGIES_ICONS.PYTHON],

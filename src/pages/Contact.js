@@ -87,7 +87,7 @@ const Contact = () => {
       <Meta property="og:title" content="Contact | Amadhya Anand Portfolio" />
       <Meta
         property="og:description"
-        content="Start a conversation with Amadhya Anand about software, products, or collaboration."
+        content="Get in touch with Amadhya Anand for collaborations, freelance work, or product engineering opportunities."
       />
       <Meta property="og:url" content={`${SEO_CONFIG.siteUrl}/contact`} />
       <Meta
