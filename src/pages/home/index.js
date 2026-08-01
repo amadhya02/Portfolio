@@ -9,7 +9,7 @@ import { Title, Meta } from 'react-head';
 import FeaturedProjects from './FeaturedProjects';
 import HeroImage from './HeroImage';
 import HeroText from './HeroText';
-import BgImg from '../../assets/images/background.png';
+import BgImg from '../../assets/images/background.webp';
 import CanonicalLink from '../../components/CanonicalLink';
 import StructuredData from '../../components/StructuredData';
 import {

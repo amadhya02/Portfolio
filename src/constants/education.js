@@ -1,6 +1,6 @@
-import GTLogo from '../assets/images/gt-logo.png';
-import PecLogo from '../assets/images/pec-logo.png';
-import SchoolLogo from '../assets/images/school-logo.png';
+import GTLogo from '../assets/images/gt-logo.webp';
+import PecLogo from '../assets/images/pec-logo.webp';
+import SchoolLogo from '../assets/images/school-logo.webp';
 
 export const INSTITUTE_LOGO = {
   GA_TECH: GTLogo,

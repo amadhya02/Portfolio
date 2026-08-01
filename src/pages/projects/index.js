@@ -1,13 +1,12 @@
 import ArrowOutward from '@mui/icons-material/ArrowOutward';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, lazy, useEffect, useState } from 'react';
 import { Meta, Title } from 'react-head';
 import { useLocation } from 'react-router-dom';
 
 import Header from './header';
 import ProjectItem from './projectItem';
-import ProjectModal from './ProjectModal';
 import CanonicalLink from '../../components/CanonicalLink';
 import Eyebrow from '../../components/Eyebrow';
 import SectionContainer from '../../components/SectionContainer';
@@ -15,6 +14,8 @@ import { ARROW_HOVER_TRANSFORM } from '../../constants/motion';
 import PROJECTS from '../../constants/projects';
 import { SEO_CONFIG } from '../../constants/seo';
 import theme from '../../theme';
+
+const ProjectModal = lazy(() => import('./ProjectModal'));
 
 const ARCHIVE_GROUPS = PROJECTS.slice(6).reduce((groups, project) => {
   const existingGroup = groups.find((group) => group.year === project.year);
@@ -236,6 +237,7 @@ const ProjectsPage = () => {
                       >
                         <Box>
                           <Typography
+                            component="h3"
                             className="archive-title"
                             variant="h6"
                             sx={{ transition: 'color 0.2s ease', mb: 0.25 }}
@@ -265,13 +267,15 @@ const ProjectsPage = () => {
 
       {/* Modal */}
       {selectedProject && (
-        <ProjectModal
-          open
-          handleClose={setSelectedProject.bind(null, null)}
-          data={selectedProject}
-          projects={PROJECTS}
-          onSelectProject={setSelectedProject}
-        />
+        <Suspense fallback={null}>
+          <ProjectModal
+            open
+            handleClose={setSelectedProject.bind(null, null)}
+            data={selectedProject}
+            projects={PROJECTS}
+            onSelectProject={setSelectedProject}
+          />
+        </Suspense>
       )}
     </Box>
   );

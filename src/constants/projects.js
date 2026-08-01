@@ -1,7 +1,7 @@
 import { INSTITUTE_LOGO } from './education';
 import { COMPANIES_LOGO } from './experience';
 import { TECHNOLOGIES_ICONS } from './technologies';
-import AALogo from '../assets/images/AA-logo-white.png';
+import AALogo from '../assets/images/AA-logo-white.webp';
 
 const ROLE = {
   BE: 'Backend Developer',

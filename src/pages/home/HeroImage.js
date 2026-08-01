@@ -3,7 +3,7 @@ import { alpha, useTheme } from '@mui/material/styles';
 import { motion } from 'framer-motion';
 import React from 'react';
 
-import devImage from '../../assets/images/coding.png';
+import devImage from '../../assets/images/coding.webp';
 
 const MotionBox = motion.create(Box);
 

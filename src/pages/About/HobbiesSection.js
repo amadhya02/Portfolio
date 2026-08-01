@@ -152,6 +152,7 @@ const HobbiesSection = () => (
                 src={hobby.icon}
                 alt=""
                 aria-hidden="true"
+                loading="lazy"
                 sx={{
                   flex: '0 0 auto',
                   width: { xs: 58, md: 68 },

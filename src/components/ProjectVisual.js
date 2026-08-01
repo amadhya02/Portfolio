@@ -138,6 +138,7 @@ const ProjectVisual = ({ compact = false, index = 0, project }) => {
           component="img"
           src={project.partnerLogo}
           alt=""
+          loading="lazy"
           sx={{
             width: '100%',
             height: '100%',

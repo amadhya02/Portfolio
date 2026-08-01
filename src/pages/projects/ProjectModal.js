@@ -150,6 +150,7 @@ const ProjectModal = ({
               src={data.partnerLogo}
               alt=""
               aria-hidden="true"
+              loading="lazy"
               sx={{
                 position: 'absolute',
                 top: { xs: 82, sm: 64 },

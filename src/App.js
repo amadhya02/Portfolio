@@ -1,32 +1,27 @@
-import React, { Suspense, lazy } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Footer from './components/Footer';
-import LoadingFallback from './components/LoadingFallback';
 import Navbar from './components/Navbar';
 import ScrollToTop from './components/ScrollToTop';
-
-// Lazy load pages
-const Index = lazy(() => import('./pages/home'));
-const About = lazy(() => import('./pages/About'));
-const Projects = lazy(() => import('./pages/projects'));
-const Contact = lazy(() => import('./pages/Contact'));
-const NotFound = lazy(() => import('./pages/NotFound'));
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Index from './pages/home';
+import NotFound from './pages/NotFound';
+import Projects from './pages/projects';
 
 const App = () => {
   return (
     <Router>
       <ScrollToTop />
       <Navbar />
-      <Suspense fallback={<LoadingFallback />}>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Suspense>
+      <Routes>
+        <Route path="/" element={<Index />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
       <Footer />
     </Router>
   );

@@ -170,6 +170,7 @@ const Navbar = () => {
               component="img"
               src={AALogo}
               alt=""
+              loading="lazy"
               sx={{ width: 42, height: 42 }}
             />
             <Box sx={{ flex: 1 }} />

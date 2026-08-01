@@ -169,7 +169,6 @@ const WorkTimeline = () => {
         <Box
           component="button"
           type="button"
-          aria-label={`View details for ${EXPERIENCE[0].name}`}
           onClick={() => setSelectedCompany(EXPERIENCE[0])}
           sx={{
             position: 'relative',
@@ -318,7 +317,6 @@ const WorkTimeline = () => {
                   component="button"
                   type="button"
                   key={company.name}
-                  aria-label={`View details for ${company.name}`}
                   onClick={() => setSelectedCompany(company)}
                   sx={{
                     width: '100%',

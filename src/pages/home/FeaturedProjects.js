@@ -4,13 +4,14 @@ import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
-import React, { useState } from 'react';
+import React, { Suspense, lazy, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import Eyebrow from '../../components/Eyebrow';
 import ProjectVisual from '../../components/ProjectVisual';
 import PROJECTS from '../../constants/projects';
-import ProjectModal from '../projects/ProjectModal';
+
+const ProjectModal = lazy(() => import('../projects/ProjectModal'));
 
 const FEATURED_PROJECTS = [
   {
@@ -550,7 +551,7 @@ const FeaturedProjects = () => {
                   {principle.number}
                 </Typography>
                 <Box>
-                  <Typography variant="h5" sx={{ mb: 0.75 }}>
+                  <Typography component="h3" variant="h5" sx={{ mb: 0.75 }}>
                     {principle.title}
                   </Typography>
                   <Typography
@@ -568,13 +569,15 @@ const FeaturedProjects = () => {
       </Box>
 
       {selectedProject && (
-        <ProjectModal
-          open
-          handleClose={() => setSelectedProject(null)}
-          data={selectedProject}
-          projects={FEATURED_PROJECT_DATA}
-          onSelectProject={setSelectedProject}
-        />
+        <Suspense fallback={null}>
+          <ProjectModal
+            open
+            handleClose={() => setSelectedProject(null)}
+            data={selectedProject}
+            projects={FEATURED_PROJECT_DATA}
+            onSelectProject={setSelectedProject}
+          />
+        </Suspense>
       )}
     </>
   );
