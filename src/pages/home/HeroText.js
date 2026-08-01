@@ -7,6 +7,8 @@ import { motion } from 'framer-motion';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import Eyebrow from '../../components/Eyebrow';
+
 const MotionBox = motion.create(Box);
 
 const HeroText = () => (
@@ -38,18 +40,12 @@ const HeroText = () => (
       </Typography>
     </Box>
 
-    <Typography
+    <Eyebrow
       variant="body2"
-      sx={{
-        color: 'primary.main',
-        fontWeight: 700,
-        letterSpacing: '0.13em',
-        textTransform: 'uppercase',
-        mb: 1.5,
-      }}
+      sx={{ fontWeight: 700, letterSpacing: '0.13em', mb: 1.5 }}
     >
       Full-stack engineer
-    </Typography>
+    </Eyebrow>
 
     <Typography variant="h1" sx={{ maxWidth: 680 }}>
       Engineering products people{' '}

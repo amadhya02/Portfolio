@@ -10,8 +10,9 @@ import React, { useState } from 'react';
 
 import { CAREER_SUMMARIES, getCompanyPeriod } from './careerData';
 import CareerDetail from './CareerDetail';
-import Label from './Label';
+import Eyebrow from '../../components/Eyebrow';
 import EXPERIENCE from '../../constants/experience';
+import { ARROW_HOVER_TRANSFORM } from '../../constants/motion';
 
 const WorkTimeline = () => {
   const [selectedCompany, setSelectedCompany] = useState(null);
@@ -29,7 +30,7 @@ const WorkTimeline = () => {
           gap: { xs: 3, md: 7 },
         }}
       >
-        <Label>Selected work</Label>
+        <Eyebrow>Selected work</Eyebrow>
         <Box sx={{ position: 'relative', minHeight: { md: 245 } }}>
           <Box
             aria-hidden="true"
@@ -197,7 +198,7 @@ const WorkTimeline = () => {
             },
             '&:hover .work-arrow, &:focus-visible .work-arrow': {
               color: 'primary.main',
-              transform: 'translate(3px, -3px)',
+              transform: ARROW_HOVER_TRANSFORM,
             },
           }}
         >
@@ -307,7 +308,7 @@ const WorkTimeline = () => {
             gap: { xs: 2.5, md: 7 },
           }}
         >
-          <Label>Earlier chapters</Label>
+          <Eyebrow>Earlier chapters</Eyebrow>
           <Box>
             {EXPERIENCE.slice(1).map((company, itemIndex) => {
               const index = itemIndex + 1;
@@ -355,7 +356,7 @@ const WorkTimeline = () => {
                     },
                     '&:hover .work-arrow, &:focus-visible .work-arrow': {
                       color: 'primary.main',
-                      transform: 'translate(3px, -3px)',
+                      transform: ARROW_HOVER_TRANSFORM,
                     },
                   }}
                 >

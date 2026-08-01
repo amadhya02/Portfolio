@@ -12,7 +12,8 @@ import {
   TECH_CATEGORY_LABELS,
   getCompanyPeriod,
 } from './careerData';
-import Label from './Label';
+import Eyebrow from '../../components/Eyebrow';
+import { ARROW_HOVER_TRANSFORM } from '../../constants/motion';
 
 const CareerDetail = ({ company, index, showResponsibilities = false }) => {
   const editorial = CAREER_EDITORIAL[company.name];
@@ -48,7 +49,7 @@ const CareerDetail = ({ company, index, showResponsibilities = false }) => {
           mb: { xs: 2.5, sm: 3.5 },
         }}
       >
-        <Label>Chapter {String(index + 1).padStart(2, '0')}</Label>
+        <Eyebrow>Chapter {String(index + 1).padStart(2, '0')}</Eyebrow>
         <Typography
           variant="caption"
           sx={{
@@ -375,7 +376,7 @@ const CareerDetail = ({ company, index, showResponsibilities = false }) => {
               transition: 'transform 180ms ease',
             },
             '&:hover .MuiButton-endIcon': {
-              transform: 'translate(3px, -3px)',
+              transform: ARROW_HOVER_TRANSFORM,
             },
           }}
         >

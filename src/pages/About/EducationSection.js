@@ -3,7 +3,7 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import React from 'react';
 
-import Label from './Label';
+import Eyebrow from '../../components/Eyebrow';
 import EDUCATION from '../../constants/education';
 
 const EducationSection = () => (
@@ -44,7 +44,7 @@ const EducationSection = () => (
       }}
     >
       <Box>
-        <Label>Education</Label>
+        <Eyebrow>Education</Eyebrow>
         <Typography
           component="h2"
           variant="h3"

@@ -5,6 +5,8 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { motion, useTransform } from 'framer-motion';
 import React from 'react';
 
+import Eyebrow from '../../components/Eyebrow';
+import GridOverlay from '../../components/GridOverlay';
 import useParallaxScroll from '../../hooks/useParallaxScroll';
 
 const Header = () => {
@@ -47,23 +49,14 @@ const Header = () => {
           pb: { xs: 9, sm: 10, md: 8 },
         }}
       >
-        <Box
-          component={motion.div}
-          aria-hidden="true"
-          style={{
-            y: prefersReducedMotion || disableParallax ? 0 : gridY,
-          }}
-          sx={{
-            position: 'absolute',
-            zIndex: -3,
-            inset: '-18% -12%',
-            opacity: 0.28,
-            backgroundImage:
-              'linear-gradient(rgba(255,255,255,0.032) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.032) 1px, transparent 1px)',
-            backgroundSize: '52px 52px',
-            maskImage:
-              'linear-gradient(to bottom, transparent 2%, black 28%, black 76%, transparent 100%)',
-          }}
+        <GridOverlay
+          y={prefersReducedMotion || disableParallax ? 0 : gridY}
+          zIndex={-3}
+          inset="-18% -12%"
+          opacity={0.28}
+          lineOpacity={0.032}
+          size={52}
+          mask="linear-gradient(to bottom, transparent 2%, black 28%, black 76%, transparent 100%)"
         />
 
         <Box
@@ -187,18 +180,12 @@ const Header = () => {
             ml: { xs: 2, sm: 4, md: 'max(48px, calc((100vw - 1104px) / 2))' },
           }}
         >
-          <Typography
+          <Eyebrow
             variant="body2"
-            sx={{
-              color: 'primary.main',
-              fontWeight: 700,
-              letterSpacing: '0.13em',
-              textTransform: 'uppercase',
-              mb: 1.25,
-            }}
+            sx={{ fontWeight: 700, letterSpacing: '0.13em', mb: 1.25 }}
           >
             Selected work · 2023—2026
-          </Typography>
+          </Eyebrow>
           <Typography variant="h1" sx={{ maxWidth: 700 }}>
             Work with measurable impact.
           </Typography>

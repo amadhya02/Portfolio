@@ -9,7 +9,9 @@ import Header from './header';
 import ProjectItem from './projectItem';
 import ProjectModal from './ProjectModal';
 import CanonicalLink from '../../components/CanonicalLink';
+import Eyebrow from '../../components/Eyebrow';
 import SectionContainer from '../../components/SectionContainer';
+import { ARROW_HOVER_TRANSFORM } from '../../constants/motion';
 import PROJECTS from '../../constants/projects';
 import { SEO_CONFIG } from '../../constants/seo';
 import theme from '../../theme';
@@ -114,17 +116,12 @@ const ProjectsPage = () => {
               gap: 2,
             }}
           >
-            <Typography
+            <Eyebrow
               variant="body2"
-              sx={{
-                color: 'primary.main',
-                fontWeight: 700,
-                letterSpacing: '0.12em',
-                textTransform: 'uppercase',
-              }}
+              sx={{ fontWeight: 700, letterSpacing: '0.12em' }}
             >
               Featured projects
-            </Typography>
+            </Eyebrow>
             <Typography variant="caption" color="text.secondary">
               01—06 · Latest first
             </Typography>
@@ -164,18 +161,12 @@ const ProjectsPage = () => {
               }}
             >
               <Box>
-                <Typography
+                <Eyebrow
                   variant="body2"
-                  sx={{
-                    color: 'primary.main',
-                    fontWeight: 700,
-                    letterSpacing: '0.12em',
-                    textTransform: 'uppercase',
-                    mb: 1,
-                  }}
+                  sx={{ fontWeight: 700, letterSpacing: '0.12em', mb: 1 }}
                 >
                   Archive
-                </Typography>
+                </Eyebrow>
                 <Typography variant="h2">Earlier work</Typography>
               </Box>
               <Typography
@@ -238,7 +229,7 @@ const ProjectsPage = () => {
                           '&:hover': {
                             '& .archive-title': { color: 'primary.main' },
                             '& .archive-arrow': {
-                              transform: 'translate(3px, -3px)',
+                              transform: ARROW_HOVER_TRANSFORM,
                             },
                           },
                         }}

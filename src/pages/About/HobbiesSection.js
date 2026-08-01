@@ -3,7 +3,7 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import React from 'react';
 
-import Label from './Label';
+import Eyebrow from '../../components/Eyebrow';
 import HOBBIES from '../../constants/hobbies';
 
 const HobbiesSection = () => (
@@ -32,7 +32,7 @@ const HobbiesSection = () => (
       }}
     >
       <Box>
-        <Label>Outside work</Label>
+        <Eyebrow>Outside work</Eyebrow>
         <Typography
           component="h2"
           variant="h4"

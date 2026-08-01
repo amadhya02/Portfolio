@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import Eyebrow from '../../components/Eyebrow';
 import ProjectVisual from '../../components/ProjectVisual';
 import PROJECTS from '../../constants/projects';
 import ProjectModal from '../projects/ProjectModal';
@@ -277,18 +278,12 @@ const FeaturedProjects = () => {
               mb: { xs: 4, md: 6 },
             }}
           >
-            <Typography
+            <Eyebrow
               variant="body2"
-              sx={{
-                color: 'primary.main',
-                fontWeight: 700,
-                letterSpacing: '0.12em',
-                textTransform: 'uppercase',
-                mb: 1.5,
-              }}
+              sx={{ fontWeight: 700, letterSpacing: '0.12em', mb: 1.5 }}
             >
               Selected work
-            </Typography>
+            </Eyebrow>
             <Typography variant="h2" sx={{ maxWidth: 620 }}>
               Work that moved the needle.
             </Typography>
@@ -496,18 +491,12 @@ const FeaturedProjects = () => {
       >
         <Container maxWidth="lg">
           <Box sx={{ mb: { xs: 4, md: 5 } }}>
-            <Typography
+            <Eyebrow
               variant="body2"
-              sx={{
-                color: 'primary.main',
-                fontWeight: 700,
-                letterSpacing: '0.12em',
-                textTransform: 'uppercase',
-                mb: 1.5,
-              }}
+              sx={{ fontWeight: 700, letterSpacing: '0.12em', mb: 1.5 }}
             >
               How I work
-            </Typography>
+            </Eyebrow>
             <Typography variant="h2">From ambiguity to evidence.</Typography>
           </Box>
 

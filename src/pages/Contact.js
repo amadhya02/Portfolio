@@ -15,6 +15,8 @@ import React, { useState } from 'react';
 import { Meta, Title } from 'react-head';
 
 import CanonicalLink from '../components/CanonicalLink';
+import Eyebrow from '../components/Eyebrow';
+import GridOverlay from '../components/GridOverlay';
 import { SEO_CONFIG, SOCIAL_PROFILES } from '../constants/seo';
 import useParallaxScroll from '../hooks/useParallaxScroll';
 
@@ -107,23 +109,12 @@ const Contact = () => {
             'radial-gradient(circle at 14% 78%, rgba(255,152,17,0.07), transparent 25rem)',
         }}
       >
-        <Box
-          component={motion.div}
-          aria-hidden="true"
-          style={{
-            y: prefersReducedMotion || disableParallax ? 0 : gridY,
-          }}
-          sx={{
-            position: 'absolute',
-            zIndex: -1,
-            inset: '-12% -8%',
-            opacity: 0.28,
-            backgroundImage:
-              'linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px)',
-            backgroundSize: '48px 48px',
-            maskImage:
-              'linear-gradient(to bottom, transparent 4%, black 32%, black 76%, transparent 100%)',
-          }}
+        <GridOverlay
+          y={prefersReducedMotion || disableParallax ? 0 : gridY}
+          inset="-12% -8%"
+          opacity={0.28}
+          size={48}
+          mask="linear-gradient(to bottom, transparent 4%, black 32%, black 76%, transparent 100%)"
         />
 
         <Container maxWidth="lg" sx={{ minHeight: '100svh' }}>
@@ -146,18 +137,12 @@ const Contact = () => {
                   prefersReducedMotion || disableParallax ? 1 : copyOpacity,
               }}
             >
-              <Typography
+              <Eyebrow
                 variant="body2"
-                sx={{
-                  color: 'primary.main',
-                  fontWeight: 700,
-                  letterSpacing: '0.13em',
-                  textTransform: 'uppercase',
-                  mb: 1.5,
-                }}
+                sx={{ fontWeight: 700, letterSpacing: '0.13em', mb: 1.5 }}
               >
                 Contact
-              </Typography>
+              </Eyebrow>
               <Typography variant="h1">
                 Let&apos;s build something useful.
               </Typography>
@@ -240,18 +225,12 @@ const Contact = () => {
             }}
           >
             <Box>
-              <Typography
+              <Eyebrow
                 variant="body2"
-                sx={{
-                  color: 'primary.main',
-                  fontWeight: 700,
-                  letterSpacing: '0.13em',
-                  textTransform: 'uppercase',
-                  mb: 1.25,
-                }}
+                sx={{ fontWeight: 700, letterSpacing: '0.13em', mb: 1.25 }}
               >
                 Your context
-              </Typography>
+              </Eyebrow>
               <Typography variant="h2">
                 Tell me about the opportunity.
               </Typography>

@@ -8,10 +8,12 @@ import { Meta, Title } from 'react-head';
 
 import EducationSection from './EducationSection';
 import HobbiesSection from './HobbiesSection';
-import Label from './Label';
 import WorkTimeline from './WorkTimeline';
 import portrait from '../../assets/images/myself.jpg';
 import CanonicalLink from '../../components/CanonicalLink';
+import Eyebrow from '../../components/Eyebrow';
+import GridOverlay from '../../components/GridOverlay';
+import { ARROW_HOVER_TRANSFORM } from '../../constants/motion';
 import { SEO_CONFIG } from '../../constants/seo';
 import useParallaxScroll from '../../hooks/useParallaxScroll';
 
@@ -133,23 +135,12 @@ const AboutSection = () => {
                 'radial-gradient(circle at 76% 32%, rgba(255,152,17,0.11), transparent 28rem), linear-gradient(135deg, #0E151C 0%, #080C11 72%)',
             }}
           />
-          <Box
-            component={motion.div}
-            aria-hidden="true"
-            style={{
-              y: prefersReducedMotion || disableParallax ? 0 : gridY,
-            }}
-            sx={{
-              position: 'absolute',
-              inset: '-12% 0',
-              zIndex: -1,
-              opacity: 0.18,
-              backgroundImage:
-                'linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px)',
-              backgroundSize: '56px 56px',
-              maskImage:
-                'linear-gradient(to bottom, transparent, black 35%, transparent 94%)',
-            }}
+          <GridOverlay
+            y={prefersReducedMotion || disableParallax ? 0 : gridY}
+            inset="-12% 0"
+            opacity={0.18}
+            size={56}
+            mask="linear-gradient(to bottom, transparent, black 35%, transparent 94%)"
           />
           <Box
             aria-hidden="true"
@@ -195,7 +186,7 @@ const AboutSection = () => {
                   mb: 2.5,
                 }}
               >
-                <Label>About / Amadhya Anand</Label>
+                <Eyebrow>About / Amadhya Anand</Eyebrow>
                 <Box
                   sx={{
                     width: 54,
@@ -389,7 +380,7 @@ const AboutSection = () => {
                     transition: 'transform 180ms ease',
                   },
                   '&:hover .resume-arrow': {
-                    transform: 'translate(3px, -3px)',
+                    transform: ARROW_HOVER_TRANSFORM,
                   },
                 }}
               >
