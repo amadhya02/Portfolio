@@ -125,7 +125,7 @@ const Index = () => {
         ref={heroRef}
         sx={{
           position: 'relative',
-          height: { xs: '100svh', md: '200svh' },
+          height: { xs: 'max(100svh, 620px)', md: '200svh' },
           bgcolor: '#070B0F',
         }}
       >
@@ -134,7 +134,7 @@ const Index = () => {
           sx={{
             position: { xs: 'relative', md: 'sticky' },
             top: 0,
-            height: '100svh',
+            height: { xs: 'max(100svh, 620px)', md: '100svh' },
             overflow: 'hidden',
             isolation: 'isolate',
           }}
@@ -168,7 +168,10 @@ const Index = () => {
             }}
           />
 
-          <Container maxWidth="lg" sx={{ minHeight: '100svh' }}>
+          <Container
+            maxWidth="lg"
+            sx={{ minHeight: { xs: 'max(100svh, 620px)', md: '100svh' } }}
+          >
             <Box
               sx={{
                 position: 'relative',
@@ -176,7 +179,7 @@ const Index = () => {
                 display: 'grid',
                 gridTemplateColumns: '1fr',
                 alignItems: 'center',
-                minHeight: '100svh',
+                minHeight: { xs: 'max(100svh, 620px)', md: '100svh' },
                 pt: { xs: 12, md: 10 },
                 pb: { xs: 10, md: 7 },
               }}

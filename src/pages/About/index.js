@@ -1502,7 +1502,7 @@ const AboutSection = () => {
         ref={heroRef}
         sx={{
           position: 'relative',
-          height: { xs: '100svh', md: '200svh' },
+          height: { xs: 'max(100svh, 620px)', md: '200svh' },
           bgcolor: '#090E13',
         }}
       >
@@ -1511,7 +1511,7 @@ const AboutSection = () => {
           sx={{
             position: { xs: 'relative', md: 'sticky' },
             top: 0,
-            height: '100svh',
+            height: { xs: 'max(100svh, 620px)', md: '100svh' },
             overflow: 'hidden',
             isolation: 'isolate',
           }}
@@ -1559,7 +1559,10 @@ const AboutSection = () => {
 
           <Container
             maxWidth="lg"
-            sx={{ position: 'relative', minHeight: '100svh' }}
+            sx={{
+              position: 'relative',
+              minHeight: { xs: 'max(100svh, 620px)', md: '100svh' },
+            }}
           >
             <Box
               component={motion.div}

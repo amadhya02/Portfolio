@@ -35,7 +35,7 @@ const Header = () => {
       ref={heroRef}
       sx={{
         position: 'relative',
-        height: { xs: '100svh', md: '200svh' },
+        height: { xs: 'max(100svh, 560px)', md: '200svh' },
       }}
     >
       <Box
@@ -45,7 +45,7 @@ const Header = () => {
           top: 0,
           width: '100vw',
           ml: 'calc(50% - 50vw)',
-          height: '100svh',
+          height: { xs: 'max(100svh, 560px)', md: '100svh' },
           minHeight: { xs: 560, sm: 620 },
           display: 'flex',
           alignItems: 'center',
