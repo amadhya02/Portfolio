@@ -2,8 +2,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { useReducedMotion, useScroll } from 'framer-motion';
 import { useRef } from 'react';
 
-// Parallax is disabled below this breakpoint across all hero sections
-const PARALLAX_DISABLED_QUERY = '(max-width:899.95px)';
+import { PARALLAX_DISABLED_QUERY } from '../constants/breakpoints';
 
 const useParallaxScroll = (offset = ['start start', 'end end']) => {
   const ref = useRef(null);

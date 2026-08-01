@@ -13,6 +13,7 @@ import portrait from '../../assets/images/myself.jpg';
 import CanonicalLink from '../../components/CanonicalLink';
 import Eyebrow from '../../components/Eyebrow';
 import GridOverlay from '../../components/GridOverlay';
+import { MOBILE_QUERY } from '../../constants/breakpoints';
 import { ARROW_HOVER_TRANSFORM } from '../../constants/motion';
 import { SEO_CONFIG } from '../../constants/seo';
 import useParallaxScroll from '../../hooks/useParallaxScroll';
@@ -260,7 +261,7 @@ const AboutSection = () => {
                 height: { xs: 210, sm: 300, md: '66%' },
                 maxHeight: 560,
                 opacity: { xs: 0.82, sm: 0.82, md: 1 },
-                '@media (max-width:599.95px) and (max-height:700px)': {
+                [`@media ${MOBILE_QUERY} and (max-height:700px)`]: {
                   top: '61%',
                   width: 132,
                   height: 182,

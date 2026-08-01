@@ -17,6 +17,7 @@ import { Meta, Title } from 'react-head';
 import CanonicalLink from '../components/CanonicalLink';
 import Eyebrow from '../components/Eyebrow';
 import GridOverlay from '../components/GridOverlay';
+import { MOBILE_QUERY } from '../constants/breakpoints';
 import { SEO_CONFIG, SOCIAL_PROFILES } from '../constants/seo';
 import useParallaxScroll from '../hooks/useParallaxScroll';
 
@@ -45,7 +46,7 @@ const Contact = () => {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const { ref: heroRef, scrollYProgress, prefersReducedMotion, disableParallax } =
     useParallaxScroll(['start start', 'end start']);
-  const isMobile = useMediaQuery('(max-width:599.95px)');
+  const isMobile = useMediaQuery(MOBILE_QUERY);
   const gridY = useTransform(scrollYProgress, [0, 1], [0, 160]);
   const copyY = useTransform(scrollYProgress, [0, 1], [0, 64]);
   const copyOpacity = useTransform(

@@ -7,12 +7,13 @@ import React from 'react';
 
 import Eyebrow from '../../components/Eyebrow';
 import GridOverlay from '../../components/GridOverlay';
+import { MOBILE_QUERY } from '../../constants/breakpoints';
 import useParallaxScroll from '../../hooks/useParallaxScroll';
 
 const Header = () => {
   const { ref: heroRef, scrollYProgress, prefersReducedMotion, disableParallax } =
     useParallaxScroll();
-  const isMobile = useMediaQuery('(max-width:599.95px)');
+  const isMobile = useMediaQuery(MOBILE_QUERY);
   const contentY = useTransform(scrollYProgress, [0, 1], [0, 56]);
   const contentOpacity = useTransform(
     scrollYProgress,
