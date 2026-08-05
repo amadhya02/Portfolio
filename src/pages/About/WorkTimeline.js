@@ -1,12 +1,15 @@
+import ArrowBack from '@mui/icons-material/ArrowBack';
+import ArrowForward from '@mui/icons-material/ArrowForward';
 import ArrowOutward from '@mui/icons-material/ArrowOutward';
 import Close from '@mui/icons-material/Close';
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { motion, useReducedMotion } from 'framer-motion';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import { CAREER_SUMMARIES, getCompanyPeriod } from './careerData';
 import CareerDetail from './CareerDetail';
@@ -17,9 +20,22 @@ import { ARROW_HOVER_TRANSFORM } from '../../constants/motion';
 const WorkTimeline = () => {
   const [selectedCompany, setSelectedCompany] = useState(null);
   const prefersReducedMotion = useReducedMotion();
+  const contentRef = useRef(null);
   const selectedIndex = selectedCompany
     ? EXPERIENCE.findIndex(({ name }) => name === selectedCompany.name)
     : -1;
+  const previousCompany =
+    selectedIndex > 0 ? EXPERIENCE[selectedIndex - 1] : null;
+  const nextCompany =
+    selectedIndex >= 0 && selectedIndex < EXPERIENCE.length - 1
+      ? EXPERIENCE[selectedIndex + 1]
+      : null;
+
+  useEffect(() => {
+    if (selectedCompany && contentRef.current) {
+      contentRef.current.scrollTop = 0;
+    }
+  }, [selectedCompany]);
 
   return (
     <>
@@ -446,8 +462,8 @@ const WorkTimeline = () => {
           sx: {
             m: { xs: 0, sm: 3 },
             width: { xs: '100%', sm: 'calc(100% - 48px)' },
-            maxHeight: { xs: '100dvh', sm: 'calc(100% - 64px)' },
-            minHeight: { xs: '100dvh', sm: 'auto' },
+            height: { xs: '100dvh', sm: 'min(88dvh, 780px)' },
+            maxHeight: { xs: '100dvh', sm: 'min(88dvh, 780px)' },
             borderRadius: { xs: 0, sm: 1.5 },
             color: '#F5F1E8',
             bgcolor: '#101820',
@@ -455,6 +471,9 @@ const WorkTimeline = () => {
               'linear-gradient(145deg, rgba(255,255,255,0.025), transparent 44%)',
             border: '1px solid rgba(255,255,255,0.1)',
             boxShadow: '0 24px 90px rgba(0,0,0,0.58)',
+            display: 'flex',
+            flexDirection: 'column',
+            overflow: 'hidden',
           },
         }}
         BackdropProps={{
@@ -466,8 +485,7 @@ const WorkTimeline = () => {
       >
         <Box
           sx={{
-            position: 'sticky',
-            top: 0,
+            flexShrink: 0,
             zIndex: 2,
             px: { xs: 2.2, sm: 4.5 },
             py: { xs: 1.5, sm: 2 },
@@ -489,7 +507,7 @@ const WorkTimeline = () => {
                 textTransform: 'uppercase',
               }}
             >
-              Work detail · {String(selectedIndex + 1).padStart(2, '0')}
+              Chapter {String(selectedIndex + 1).padStart(2, '0')}
             </Typography>
             {selectedCompany && (
               <Typography
@@ -524,9 +542,13 @@ const WorkTimeline = () => {
         </Box>
 
         <DialogContent
+          ref={contentRef}
           sx={{
+            minHeight: 0,
+            flex: '1 1 auto',
             px: { xs: 2.2, sm: 4.5 },
             py: { xs: 3.5, sm: 5 },
+            overflowY: 'auto',
             scrollbarWidth: 'none',
             msOverflowStyle: 'none',
             '&::-webkit-scrollbar': { display: 'none' },
@@ -540,6 +562,101 @@ const WorkTimeline = () => {
             />
           )}
         </DialogContent>
+
+        {EXPERIENCE.length > 1 && (
+          <Box
+            component="nav"
+            aria-label="Work navigation"
+            sx={{
+              flexShrink: 0,
+              px: { xs: 2.2, sm: 4.5 },
+              py: 1,
+              display: 'grid',
+              gridTemplateColumns: '1fr 1fr',
+              gap: 2,
+              bgcolor: 'rgba(16,24,32,0.96)',
+              backdropFilter: 'blur(16px)',
+              borderTop: '1px solid rgba(255,255,255,0.1)',
+              boxShadow: '0 -14px 30px rgba(4,8,12,0.24)',
+            }}
+          >
+            <Button
+              disabled={!previousCompany}
+              onClick={() =>
+                previousCompany && setSelectedCompany(previousCompany)
+              }
+              startIcon={<ArrowBack />}
+              sx={{
+                minWidth: 0,
+                px: 0,
+                py: 0.25,
+                minHeight: 48,
+                justifyContent: 'flex-start',
+                color: 'text.secondary',
+                visibility: previousCompany ? 'visible' : 'hidden',
+                '&:hover': { bgcolor: 'transparent', color: 'primary.main' },
+              }}
+            >
+              <Box sx={{ minWidth: 0, textAlign: 'left' }}>
+                <Typography
+                  variant="caption"
+                  color="inherit"
+                  sx={{ display: 'block', lineHeight: 1.1, mb: 0.25 }}
+                >
+                  Previous
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="text.primary"
+                  noWrap
+                  sx={{
+                    lineHeight: 1.35,
+                    '@media (max-width:400px)': { display: 'none' },
+                  }}
+                >
+                  {previousCompany?.name}
+                </Typography>
+              </Box>
+            </Button>
+
+            <Button
+              disabled={!nextCompany}
+              onClick={() => nextCompany && setSelectedCompany(nextCompany)}
+              endIcon={<ArrowForward />}
+              sx={{
+                minWidth: 0,
+                px: 0,
+                py: 0.25,
+                minHeight: 48,
+                justifyContent: 'flex-end',
+                color: 'text.secondary',
+                visibility: nextCompany ? 'visible' : 'hidden',
+                '&:hover': { bgcolor: 'transparent', color: 'primary.main' },
+              }}
+            >
+              <Box sx={{ minWidth: 0, textAlign: 'right' }}>
+                <Typography
+                  variant="caption"
+                  color="inherit"
+                  sx={{ display: 'block', lineHeight: 1.1, mb: 0.25 }}
+                >
+                  Next
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="text.primary"
+                  noWrap
+                  sx={{
+                    lineHeight: 1.35,
+                    '@media (max-width:400px)': { display: 'none' },
+                  }}
+                >
+                  {nextCompany?.name}
+                </Typography>
+              </Box>
+            </Button>
+          </Box>
+        )}
       </Dialog>
     </>
   );

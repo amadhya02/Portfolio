@@ -23,11 +23,11 @@ const EXPERIENCE = [
         desc: [
           'Reduced CSV processing time from 10 hours to 26 minutes for 500K-entry files by architecting an event-driven system on AWS (Lambda, SQS, DynamoDB) to replace the legacy cron-based pipeline, with built-in monitoring and visibility.',
           'Enabled multiple products and teams to onboard independently within minutes, by designing a generic, config-driven (YAML) system with an AI-assisted onboarding prompt and a schema-driven frontend.',
-          'Improved code coverage and developer efficiency by building a unit test generator using Cody, an AI-powered assistant.',
+          'Improved code coverage and developer efficiency by building a unit test generator using Claude, an AI-powered assistant.',
           'Developed a script to consolidate developer activity metrics from GitLab, Jira, SonarQube, and internal wikis—tracking code changes, unit tests, documentation, and repository contributions to provide actionable insights.',
           'Enabled value-based steering by providing insights into platform usage and product adoption through designing and developing a system to track how partners manage pricing.',
           'Reduced dependency on engineering for issue resolution, as measured by surveys, by creating and documenting FAQs and debugging guides.',
-          'Improved system observability, resulting in faster issue detection and resolution, by building monitoring dashboards in Grafana using Terraform.',
+          'Improved system observability, resulting in faster issue detection and resolution, by building monitoring dashboards in Grafana.',
           'Modernized the legacy codebase by increasing test coverage, refactoring code, and documenting enhancements to partner-facing platforms — improving maintainability, reducing redundancy, and speeding up time-to-market.',
         ],
         tech: {

@@ -12,7 +12,6 @@ import {
   TECH_CATEGORY_LABELS,
   getCompanyPeriod,
 } from './careerData';
-import Eyebrow from '../../components/Eyebrow';
 import { ARROW_HOVER_TRANSFORM } from '../../constants/motion';
 
 const CareerDetail = ({ company, index, showResponsibilities = false }) => {
@@ -43,13 +42,10 @@ const CareerDetail = ({ company, index, showResponsibilities = false }) => {
       <Box
         sx={{
           display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          gap: 2,
+          justifyContent: 'flex-end',
           mb: { xs: 2.5, sm: 3.5 },
         }}
       >
-        <Eyebrow>Chapter {String(index + 1).padStart(2, '0')}</Eyebrow>
         <Typography
           variant="caption"
           sx={{

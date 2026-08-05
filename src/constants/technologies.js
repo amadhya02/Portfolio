@@ -4,6 +4,8 @@ export const TECHNOLOGIES_ICONS = {
     Icon: 'devicon-amazonwebservices-plain-wordmark',
     text: 'AWS Lambda',
   },
+  CLAUDE_CODE: { Icon: 'devicon-claude-plain', text: 'Claude Code' },
+  CODEX: { Icon: 'devicon-openai-plain', text: 'Codex' },
   CPP: { Icon: 'devicon-cplusplus-plain', text: 'C++' },
   CSS: { Icon: 'devicon-css3-plain', text: 'CSS3' },
   D3: { Icon: 'devicon-d3js-plain', text: 'D3.js' },
