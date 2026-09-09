@@ -11,6 +11,32 @@ const ROLE = {
 
 const PROJECTS = [
   {
+    title: 'Peter Dobson Fitness',
+    year: 2026,
+    liveDemoUrl: 'https://peter-portfolio-blush.vercel.app',
+    githubUrl: 'https://github.com/amadhya02/Peter-Dobson-Portfolio-',
+    description: [
+      "A marketing and coaching site for personal trainer Peter Dobson, built with Next.js, covering his coaching services, pricing, and a client intake flow, and cross-linked with TrueNorth Gym, where he trains.",
+      'Wired up Decap CMS with a GitHub OAuth backend so content can be edited and published without touching code.',
+      'Built a client intake flow with server-side email delivery via Next.js API routes and Nodemailer, so prospective clients can submit their details directly to Peter.',
+      'Added scroll-reveal and hover animations, generated OG/Twitter share images and favicons, and added LocalBusiness JSON-LD structured data for SEO and social sharing.',
+      'Deployed on Vercel.',
+    ],
+    techStack: {
+      languages: [TECHNOLOGIES_ICONS.JAVASCRIPT],
+      frontend: [TECHNOLOGIES_ICONS.CSS, TECHNOLOGIES_ICONS.NEXTJS],
+      backend: [],
+      tools: [
+        TECHNOLOGIES_ICONS.GIT,
+        TECHNOLOGIES_ICONS.CLAUDE_CODE,
+        TECHNOLOGIES_ICONS.CODEX,
+      ],
+    },
+    partnerLogo: AALogo,
+    under: 'Amadhya Anand',
+    role: ROLE.FS,
+  },
+  {
     title: 'TrueNorth Gym',
     year: 2026,
     liveDemoUrl: 'https://truenorthgym.nl/en',
